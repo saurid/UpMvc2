@@ -1,0 +1,145 @@
+/**
+ * Formatmall för Up MVC's dokumentation och felmeddelanden
+ *
+ * @author Ola Waljefors
+ * @package UpMVC
+ * @version 2013.1.1
+ * @link https://github.com/saurid/Up-MVC
+ * @link http://www.phpportalen.net/viewtopic.php?t=116968
+ */
+body {
+    margin: 1% 10%;
+    font: 0.9em/150% Tahoma, sans-serif;
+    color: #222;
+}
+code, pre {
+    font-size: 1em;
+    line-height: 150%;
+    color: #555;
+}
+h1, h2 {
+    text-align: center;
+}
+h3 {
+    margin-top: 5em;
+}
+h1, h2, h3, h4 {
+    letter-spacing: 0.05em;
+}
+ul {
+    padding: 0 0 0 0.5em;
+    list-style-type: none;
+}
+ul ul {
+    border-left: 1px solid #dfdfdf;
+    margin-left: -1em;
+    padding-left: 1em;
+}
+th {
+    text-align: left;
+}
+td, th {
+    vertical-align: top;
+    padding-right: 1em;
+}
+img {
+    border: 0;
+}
+#menu {
+    float: right;
+    padding: 1em;
+    margin: 0 0 2em 2em;
+    border-radius: 7px;
+    background-color: #eee;
+}
+.upp {
+    padding: 0.3em 1em;
+    border-radius: 7px;
+    background-color: #eee;
+    text-decoration: none;
+}
+.center {
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+/**
+ * Viktigt-notis
+ */
+.note {
+    padding: 15px;
+    margin: 2em 0;
+    border-radius: 7px;
+    background-color: #eee;
+}
+.note p {
+    margin: -30px 0 0 -35px;
+    padding: 30px 0 0 60px;
+    background: url('../../View/img/important.png') no-repeat;
+}
+
+
+
+/**
+ * Mappvisning
+ */
+.folder {
+    padding-left: 1.5em;
+    background: url('../../View/img/folder.png') no-repeat top left;
+}
+.file {
+    padding-left: 20px;
+    background: url('../../View/img/file.png') no-repeat top left;
+}
+
+
+
+/**
+ * Kodvisning
+ */
+pre  {
+    padding: 1em;
+    border-radius: 7px;
+    background-color: #333;
+    color: #fff;
+}
+.comment {
+    color: #ffca14;
+}
+.upp {
+    font: normal 0.7em tahoma;
+}
+
+
+
+/**
+ * Exempel på stilmall för Up MVC Form
+ */
+.UpMvc_Form_Label {
+    display: block;
+    margin-top: 1em;
+}
+.UpMvc_Form_Text input {
+    width: 25em;
+}
+textarea {
+    width: 25em;
+    height: 5em;
+}
+.UpMvc_Form_Input_Span {
+    display: block;
+    margin-left: 1em;
+}
+.UpMvc_Form_Submit, .UpMvc_Form_Reset {
+    display: inline;
+    line-height: 5em;
+}
+.UpMvc_Error {
+    display: block;
+    background: url('../../View/img/error.png') no-repeat center left;
+    padding-left: 20px;
+    color: #e00;
+    font-weight: bold;
+}

@@ -1,0 +1,13 @@
+#
+# @author Ola Waljefors
+# @version 2013.1.1
+# @package Up MVC
+# @link https://github.com/saurid/Up-MVC
+# @link http://www.phpportalen.net/viewtopic.php?t=116968
+#
+Options +FollowSymlinks
+RewriteEngine On
+RewriteOptions Inherit
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*) index.php?r=$1 [QSA,L]

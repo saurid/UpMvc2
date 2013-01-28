@@ -1,0 +1,69 @@
+<?php
+/**
+ * /UpMvc/Validation/Length.php
+ * @package UpMVC
+ */
+
+namespace UpMvc\Validation;
+
+/**
+ * @author Ola Waljefors
+ * @package UpMVC
+ * @subpackage Validation
+ * @version 2013.1.1
+ * @link https://github.com/saurid/Up-MVC
+ * @link http://www.phpportalen.net/viewtopic.php?t=116968
+ */
+class Length implements Base
+{
+    /**
+     * Konstruktor
+     * @param integer $min Minimumlängd
+     * @param integer $max Maximumlängd
+     * @throws Exception Om $min inte är en siffra
+     * @throws Exception Om $max inte är en siffra
+     * @throws Exception Om $max inte är större eller lika med $min
+     */
+    public function __construct($min, $max)
+    {
+        if (!is_integer($min)) {
+            throw new Exception(sprintf(
+                '%s: Första argumentet måste vara en siffra (min)',
+                __METHOD__
+            ));
+        }
+        if ($max === null) {
+            $max = $min;
+        }
+        if (!is_integer($max)) {
+            throw new Exception(sprintf(
+                '%s: Andra argumentet måste vara en siffra (max)',
+                __METHOD__
+            ));
+        }
+        if ($min > $max) {
+            throw new Exception(sprintf(
+                '%s: Andra argumentet (max) måste vara större än, '.
+                'eller lika med första (minimum)',
+                __METHOD__
+            ));
+        }
+        $this->min = $min;
+        $this->max = $max;
+    }
+    
+    /**
+     * Validera data
+     * @param mixed $data Data som ska valideras
+     * @return bool true om data uppfyller krav
+     */
+    public function validate($data)
+    {
+        $length = strlen(trim($data));
+        if ($length < $this->min || $length > $this->max) {
+            return false;
+        }
+        
+        return true;
+    }
+}
