@@ -1,7 +1,7 @@
 <?php
 /**
  * /UpMvc/Router.php
- * @package UpMVC
+ * @package UpMvc2
  */
 
 namespace UpMvc;
@@ -15,9 +15,9 @@ namespace UpMvc;
  * Strängen ska se ut enligt "modul/Controller/action/parameter1/parameter2/..."
  *
  * @author Ola Waljefors
- * @package UpMVC
+ * @package UpMvc2
  * @version 2013.1.1
- * @link https://github.com/saurid/Up-MVC
+ * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
 class Router

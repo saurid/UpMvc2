@@ -29,7 +29,7 @@ Senaste version
 ---------------
 
 Du kan hämta den senaste versionen av Up MVC på github
-https://github.com/saurid/Up-MVC
+https://github.com/saurid/UpMvc2
 
 
 Installation och dokumentation

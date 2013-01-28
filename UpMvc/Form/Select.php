@@ -1,7 +1,7 @@
 <?php
 /**
  * /UpMvc/Form/Select.php
- * @package UpMVC
+ * @package UpMvc2
  */
 
 namespace UpMvc\Form;
@@ -10,10 +10,10 @@ namespace UpMvc\Form;
  * Rendrerar ett selectfält
  * 
  * @author Ola Waljefors
- * @package UpMVC
+ * @package UpMvc2
  * @subpackage Form
  * @version 2013.1.1
- * @link https://github.com/saurid/Up-MVC
+ * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
 class Select extends Base
