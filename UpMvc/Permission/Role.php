@@ -3,6 +3,9 @@
  * /UpMvc/Permission/Role.php
  * @package UpMvc2
  */
+
+namespace UpMvc\Permission;
+
 /**
  * Sätt rättigheter i ramverket
  * 
@@ -15,7 +18,7 @@
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
-class UpMvc_Permission_Role
+class Role
 {
     /**
      * @var string Id-sträng för noden

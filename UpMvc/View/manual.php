@@ -21,8 +21,10 @@
 <ul id="menu">
     <li><a href="#mappofil">Mapp- och filstruktur</a></li>
     <li><a href="#controllers">Controllers och routing</a></li>
+    <li><a href="#parametrar">Skicka parametrar till din action</a></li>
     <li><a href="#view">View-objekt och mallar</a></li>
     <li><a href="#model">Model-lagret</a></li>
+    <li><a href="#controlmodel">Använda modeller i dina controllers</a></li>
     <li><a href="#dic">Dependency Injection/Service Container</a></li>
     <li><a href="#moduler">Moduler</a></li>
     <li><a href="#request">Request-objektet</a></li>
@@ -849,28 +851,29 @@ ett objekt av varje typ finns aktivt i systemet samtidigt. Varje gång du använ
 <p>Det finns ett gäng fördefinierade metoder som används för att nå ramverkets kärna. De är:</p>
 
 <pre>
-<span class="comment">// Hämta containern</span>
+<span class="comment">// Hämta en instans av containern</span>
 $c = UpMvc\Container::get();
 
 <span class="comment">// Lagra eller skriv över egna variabler</span>
 <span class="comment">// (Använder den magiska metoden __set())</span>
-$c-&gt;nyckel = &apos;värde&apos;;
+$c-&gt;nyckel  = &apos;värde&apos;;
 $c-&gt;nyckel2 = &apos;ett annat värde&apos;;
 
 <span class="comment">// Använd egna variabler</span>
 <span class="comment">// (Använder den magiska metoden __get())</span>
-echo($c-&gt;nyckel); <span class="comment">// Skriver ut &quot;värde&quot;</span>
-echo($c-&gt;nyckel2); <span class="comment">// Skriver ut &quot;ett annat värde&quot;</span>
+echo($c-&gt;nyckel);    <span class="comment">// Skriver ut &quot;värde&quot;</span>
+echo($c-&gt;nyckel2);   <span class="comment">// Skriver ut &quot;ett annat värde&quot;</span>
 
 <span class="comment">// Fördefinerade variabler</span>
-$c-&gt;site_path; <span class="comment">// Sökväg till ramverket</span>
-$c-&gt;route; <span class="comment">// Sökväg till ramverket</span>
-$c-&gt;database;
-$c-&gt;frontcontroller;
-$c-&gt;pdo;
-$c-&gt;request;
-$c-&gt;router;
-$c-&gt;view;
+$c-&gt;site_path;       <span class="comment">// Sökväg till ramverket</span>
+$c-&gt;route;           <span class="comment">// UpMvc\Route object</span>
+$c-&gt;database;        <span class="comment">// UpMvc\Database object</span>
+$c-&gt;form;            <span class="comment">// UpMvc\Form object</span>
+$c-&gt;frontcontroller; <span class="comment">// UpMvc\FrontController object</span>
+$c-&gt;pdo;             <span class="comment">// PDO object</span>
+$c-&gt;request;         <span class="comment">// UpMvc\Request object</span>
+$c-&gt;router;          <span class="comment">// UpMvc\Router object</span>
+$c-&gt;view;            <span class="comment">// UpMvc\View object</span>
 </pre>
 
 <p>Du kan lagra allt från enkla siffror eller strängar, till stora arrays eller
@@ -885,7 +888,7 @@ den genom database-objektet som använder pdo internt.</p>
 
 <p>Du har kanske lagt märke till i tidigare exempel att du inte behövt använda paranteserna
 när du använder metoderna (som om du istället hämtar en publik objektegenskap)?
-Det beror på att i containern finns implementerat en lösning med den magiska
+Det beror på att containern implementerat en lösning med den magiska
 php-metoden <code>__get()</code>.</p>
 
 

@@ -14,17 +14,20 @@
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
+
+namespace UpMvc;
+
 /**
  * Starta automatisk laddning av klasser
  */
 require 'UpMvc/Autoload.php';
-$autoloader = new UpMvc\Autoload();
+$autoloader = new Autoload();
 $autoloader->register();
 
 /**
  * Starta felhantering av php-funktioner utan exceptions
  */
-$errorhandler = new UpMvc\ErrorHandler();
+$errorhandler = new ErrorHandler();
 $errorhandler->register();
 
 /**
@@ -37,4 +40,4 @@ session_start();
 /**
  * Kör frontcontroller från servicecontainern
  */
-UpMvc\Container::get()->frontcontroller->dispatch();
+Container::get()->frontcontroller->dispatch();
