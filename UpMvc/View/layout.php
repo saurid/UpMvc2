@@ -21,7 +21,7 @@
 
 <h1 id="upp">
     <a href="<?php echo UpMvc\Container::get()->site_path ?>/UpMvc/Manual">
-        <img src="<?php echo UpMvc\Container::get()->site_path ?>/UpMvc/View/img/UpMVC.png" width="206" height="96" alt="<?php echo $title ?>" />
+        <img src="<?php echo UpMvc\Container::get()->site_path ?>/UpMvc/View/img/UpMVC.png" width="230" height="99" alt="<?php echo $title ?>" />
     </a>
 </h1>
 
