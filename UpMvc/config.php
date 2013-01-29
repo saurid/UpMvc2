@@ -17,22 +17,22 @@ $c = UpMvc\Container::get();
 $c->site_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
 $c->route = isset($_GET['r']) ? $_GET['r'] : '';
 
-$c->database = function () use ($c) {
+$c->database = function() use ($c) {
     return new UpMvc\Database($c->pdo);
 };
 
-$c->frontcontroller = function () use ($c) {
+$c->frontcontroller = function() use ($c) {
     return new UpMvc\FrontController($c->router);
 };
 
-$c->pdo = function () use ($c) {
+$c->pdo = function() use ($c) {
     $dsn = sprintf(
     	'%s:dbname=%s;host=%s',
     	$c->db_engine,
     	$c->db_name,
     	$c->db_host
     );
-    return new PDO (
+    return new PDO(
     	$dsn,
     	$c->db_user,
     	$c->db_password,
@@ -40,14 +40,14 @@ $c->pdo = function () use ($c) {
     );
 };
 
-$c->request = function () use ($c) {
+$c->request = function() use ($c) {
     return new UpMvc\Request();
 };
 
-$c->router = function () use ($c) {
+$c->router = function() use ($c) {
     return new UpMvc\Router($c->route);
 };
 
-$c->view = function () use ($c) {
+$c->view = function() use ($c) {
     return new UpMvc\View();
 };

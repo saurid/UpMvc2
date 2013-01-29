@@ -60,7 +60,7 @@ class Container
      * @param mixed Värde
      * @throws Exception Om nyckeln inte är ett giltigt variabelnamn
      */
-    public function __set ($key, $value)
+    public function __set($key, $value)
     {
         if (!preg_match('{^[a-zA-Z_\x7f-\xff][a-zA-Z0-9\x7f-\xff]}', $key)) {
             throw new Exception(sprintf(
@@ -76,7 +76,7 @@ class Container
      *
      * Använder den magiska metoden __get för att returnera egenskaper.
      * Om egenskapen inte redan finns skapas ett objekt upp med namnet i
-     * argumentet. Det senare är det sättet modeller hämtas från containern.
+     * argumentet.
      *
      * Om argumentet är en lagrad closure anropas den och lagrar ny data
      * innan den returneras. Closures används för att konfigurera hur objekt
@@ -85,14 +85,14 @@ class Container
      * @param string $key
      * @return mixed
      */
-    public function __get ($key)
+    public function __get($key)
     {
         // Om nyckeln inte finns, försök skapa ett objekt
         if (!isset($this->data[$key])) {
             $this->data[$key] = new $key();
         }
         // Om egenskapen är en closure
-        if (is_a ($this->data[$key], 'Closure')) {
+        if (is_a($this->data[$key], 'Closure')) {
             $this->data[$key] = $this->data[$key]();
         }
 
