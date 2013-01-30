@@ -80,6 +80,7 @@ class Webform
         // Fyll view med variabler och data och rendrera
         echo $c->view
             ->set('title', 'Up MVC exempelformulär')
+            ->set('site_path', UpMvc\Container::get()->site_path)
             ->set('content', $form->render())
             ->render('UpMvc/View/layout.php');
     }

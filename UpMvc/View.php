@@ -84,7 +84,7 @@ class View
         extract($this->vars);
         ob_start();
         include $template;
-        
+
         return ob_get_clean();
     }
 }

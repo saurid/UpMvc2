@@ -8,59 +8,62 @@
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
 body {
-    margin: 1% 10%;
+    margin: 0 0 5em 0;
     font: 0.9em/150% Tahoma, sans-serif;
     color: #222;
 }
 code, pre {
-    font-size: 1em;
-    line-height: 150%;
+    font: 1em/150% monospace;
     color: #555;
 }
-h1, h2 {
+header {
+    float: right;
     text-align: center;
 }
+article {
+    margin: 1% 10%;
+}
 h3 {
-    margin-top: 5em;
-}
-h1, h2, h3, h4 {
-    letter-spacing: 0.05em;
-}
-ul {
-    padding: 0 0 0 0.5em;
-    list-style-type: none;
-}
-ul ul {
-    border-left: 1px solid #dfdfdf;
-    margin-left: -1em;
-    padding-left: 1em;
-}
-th {
-    text-align: left;
+    margin-top: 3em;
 }
 td, th {
+    text-align: left;
     vertical-align: top;
     padding-right: 1em;
 }
 img {
     border: 0;
 }
-#menu {
-    float: right;
-    padding: 1em;
-    margin: 0 0 2em 2em;
-    border-radius: 7px;
-    background-color: #eee;
-}
-.upp {
-    padding: 0.3em 1em;
-    border-radius: 7px;
-    background-color: #eee;
-    text-decoration: none;
-}
 .center {
     display: block;
     margin: 0 auto;
+}
+
+
+
+/**
+ * Navigation
+ */
+nav {
+    padding: 0 10%;
+    background-color: #2a2a2a;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+nav ul {
+    float: left;
+    padding-right: 1em;
+}
+nav h2 {
+    font: small-caps normal 1em Tahoma, sans-serif;
+    letter-spacing: 0.15em;
+    color: #999;
+    margin: 0;
+}
+nav br {
+    clear: both;
 }
 
 
@@ -93,6 +96,15 @@ img {
     padding-left: 20px;
     background: url('../../View/img/file.png') no-repeat top left;
 }
+ul {
+    padding: 0 0 0 0.5em;
+    list-style-type: none;
+}
+ul ul {
+    border-left: 1px solid #dfdfdf;
+    margin-left: -1em;
+    padding-left: 1em;
+}
 
 
 
@@ -107,9 +119,6 @@ pre  {
 }
 .comment {
     color: #ffca14;
-}
-.upp {
-    font: normal 0.7em tahoma;
 }
 
 

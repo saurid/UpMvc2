@@ -32,7 +32,6 @@ class Exception
             ->set('exception', $e)
             ->set('router', $c->router)
             ->set('trace', $trace)
-            ->set('content', $c->view->render('UpMvc/View/exception.php'))
-            ->render('UpMvc/View/layout.php');
+            ->render('UpMvc/View/exception.php');
     }
 }

@@ -11,10 +11,7 @@ body {
     margin: 0;
     font-size: 14pt;
 }
-#menu {
-    display: none;
-}
-.upp {
+nav {
     display: none;
 }
 .note {

@@ -19,16 +19,84 @@ use UpMvc;
  */
 class Manual
 {
+    /**
+     * Vidarebefodra till att visa manual som default
+     */
     public function index()
+    {
+        $this->visa();
+    }
+
+    /**
+     * Visa vald del av manualen
+     * Om inget kapitel är valt, sätts "inledning" som standard
+     *
+     * @param string Sträng med namnet på kapitel
+     */
+    public function visa($page = 'inledning')
     {
         $c = UpMvc\Container::get();
         $c->lipsum = new \UpMVC\Model\Lipsum();
+        $c->view->set('site_path', UpMvc\Container::get()->site_path);
 
-        // Fyll view med variabler och data och rendrera
-        echo $c->view
-            ->set('title', 'Up MVC')
-            ->set('lipsum', $c->lipsum->get())
-            ->set('content', $c->view->render('UpMvc/View/manual.php'))
-            ->render('UpMvc/View/layout.php');
+        switch ($page)
+        {
+            case 'filstruktur':
+                $c->view
+                    ->set('title', 'Up MVC - filstruktur')
+                    ->set('content', $c->view->render('UpMvc/View/filstruktur.php'));
+                break;
+
+            case 'controllers':
+                $c->view
+                    ->set('title', 'Up MVC - controllers & actions')
+                    ->set('content', $c->view->render('UpMvc/View/controllers.php'));
+                break;
+
+            case 'view':
+                $c->view
+                    ->set('title', 'Up MVC - view')
+                    ->set('content', $c->view->render('UpMvc/View/view.php'));
+                break;
+
+            case 'model':
+                $c->view
+                    ->set('title', 'Up MVC - modeller')
+                    ->set('lipsum', $c->lipsum->get())
+                    ->set('content', $c->view->render('UpMvc/View/model.php'));
+                break;
+
+            case 'container':
+                $c->view
+                    ->set('title', 'Up MVC - container')
+                    ->set('content', $c->view->render('UpMvc/View/container.php'));
+                break;
+
+            case 'moduler':
+                $c->view
+                    ->set('title', 'Up MVC - moduler')
+                    ->set('content', $c->view->render('UpMvc/View/moduler.php'));
+                break;
+
+            case 'request':
+                $c->view
+                    ->set('title', 'Up MVC - request')
+                    ->set('content', $c->view->render('UpMvc/View/request.php'));
+                break;
+
+            case 'detaljer':
+                $c->view
+                    ->set('title', 'Up MVC - detaljer')
+                    ->set('content', $c->view->render('UpMvc/View/detaljer.php'));
+                break;
+
+            default:
+                $c->view
+                    ->set('title', 'Up MVC - inledning')
+                    ->set('content', $c->view->render('UpMvc/View/inledning.php'));
+                break;
+        }
+
+        echo $c->view->render('UpMvc/View/layout.php');
     }
 }
