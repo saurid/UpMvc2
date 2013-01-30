@@ -741,7 +741,7 @@ use UpMvc;
 class Guestbook
 {
     <span class="comment">// Show-action med id som argument</span>
-    public function show($param)
+    public function show($id)
     {
         <span class="comment">// Hämta service-containern</span>
         $c = UpMvc\Container::get();
@@ -750,7 +750,7 @@ class Guestbook
         $postmodel = new App\Model\Post();
 
         <span class="comment">// Hämta posten med ett givet id</span>
-        $post = $postmodel-&gt;get($params[0]);
+        $post = $postmodel-&gt;get($id);
 
         <span class="comment">// Lagra post-array som variabel i view</span>
         $c-&gt;view-&gt;set(&apos;post&apos;, $post);
