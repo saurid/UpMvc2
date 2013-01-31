@@ -54,11 +54,11 @@ $c->pdo = function () use ($c) {
     	$c->db_name,
     	$c->db_host
     );
-    return new PDO(
+    return new \PDO(
     	$dsn,
     	$c->db_user,
     	$c->db_password,
-    	array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8')
+    	array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8')
     );
 };
 

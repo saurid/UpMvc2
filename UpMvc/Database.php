@@ -43,7 +43,7 @@ class Database
      * Konstruktor
      * @param object $pdo PDO-objekt
      */
-    public function __construct(PDO $pdo)
+    public function __construct(\PDO $pdo)
     {
         $this->pdo = $pdo;
     }
@@ -84,7 +84,7 @@ class Database
      * @throws Exception Om argumentet inte är en PDO fetch_styles
      * @return array Resultat
      */
-    public function fetchAll($style = PDO::FETCH_BOTH)
+    public function fetchAll($style = \PDO::FETCH_BOTH)
     {
         if (!is_integer($style)) {
             throw new Exception(sprintf(
