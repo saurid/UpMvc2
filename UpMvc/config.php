@@ -2,8 +2,7 @@
 /**
  * Konfiguration av Up MVC's kärna
  *
- * Sätter upp objektberoenden genom closures och
- * lagrar dem i servicecontainern.
+ * Sätter upp objektberoenden genom closures och lagrar dem i servicecontainern.
  * OBS: Ändra inte om du inte vet vad du gör!
  *
  * @author Ola Waljefors
@@ -26,15 +25,15 @@ $c->route     = isset($_GET['r']) ? $_GET['r'] : '';
 /**
  * Closure som returnerar en instans av UpMvc\Database
  */
-$c->form = function () use ($c) {
-    return new Form();
+$c->database = function () use ($c) {
+    return new Database($c->pdo);
 };
 
 /**
  * Closure som returnerar en instans av UpMvc\Database
  */
-$c->database = function () use ($c) {
-    return new Database($c->pdo);
+$c->form = function () use ($c) {
+    return new Form();
 };
 
 /**
