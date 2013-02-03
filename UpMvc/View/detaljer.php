@@ -10,11 +10,9 @@
  */
 ?>
 
-<p><em>Obervera att informationen i detta kapitlet är något inaktuell.
+<p><em>Obervera att informationen om tidslinjen är något inaktuell.
 Den skrevs innan namepaces infördes, och därmed är klassnamnen annorlunda.
-Servicecontainern är också omarbetad till att använda closures (och
-konfigurationsfilen har fått en större betydelse). Men i det stora hela är
-flödet fortfarande detsamma.</em></p>
+Men i det stora hela är flödet fortfarande detsamma.</em></p>
 
 
 
@@ -31,18 +29,18 @@ av lite bilder. Ta en titt nedan, förklaring följer efteråt.</p>
 
 <h4>Ramverket som ett UML-diagram</h4>
 
-<img src="<?php echo UpMvc\Container::get()->site_path ?>/UpMvc/View/img/UpMvc_uml.png" class="center" width="534" height="541" alt="UML-diagram över Up MVC&apos;s kärna" />
+<img src="<?php echo UpMvc\Container::get()->site_path ?>/UpMvc/View/img/UpMvc_uml.png" class="center" width="499" height="507" alt="UML-diagram över Up MVC&apos;s kärna" />
 
 <p>Här ser vi att det är service containern (UpMvc\Container) som är ramverkets hjärta. Containern
 kan skapa upp och lagra instanser av alla de viktigaste objekten som du och systemet behöver.</p>
 
 <p>Frontcontrollern (UpMvc\FrontController) till höger håller en referens till ett router-objekt (UpMvc\Router)
 som tolkar URL&apos;en. När routern har gjort sitt startar frontcontrollern rätt controller (i detta exemplet
-visat som App_Controller_...).</p>
+visat som App\Controller\...).</p>
 
 <p>Controllern har nu möjlighet att via containern hämta in ett view-objekt (UpMvc\View) och fylla det
 objektet med data som behövs för den aktuella sidan. Bland annat används säkert en eller flera
-modeller (visat som App_Controller_...) för att hämta data fråm modell-lagret. Det kan vara databaser,
+modeller (visat som App\Model\...) för att hämta data fråm modell-lagret. Det kan vara databaser,
 filer eller sessionsvariabler m.m. I fallet med databaserna så används ett databas-objekt (UpMvc\Database)
 som håller en referens av ett PDO-objekt som sköter kommunikationen med servern.</p>
 
