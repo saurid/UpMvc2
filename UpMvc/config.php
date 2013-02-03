@@ -20,7 +20,6 @@ $c = Container::get();
  * Variabler
  */
 $c->site_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
-$c->route     = isset($_GET['r']) ? $_GET['r'] : '';
 
 /**
  * Closure som returnerar en instans av UpMvc\Database
@@ -72,7 +71,7 @@ $c->request = function () use ($c) {
  * Closure som returnerar en instans av UpMvc\Router
  */
 $c->router = function () use ($c) {
-    return new Router($c->route);
+    return new Router($c->request->get('r'));
 };
 
 /**
