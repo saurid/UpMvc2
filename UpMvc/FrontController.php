@@ -33,7 +33,7 @@ class FrontController
      * @var string Format för controllers klassnamn
      * @access private
      */
-    private $classname = '%s\Controller\%s';
+    private $classname = "%s\\Controller\\%s";
     
     /**
      * @var object UpMvc_Router-objekt
@@ -51,19 +51,14 @@ class FrontController
      */
     public function __construct($router)
     {
-        // Testa den körda koden mot tänkbara exceptions (fel)
-        try {
-            if (!$router instanceof Router) {
-                throw new \Exception(sprintf(
-                    '%s: Första argumentet måste vara ett objekt '.
-                    'av typen UpMvc_Router',
-                    __METHOD__
-                ));
-            }
-            $this->router = $router;
-        } catch (\Exception $e) {
-            $this->catchException($e);
+        if (!$router instanceof Router) {
+            throw new \Exception(sprintf(
+                '%s: Första argumentet måste vara ett objekt '.
+                'av typen UpMvc\Router',
+                __METHOD__
+            ));
         }
+        $this->router = $router;
     }
     
     /**
@@ -78,58 +73,41 @@ class FrontController
      */
     public function dispatch()
     {
-        // Testa den körda koden mot tänkbara exceptions (fel)
-        try {
-            // Skapar controllernamn
-            $controller = sprintf(
-                $this->classname,
-                $this->router->getModule(),
-                $this->router->getController()
-            );
-            
-            if (!class_exists($controller, true)) {
-                throw new \Exception(sprintf(
-                    '%s: Controllern &quot;%s&quot; finns inte, '.
-                    'eller kan inte anropas',
-                    __METHOD__,
-                    $controller
-                ));
-            }
-            
-            // Instansiera vald controller
-            $controller = new $controller();
-            
-            if (!method_exists($controller, $this->router->getAction())) {
-                throw new \Exception(sprintf(
-                    '%s: Action &quot;%s&quot; finns inte, '.
-                    'eller kan inte anropas',
-                    __METHOD__,
-                    $this->router->getAction()
-                ));
-            }
-            
-            // Kalla vald action/metod i controllern och skicka med
-            // eventuella parametrar som argument
-            call_user_func_array(
-                array($controller, $this->router->getAction()),
-                $this->router->getParameters()
-            );
-        } catch (\Exception $e) {
-            $this->catchException($e);
+        // Skapar controllernamn
+        $controller = sprintf(
+            $this->classname,
+            $this->router->getModule(),
+            $this->router->getController()
+        );
+        
+        // Kontrollera att controller går att instansiera
+        if (!class_exists($controller, true)) {
+            throw new \Exception(sprintf(
+                '%s: Controllern &quot;%s&quot; finns inte, '.
+                'eller kan inte anropas',
+                __METHOD__,
+                $controller
+            ));
         }
-    }
-    
-    /**
-     * Skickar vidare fångade exceptions (fel) till en speciell
-     * controller som visar felmeddelandet
-     *
-     * @param object $e Exception-objekt
-     * @access protected
-     */
-    protected function catchException($e)
-    {
-        ob_clean();
-        $output = new Controller\Exception($e);
-        echo $output->index($e);
+        
+        // Instansiera vald controller
+        $controller = new $controller();
+        
+        // Kontrollera att action går att kalla
+        if (!method_exists($controller, $this->router->getAction())) {
+            throw new \Exception(sprintf(
+                '%s: Action &quot;%s&quot; finns inte, '.
+                'eller kan inte anropas',
+                __METHOD__,
+                $this->router->getAction()
+            ));
+        }
+        
+        // Kalla vald action/metod i controllern och skicka med
+        // eventuella parametrar som argument
+        call_user_func_array(
+            array($controller, $this->router->getAction()),
+            $this->router->getParameters()
+        );
     }
 }

@@ -31,7 +31,7 @@ $c->database = function () use ($c) {
 /**
  * Closure som returnerar en instans av UpMvc\Database
  */
-$c->form = function () use ($c) {
+$c->form = function () {
     return new Form();
 };
 
@@ -63,7 +63,7 @@ $c->pdo = function () use ($c) {
 /**
  * Closure som returnerar en instans av UpMvc\Request
  */
-$c->request = function () use ($c) {
+$c->request = function () {
     return new Request();
 };
 
@@ -77,6 +77,6 @@ $c->router = function () use ($c) {
 /**
  * Closure som returnerar en instans av UpMvc\View
  */
-$c->view = function () use ($c) {
+$c->view = function () {
     return new View();
 };

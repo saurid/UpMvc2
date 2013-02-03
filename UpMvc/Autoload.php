@@ -25,7 +25,8 @@ class Autoload
 {
     /**
      * Automatiskt laddning av klasser enligt PSR-0 Final Proposal (PHP
-     * Standards Working Group). Läs mer på https://gist.github.com/1234504
+     * Standards Working Group). Läs mer på:
+     * https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md
      * 
      * @throws Exception Om filen inte hittas
      * @param string $className Klassnamn

@@ -39,7 +39,7 @@ class Container
      *
      * Om klassen inte redan är instansieras (skapat ett objekt), så görs
      * det, annars returneras den redan skapade instansen. Detta för att
-     * endast ett objekt av typen UpMvc_Container ska finnas i systemet
+     * endast ett objekt av typen UpMvc\Container ska finnas i systemet
      * 
      * @static
      * @return object
@@ -63,7 +63,7 @@ class Container
     public function __set($key, $value)
     {
         if (!preg_match('{^[a-zA-Z_\x7f-\xff][a-zA-Z0-9\x7f-\xff]}', $key)) {
-            throw new Exception(sprintf(
+            throw new \Exception(sprintf(
                 '%s: Första argumentet måste vara ett giltigt variabelnamn',
                 __METHOD__
             ));
@@ -89,8 +89,18 @@ class Container
     {
         // Om nyckeln inte finns, försök skapa ett objekt
         if (!isset($this->data[$key])) {
-            $this->data[$key] = new $key();
+            if (!is_callable($key)) {
+                throw new \Exception(sprintf(
+                    '%s: Den efterfrågade variabeln finns inte '.
+                    'och instansiering av objekt misslyckades',
+                    __METHOD__
+                ));
+            }
+            else {
+                $this->data[$key] = new $key();
+            }
         }
+
         // Om egenskapen är en closure
         if (is_a($this->data[$key], 'Closure')) {
             $this->data[$key] = $this->data[$key]();
