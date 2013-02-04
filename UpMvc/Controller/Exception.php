@@ -19,6 +19,10 @@ use UpMvc;
  */
 class Exception
 {
+    /**
+     * Konstruktor
+     * @param object $e Exception
+     */
     public function index($e)
     {
         $c = UpMvc\Container::get();

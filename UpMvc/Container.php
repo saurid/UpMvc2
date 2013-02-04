@@ -56,8 +56,8 @@ class Container
     /**
      * Lagra egenskap i containern
      * 
-     * @param string Nyckel
-     * @param mixed Värde
+     * @param string $key Nyckel
+     * @param mixed $value Värde
      * @throws Exception Om nyckeln inte är ett giltigt variabelnamn
      */
     public function __set($key, $value)
@@ -82,7 +82,7 @@ class Container
      * innan den returneras. Closures används för att konfigurera hur objekt
      * skapas upp i systemet (se config.php).
      *
-     * @param string $key
+     * @param string $key Nyckel
      * @return mixed
      */
     public function __get($key)

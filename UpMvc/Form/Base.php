@@ -42,7 +42,7 @@ abstract class Base
     protected $parameters;
     
     /**
-     * @var UpMvc_View-objekt
+     * @var UpMvc\View-objekt
      * @access protected
      */
     protected $view;
@@ -54,7 +54,7 @@ abstract class Base
     protected $error;
     
     /**
-     * @var UpMvc_Request-objekt
+     * @var UpMvc\Request-objekt
      * @access protected
      */
     protected $request;
@@ -67,9 +67,9 @@ abstract class Base
     
     /**
      * Konstruktor
-     * @param string $name
-     * @param string $label
-     * @param array $parameters
+     * @param string $name Namn på formulärfält
+     * @param string $label Formulärfältets rubrik
+     * @param array $parameters Parametrar för radio, bockar och väljlistor
      * @throws Exception Om $name inte är ett giltigt variabelnamn
      * @throws Exception Om $label inte är en sträng
      *

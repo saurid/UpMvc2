@@ -24,7 +24,7 @@ class ExceptionHandler
     /**
      * Hantera exceptions
      * @static
-     * @param object Exception
+     * @param object $e Exception
      */
     public static function handle(\Exception $e)
     {

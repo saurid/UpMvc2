@@ -47,4 +47,3 @@ session_start();
  * Kör frontcontroller från servicecontainern
  */
 Container::get()->frontcontroller->dispatch();
-

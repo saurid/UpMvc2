@@ -31,7 +31,7 @@ class Manual
      * Visa vald del av manualen
      * Om inget kapitel är valt, sätts "inledning" som standard
      *
-     * @param string Sträng med namnet på kapitel
+     * @param string $page Sträng med namnet på kapitel
      */
     public function visa($page = 'inledning')
     {
