@@ -12,7 +12,8 @@ namespace UpMvc;
  * Felhantering av PHP-funktioner som normalt inte har exceptions. Konverterar
  * vanliga felmeddelanden till exceptions där det är möjligt. Startas i
  * index.php med:
- * <code>set_error_handler(array('UpMvc_ErrorHandler', 'handle'));</code>
+ * <code>$errornhandler = new ErrorHandler();
+ * $errorhandler->register();</code>
  *
  * @author Ola Waljefors
  * @package UpMvc2

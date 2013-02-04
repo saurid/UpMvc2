@@ -17,8 +17,6 @@ less-is-more-MVC för undervisningssyfte. Det är inte direkt avsett att
 användas i produktionsmiljöer även om det är möjligt att göra så. Använd med omdöme,
 men framförallt - Lär så mycket ni kan!</p>
 
-
-
 <h3>MVC, vad då för nå&apos;t?</h3>
 
 <p>MVC är en förkortning för Model View Controller och är ett sk.

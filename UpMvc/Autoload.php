@@ -44,16 +44,10 @@ class Autoload
             $fileName  = str_replace('\\', $DS, $namespace) . $DS;
         }
         $fileName .= str_replace('_', $DS, $className) . '.php';
-
-        if (!is_file($fileName)) {
-            throw new \Exception(sprintf(
-                '%s: Kunde inte hitta filen %s',
-                __METHOD__,
-                $fileName
-            ));
+        
+        if (file_exists($fileName)) {
+            require_once $fileName;
         }
-
-        require_once $fileName;
     }
 
     /**

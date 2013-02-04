@@ -33,7 +33,7 @@ class FrontController
      * @var string Format för controllers klassnamn
      * @access private
      */
-    private $classname = "%s\\Controller\\%s";
+    private $classname = '%s\Controller\%s';
     
     /**
      * @var object UpMvc_Router-objekt

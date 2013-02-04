@@ -89,15 +89,15 @@ class Container
     {
         // Om nyckeln inte finns, försök skapa ett objekt
         if (!isset($this->data[$key])) {
-            if (!is_callable($key)) {
+            if (class_exists($key, true)) {
+                $this->data[$key] = new $key();
+            }
+            else {
                 throw new \Exception(sprintf(
                     '%s: Den efterfrågade variabeln finns inte '.
                     'och instansiering av objekt misslyckades',
                     __METHOD__
                 ));
-            }
-            else {
-                $this->data[$key] = new $key();
             }
         }
 

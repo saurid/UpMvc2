@@ -17,34 +17,34 @@
 
 namespace UpMvc;
 
-try {
-    /**
-     * Starta automatisk laddning av klasser
-     */
-    require 'UpMvc/Autoload.php';
-    $autoloader = new Autoload();
-    $autoloader->register();
+/**
+ * Starta automatisk laddning av klasser
+ */
+require 'UpMvc/Autoload.php';
+$autoloader = new Autoload();
+$autoloader->register();
 
-    /**
-     * Starta felhantering av php-funktioner utan exceptions
-     */
-    $errorhandler = new ErrorHandler();
-    $errorhandler->register();
+/**
+ * Starta hantering av shutdown errors (phg Fatal errors),
+ * php-funktioner utan exceptions
+ * samt vanliga exceptions
+ */
+$shutdownhandler = new ShutdownHandler();
+$shutdownhandler->register();
+$errorhandler = new ErrorHandler();
+$errorhandler->register();
+$exceptionhandler = new ExceptionHandler();
+$exceptionhandler->register();
 
-    /**
-     * Ladda konfigurationer och starta session
-     */
-    require 'UpMvc/config.php';
-    require 'App/config.php';
-    session_start();
+/**
+ * Ladda konfigurationer och starta session
+ */
+require 'UpMvc/config.php';
+require 'App/config.php';
+session_start();
 
-    /**
-     * Kör frontcontroller från servicecontainern
-     */
-    Container::get()->frontcontroller->dispatch();
-}
-catch (\Exception $e) {
-    ob_clean();
-    $output = new Controller\Exception($e);
-    echo $output->index($e);
-}
+/**
+ * Kör frontcontroller från servicecontainern
+ */
+Container::get()->frontcontroller->dispatch();
+
