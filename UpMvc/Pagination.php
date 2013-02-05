@@ -39,28 +39,69 @@ class Pagination
     private $per;
 
     /**
-     * @var Antal sidor vid sidan om aktuell
-     * @access private
-     */
-    private $adjacent;
-
-    /**
      * Konstruktor
      * @param integer $total Totalt antal poster
      * @param integer $per Antal poster per sida
      * @param integer $current Aktuell sida
      * @param integer $adjacent Antal sidor vid sidan om aktuell
      */
-    public function __construct($total, $current, $per = 10, $adjacent = false)
+    public function __construct($total, $current, $per = 10)
     {
+        if (!is_numeric($total)) {
+            throw new \Exception(sprintf(
+                '%s: Första argumentet (totalantal) måste vara ett heltal',
+                __METHOD__
+            ));
+        }
+        if (!is_numeric($current)) {
+            throw new \Exception(sprintf(
+                '%s: Andra argumentet (aktuell sida) måste vara ett heltal',
+                __METHOD__
+            ));
+        }
+        if (!is_numeric($per)) {
+            throw new \Exception(sprintf(
+                '%s: Tredje argumentet (antal per sida) måste vara ett heltal',
+                __METHOD__
+            ));
+        }
+
         $this->total    = $total;
         $this->current  = $current;
         $this->per      = $per;
-        $this->adjacent = $adjacent;
+    }
+
+    /**
+     * Hämta totalt antal poster
+     * @return integer
+     */
+    public function getTotal()
+    {
+        return $this->total;
+    }
+
+    /**
+     * Hämta aktuell sida
+     * @return integer
+     */
+    public function getCurrent()
+    {
+        return $this->current;
+    }
+
+    /**
+     * Hämta antal poster per sida
+     * (alias för metoden getLimit())
+     * @return integer
+     */
+    public function getPer()
+    {
+        return $this->per;
     }
 
     /**
      * Hämta limit för användning i SQL-fråga
+     * (alias för metoden getPer())
      * @return integer
      */
     public function getLimit()
@@ -78,10 +119,23 @@ class Pagination
     }
 
     /**
+     * Hämta färdig SQL LIMIT/OFFSET-sträng
+     * @return string
+     */
+    public function getSqlLimit()
+    {
+        return sprintf(
+            'LIMIT %d OFFSET %d',
+            $this->getLimit(),
+            $this->getOffset()
+        );
+    }
+
+    /**
      * Generera HTML-kod med länkar till sidor
      * @return string Sträng med länkar
      */
-    public function getLinks()
+    public function getNav()
     {
         $pages  = $this->getArray();
         $output = '';

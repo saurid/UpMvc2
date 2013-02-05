@@ -12,7 +12,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Up MVC fel</title>
+    <title>Up MVC/PHP har upptäckt ett fel</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <link type="text/css" rel="stylesheet" href="<?php echo UpMvc\Container::get()->site_path ?>/UpMvc/View/css/format.css" media="all" />
     <link type="text/css" rel="stylesheet" href="<?php echo UpMvc\Container::get()->site_path ?>/UpMvc/View/css/printformat.css" media="print" />
@@ -25,7 +25,7 @@
         <img src="<?php echo UpMvc\Container::get()->site_path ?>/UpMvc/View/img/UpMVC.png" height="50" alt="Up MVC" />
     </header>
 
-    <h2>Up MVC/PHP har genererat ett fel</h2>
+    <h2>Up MVC/PHP har upptäckt ett fel</h2>
 
     <div class="note">
         <p>
