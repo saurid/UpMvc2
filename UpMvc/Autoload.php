@@ -28,7 +28,6 @@ class Autoload
      * Standards Working Group). Läs mer på:
      * https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md
      * 
-     * @throws \Exception Om filen inte hittas
      * @param string $className Klassnamn
      */
     public function load($className)
