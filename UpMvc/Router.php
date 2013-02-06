@@ -49,12 +49,12 @@ class Router
     /**
      * Konstruktor
      * @param string $route Sträng där delarna har / som skiljetecken
-     * @throws Exception Om argumentet inte är en sträng
+     * @throws \Exception Om argumentet inte är en sträng
      */
     public function __construct($route = '')
     {
         if (!is_string($route)) {
-            throw new Exception(sprintf(
+            throw new \Exception(sprintf(
                 '%s: Routen måste vara en sträng där varje '.
                 'del har / som skiljetecken',
                 __METHOD__

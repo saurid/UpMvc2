@@ -1,5 +1,9 @@
 <?php
 /**
+ * /UpMvc/Form/View/base.php
+ * @package UpMvc2
+ */
+/**
  * HTML-uppmärkning formuläret
  *
  * @author Ola Waljefors

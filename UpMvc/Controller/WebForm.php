@@ -19,6 +19,9 @@ use UpMvc;
  */
 class Webform
 {
+    /**
+     * Default action
+     */
     public function index()
     {
         $c = UpMvc\Container::get();

@@ -7,6 +7,8 @@
 namespace UpMvc\Validation;
 
 /**
+ * Validerar e-post
+ *
  * @author Ola Waljefors
  * @package UpMvc2
  * @subpackage Validation

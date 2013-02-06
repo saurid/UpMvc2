@@ -23,13 +23,14 @@ namespace UpMvc;
 class Container
 {
     /**
-     * @staticvar object Lagrar instans av klassen
+     * @var UpMvc\Container Lagrar instans av klassen
+     * @static
      * @access private
      */
     private static $instance;
     
     /**
-     * $var array Lagrad data
+     * @var array Lagrad data
      * @access private
      */
     private $data;
@@ -42,7 +43,7 @@ class Container
      * endast ett objekt av typen UpMvc\Container ska finnas i systemet
      * 
      * @static
-     * @return object
+     * @return UpMvc\Container
      */
     public static function get()
     {
@@ -58,7 +59,7 @@ class Container
      * 
      * @param string $key Nyckel
      * @param mixed $value Värde
-     * @throws Exception Om nyckeln inte är ett giltigt variabelnamn
+     * @throws \Exception Om nyckeln inte är ett giltigt variabelnamn
      */
     public function __set($key, $value)
     {

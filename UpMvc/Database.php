@@ -41,7 +41,7 @@ class Database
     
     /**
      * Konstruktor
-     * @param object $pdo PDO-objekt
+     * @param \PDO $pdo PDO-objekt
      */
     public function __construct(\PDO $pdo)
     {
@@ -62,13 +62,13 @@ class Database
     /**
      * Kör PDOStatement execute
      * @param array $parameters Parametrar
-     * @throws Exception Om argumentet inte är en array
-     * @return object $this
+     * @throws \Exception Om argumentet inte är en array
+     * @return UpMvc\Database
      */
     public function execute($parameters = array())
     {
         if (!is_array($parameters)) {
-            throw new Exception(sprintf(
+            throw new \Exception(sprintf(
                 '%s: Första argumentet måste vara en array',
                 __METHOD__
             ));
@@ -81,13 +81,13 @@ class Database
     /**
      * Kör PDOStatement fetchAll
      * @param constant $style PDO fetchmetod
-     * @throws Exception Om argumentet inte är en PDO fetch_styles
+     * @throws \Exception Om argumentet inte är en PDO fetch_styles
      * @return array Resultat
      */
     public function fetchAll($style = \PDO::FETCH_BOTH)
     {
         if (!is_integer($style)) {
-            throw new Exception(sprintf(
+            throw new \Exception(sprintf(
                 '%s: Första argumentet måste vara ett av de i '.
                 'php-manualen beskrivna PDO fetch_styles: '.
                 'http://www.php.net/manual/en/pdostatement.fetch.php',

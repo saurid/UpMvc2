@@ -42,19 +42,19 @@ abstract class Base
     protected $parameters;
     
     /**
-     * @var UpMvc\View-objekt
+     * @var object UpMvc\View-objekt
      * @access protected
      */
     protected $view;
     
     /**
-     * @var Errorsträng
+     * @var string Errorsträng
      * @access protected
      */
     protected $error;
     
     /**
-     * @var UpMvc\Request-objekt
+     * @var object UpMvc\Request-objekt
      * @access protected
      */
     protected $request;
@@ -70,8 +70,8 @@ abstract class Base
      * @param string $name Namn på formulärfält
      * @param string $label Formulärfältets rubrik
      * @param array $parameters Parametrar för radio, bockar och väljlistor
-     * @throws Exception Om $name inte är ett giltigt variabelnamn
-     * @throws Exception Om $label inte är en sträng
+     * @throws \Exception Om $name inte är ett giltigt variabelnamn
+     * @throws \Exception Om $label inte är en sträng
      *
      * @todo Typkontrollera tredje argumentet
      */
@@ -108,8 +108,8 @@ abstract class Base
     /**
      * Sätt valideringsregler för fältet
      * @param object $rule UpMvc_Validation_Base-objekt
-     * @throws Exception Om $rule inte är UpMvc_Validation_Base-objekt
-     * @return object $this
+     * @throws \Exception Om $rule inte är UpMvc_Validation_Base-objekt
+     * @return UpMvc\Form\Base
      */
     public function setRule($rule)
     {
@@ -143,8 +143,8 @@ abstract class Base
     /**
      * Sätt felmeddelande för fältet
      * @param string $error
-     * @throws Exception Om argumentet inte är en sträng
-     * @return object $this
+     * @throws \Exception Om argumentet inte är en sträng
+     * @return UpMvc\Form\Base
      */
     public function setError($error)
     {

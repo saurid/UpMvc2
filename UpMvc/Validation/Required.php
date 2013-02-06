@@ -7,6 +7,8 @@
 namespace UpMvc\Validation;
 
 /**
+ * Validerar om obligatoriskt värde är satt
+ *
  * @author Ola Waljefors
  * @package UpMvc2
  * @subpackage Validation

@@ -46,7 +46,7 @@ class Role
     /**
      * Lägg till nya noder
      * @param array|object $node UpMvc_auth_node-objekt, eller en array med UpMvc_auth_node-objekt
-     * @return object $this
+     * @return UpMvc\Permission
      */
     public function add($node)
     {

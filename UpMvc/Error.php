@@ -34,7 +34,8 @@ class Error
     private $errors;
     
     /**
-     * @staticvar object Lagrar instans av klassen
+     * @var object Lagrar instans av klassen
+     * @static
      * @access private
      */
     private static $instance;
@@ -42,7 +43,7 @@ class Error
     /**
      * Skapa och returnera en instans av denna klassen
      * @static
-     * @return object $this
+     * @return UpMvc\Error
      */
     public static function getInstance()
     {
@@ -57,13 +58,13 @@ class Error
      * Lagra ett nytt felmeddelande
      * @param string $key Variablens namn
      * @param mixed $value Variablens innehåll
-     * @throws Exception Om nyckeln inte är ett giltigt variabelnamn
-     * @return object $this
+     * @throws \Exception Om nyckeln inte är ett giltigt variabelnamn
+     * @return UpMvc\Error
      */
     public function set($key, $value)
     {
         if (!preg_match('{^[a-zA-Z_\x7f-\xff][a-zA-Z0-9\x7f-\xff]}', $key)) {
-            throw new Exception(sprintf(
+            throw new \Exception(sprintf(
                 '%s: Första argumentet måste vara '.
                 'ett giltigt variabelnamn',
                 __METHOD__

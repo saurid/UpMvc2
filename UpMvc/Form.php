@@ -57,12 +57,12 @@ class Form
      * Konstruktor
      * @param string $method post|get
      * @param string $action
-     * @throws Exception Om $method inte är 'post' eller 'get'
+     * @throws \Exception Om $method inte är 'post' eller 'get'
      */
     public function __construct($method = 'post', $action = '')
     {
         if (strtolower ($method) != 'post' AND strtolower($method) != 'get') {
-            throw new Exception(sprintf(
+            throw new \Exception(sprintf(
                 '%s: Första argumentet måste vara antingen '.
                 '&quot;post&quot; eller &quot;get&quot;',
                 __METHOD__
@@ -76,9 +76,9 @@ class Form
     /**
      * Skapa ett formulärfält och lagra i $fields
      * @param string $name Fältets namn
-     * @param object $object UpMvc_Form_Base-objekt
-     * @throws Exception Om $name inte är ett giltigt variabelnamn
-     * @throws Exception Om $object inte är ett UpMvc_Form_Base-objekt
+     * @param UpMvc\Form\Base $object Eller barn till
+     * @throws \Exception Om $name inte är ett giltigt variabelnamn
+     * @throws \Exception Om $object inte är ett UpMvc_Form_Base-objekt
      */
     public function __set($name, $object)
     {
@@ -91,7 +91,7 @@ class Form
         if (!$object instanceof Form\Base) {
             throw new \Exception(sprintf(
                 '%s: Andra argumentet måste vara ett objekt '.
-                'av typen UpMvc_Form_Base',
+                'av typen UpMvc\Form\Base',
                 __METHOD__
             ));
         }
@@ -101,12 +101,12 @@ class Form
     /**
      * Sätt id på formuläret
      * @param string $id Formulärets id
-     * @throws Exception Om argumentet inte är ett giltigt variabelnamn
+     * @throws \Exception Om argumentet inte är ett giltigt variabelnamn
      */
     public function setId($id)
     {
         if (!preg_match('{^[a-zA-Z_\x7f-\xff][a-zA-Z0-9\x7f-\xff]}', $id)) {
-            throw new Exception(sprintf(
+            throw new \Exception(sprintf(
                 '%s: Första argumentet måste vara ett giltigt variabelnamn',
                 __METHOD__
             ));
@@ -117,7 +117,7 @@ class Form
     /**
      * Hämta fält
      * @param string $name Fältets namn
-     * @return object
+     * @return UpMvc\Form\Base
      */
     public function __get($name)
     {

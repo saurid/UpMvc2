@@ -7,6 +7,8 @@
 namespace UpMvc\Validation;
 
 /**
+ * Validerar om numeriskt
+ *
  * @author Ola Waljefors
  * @package UpMvc2
  * @subpackage Validation

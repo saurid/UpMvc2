@@ -7,6 +7,8 @@
 namespace UpMvc\Validation;
 
 /**
+ * Validerar antal med min och max
+ *
  * @author Ola Waljefors
  * @package UpMvc2
  * @subpackage Validation
@@ -20,14 +22,14 @@ class Count implements Base
      * Konstruktor
      * @param integer $min Minimum
      * @param integer $max Maximum
-     * @throws Exception Om $min inte är en siffra
-     * @throws Exception Om $max inte är en siffra
-     * @throws Exception Om $max inte är större eller lika med $min
+     * @throws \Exception Om $min inte är en siffra
+     * @throws \Exception Om $max inte är en siffra
+     * @throws \Exception Om $max inte är större eller lika med $min
      */
     public function __construct($min, $max = null)
     {    
         if (!is_integer($min)) {
-            throw new Exception(sprintf(
+            throw new \Exception(sprintf(
                 '%s: Första argumentet måste vara en siffra (min)',
                 __METHOD__
             ));
@@ -36,13 +38,13 @@ class Count implements Base
             $max = $min;
         }
         if (!is_integer($max)) {
-            throw new Exception(sprintf(
+            throw new \Exception(sprintf(
                 '%s: Andra argumentet måste vara en siffra (max)',
                 __METHOD__
             ));
         }
         if ($min > $max) {
-            throw new Exception(sprintf(
+            throw new \Exception(sprintf(
                 '%s: Andra argumentet (max) måste vara större än, '.
                 'eller lika med första (min)',
                 __METHOD__

@@ -7,6 +7,8 @@
 namespace UpMvc\Validation;
 
 /**
+ * Validerar om två värden är lika
+ *
  * @author Ola Waljefors
  * @package UpMvc2
  * @subpackage Validation

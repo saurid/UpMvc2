@@ -21,9 +21,9 @@ class Exception
 {
     /**
      * Konstruktor
-     * @param object $e Exception
+     * @param \Exception $e
      */
-    public function index($e)
+    public function index(\Exception $e)
     {
         $c = UpMvc\Container::get();
 

@@ -21,19 +21,19 @@ namespace UpMvc;
 class Pagination
 {
     /**
-     * @var Totalt antal poster
+     * @var integer Totalt antal poster
      * @access private
      */
     private $total;
     
     /**
-     * @var Aktuell sida
+     * @var integer Aktuell sida
      * @access private
      */
     private $current;
 
     /**
-     * @var Antal poster per sida
+     * @var integer Antal poster per sida
      * @access private
      */
     private $per;
@@ -41,9 +41,9 @@ class Pagination
     /**
      * Konstruktor
      * @param integer $total Totalt antal poster
-     * @param integer $per Antal poster per sida
-     * @param integer $current Aktuell sida
-     * @param integer $adjacent Antal sidor vid sidan om aktuell
+     * @param integer $current Antal poster per sida
+     * @param integer $per Aktuell sida
+     * @throws \Exception Om något av argumenten inte är ett heltal
      */
     public function __construct($total, $current, $per = 10)
     {

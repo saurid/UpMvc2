@@ -9,6 +9,8 @@ namespace UpMvc\Model;
 use UpMvc;
 
 /**
+ * Testmodell för rättighets-klasserna
+ *
  * @author Ola Waljefors
  * @package UpMvc2
  * @version 2013.1.1
@@ -18,7 +20,7 @@ use UpMvc;
 class Permission
 {
     /**
-     * Roller lagrade i en array
+     * @var array Roller lagrade i en array
      * @access private
      */
     private $roles = array();

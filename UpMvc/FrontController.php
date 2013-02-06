@@ -44,10 +44,10 @@ class FrontController
     /**
      * Konstruktor
      *
-     * Tar ett UpMvc_Router-objekt som argument och lagrar det i en egenskap
+     * Tar ett UpMvc\Router-objekt som argument och lagrar det i en egenskap
      *
-     * @param object $router UpMvc\Router-objekt
-     * @throws Exception Om argumentet inte är ett UpMvc\Router-objekt
+     * @param UpMvc\Router $router
+     * @throws \Exception Om argumentet inte är ett UpMvc\Router-objekt
      */
     public function __construct($router)
     {
@@ -68,8 +68,8 @@ class FrontController
      * från router-objektet och skapar därefter en instans av controllern
      * och kör dess action/metod.
      *
-     * @throws Exception Om controllern inte finns
-     * @throws Exception Om action-metod inte finns
+     * @throws \Exception Om controllern inte finns
+     * @throws \Exception Om action-metod inte finns
      */
     public function dispatch()
     {

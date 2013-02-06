@@ -38,8 +38,8 @@ class View
      *
      * @param string $key Variabelnamn (nyckel)
      * @param mixed $value Värde
-     * @throws Exception Om $key inte är ett giltigt variabelnamn
-     * @return object $this
+     * @throws \Exception Om $key inte är ett giltigt variabelnamn
+     * @return UpMvc\View
      */
     public function set($key, $value)
     {
@@ -62,8 +62,8 @@ class View
      * rendrerade innehållet returneras som en sträng.
      *
      * @param string $template Mallnamn
-     * @throws Exception Om argumentet inte är en sträng
-     * @throws Exception Om vy-filen inte kan hittas
+     * @throws \Exception Om argumentet inte är en sträng
+     * @throws \Exception Om vy-filen inte kan hittas
      * @return string Rendrerad vy
      */
     public function render($template)
