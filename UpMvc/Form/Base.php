@@ -107,8 +107,8 @@ abstract class Base
     
     /**
      * Sätt valideringsregler för fältet
-     * @param object $rule UpMvc_Validation_Base-objekt
-     * @throws \Exception Om $rule inte är UpMvc_Validation_Base-objekt
+     * @param UpMvc\Permission\Role $rule
+     * @throws \Exception Om $rule inte är UpMvc\Validation\Base-objekt
      * @return UpMvc\Form\Base
      */
     public function setRule($rule)
@@ -116,7 +116,7 @@ abstract class Base
         if (!$rule instanceof UpMvc\Validation\Base) {
             throw new \Exception(sprintf(
                 '%s: Första argumentet måste vara ett objekt '.
-                'av typen UpMvc_Validation_Base',
+                'av typen UpMvc\Validation\Base',
                 __METHOD__
             ));
         }

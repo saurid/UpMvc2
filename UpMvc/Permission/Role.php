@@ -9,7 +9,7 @@ namespace UpMvc\Permission;
 /**
  * Sätt rättigheter i ramverket
  * 
- * Under utveckling!
+ * @todo Under utveckling!
  *
  * @author Ola Waljefors
  * @package UpMvc2
@@ -21,40 +21,40 @@ namespace UpMvc\Permission;
 class Role
 {
     /**
-     * @var string Id-sträng för noden
+     * @var string Id-sträng för rollen
      * @access private
      */
     private $id;
     
     /**
-     * @var array Array med noder
+     * @var array Array med roller
      * @access private
      */
-    private $nodes = array();
+    private $roles = array();
     
     /**
      * Konstruktor
-     * @param string $id Id-sträng för noden
-     * @param object $node UpMvc_auth_node
+     * @param string $id Id-sträng för rollen
+     * @param UpMvc\Permission\Role $role
      */
-    public function __construct($id, $node = null)
+    public function __construct($id, $role = null)
     {
         $this->id = $id;
-        if ($node) $this->add($node);
+        if ($role) $this->add($role);
     }
     
     /**
-     * Lägg till nya noder
-     * @param array|object $node UpMvc_auth_node-objekt, eller en array med UpMvc_auth_node-objekt
+     * Lägg till nya roller
+     * @param array|object $role UpMvc\Permission\Role-objekt, eller en array med UpMvc\Permission\Role-objekt
      * @return UpMvc\Permission
      */
-    public function add($node)
+    public function add($role)
     {
-        if (is_object($node)) {
-            $this->nodes[] = $node;
+        if (is_object($role)) {
+            $this->roles[] = $role;
         }
-        if (is_array($node)) {
-            $this->nodes = array_merge($this->nodes, $node);
+        if (is_array($role)) {
+            $this->roles = array_merge($this->roles, $role);
         }
 
         return $this;
@@ -63,7 +63,7 @@ class Role
     /**
      * Autenticera
      * @param string $id Id-sträng som testas
-     * @return bool Sant om noden finns, falskt om noden inte finns
+     * @return bool Sant om rollen finns, falskt om rollen inte finns
      */
     public function role($id)
     {
@@ -71,7 +71,7 @@ class Role
     }
     
     /**
-     * Testa nod för id-sträng
+     * Testa roll för id-sträng
      * @param string $id
      * @return bool
      */
@@ -80,8 +80,8 @@ class Role
         if ($this->id == $id) {
             return true;
         }
-        foreach ($this->nodes as $node) {
-            if ($node->check($id) || $node->id == $id) {
+        foreach ($this->roles as $role) {
+            if ($role->check($id) || $role->id == $id) {
                 return true;
             }
         }

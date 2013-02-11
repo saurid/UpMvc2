@@ -11,6 +11,8 @@ use UpMvc;
 /**
  * Testmodell för rättighets-klasserna
  *
+ * @todo Under utveckling!
+ *
  * @author Ola Waljefors
  * @package UpMvc2
  * @version 2013.1.1

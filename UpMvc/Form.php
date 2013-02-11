@@ -44,7 +44,7 @@ class Form
     private $fields;
     
     /**
-     * @var object UpMvc_View-objekt
+     * @var object UpMvc\View-objekt
      * @access private
      */
     private $view;
@@ -78,7 +78,7 @@ class Form
      * @param string $name Fältets namn
      * @param UpMvc\Form\Base $object Eller barn till
      * @throws \Exception Om $name inte är ett giltigt variabelnamn
-     * @throws \Exception Om $object inte är ett UpMvc_Form_Base-objekt
+     * @throws \Exception Om $object inte är ett UpMvc\Form\Base-objekt
      */
     public function __set($name, $object)
     {

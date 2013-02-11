@@ -36,7 +36,7 @@ class FrontController
     private $classname = '%s\Controller\%s';
     
     /**
-     * @var object UpMvc_Router-objekt
+     * @var object UpMvc\Router-objekt
      * @access private
      */
     private $router;
