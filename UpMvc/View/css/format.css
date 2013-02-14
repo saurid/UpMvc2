@@ -3,7 +3,7 @@
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.2.1
+ * @version 2013.2.2
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -159,4 +159,41 @@ textarea {
     padding-left: 20px;
     color: #e00;
     font-weight: bold;
+}
+
+
+
+/**
+ * Exempel på stilmall för Up MVC Pagination
+ */
+.UpMvc_Pagination {
+    margin: 0;
+    padding: 0;
+}
+.UpMvc_Pagination ul {
+    margin: 0;
+    padding: 0;
+}
+.UpMvc_Pagination li {
+    list-style-type: none;
+    display: inline-block;
+    border: 1px solid #ccc;
+}
+li.UpMvc_Page_Current {
+    padding: 0 0.3em;
+    background-color: #ffca14;
+}
+.UpMvc_Pagination a {
+    display: block;
+    padding: 0 0.3em;
+    text-decoration: none;
+    color: #222;
+}
+.UpMvc_Pagination a:hover {
+    background-color: #ffca14;
+}
+li.UpMvc_Page_Sum {
+    padding: 0 0.3em;
+    border-width: 0;
+    color: #777;
 }

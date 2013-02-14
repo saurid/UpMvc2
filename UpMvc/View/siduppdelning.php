@@ -4,7 +4,7 @@
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.2.1
+ * @version 2013.2.2
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -52,16 +52,25 @@ genereras kommer att se ut som den nedan:</p>
 
 <pre>
 <span class="comment">&lt;!-- Genererad HTML-kod --&gt;</span>
-[1]
-&lt;a href="?page=2"&gt;1&lt;/a&gt;
-&lt;a href="?page=3"&gt;2&lt;/a&gt;
-&lt;a href="?page=4"&gt;3&lt;/a&gt;
-&lt;a href="?page=5"&gt;4&lt;/a&gt;
+&lt;nav class="UpMvc_Pagination"&gt;
+    &lt;ul&gt;
+        &lt;li class="UpMvc_Page_Current"&gt;1&lt;/li&gt;
+        &lt;li class="UpMvc_Page"&gt;&lt;a href="?page=2"&gt;2&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="UpMvc_Page"&gt;&lt;a href="?page=3"&gt;3&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="UpMvc_Page"&gt;&lt;a href="?page=4"&gt;4&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="UpMvc_Page"&gt;&lt;a href="?page=5"&gt;5&lt;/a&gt;&lt;/li&gt;
+
+        &lt;li class="UpMvc_Page_Next"&gt;&lt;a href="?page=2"&gt;Framåt &rsaquo;&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="UpMvc_Page_Last"&gt;&lt;a href="?page=5"&gt;Sista &raquo;&lt;/a&gt;&lt;/li&gt;
+
+        &lt;li class="UpMvc_Page_Sum"&gt;&lt;small&gt;Visar 1 - 20 av 99 funna poster&lt;/small&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
 </pre>
 
 <p>Helt enkelt en enkel rad med länkar varav den aktuella sidan inte
 är klickbar, medan de andra är det. För att markera vilken sida som vi för
-tillfället är inne på, används URL-variabeln </code>page</code>. Det är alltså
+tillfället är inne på, används URL-variabeln <code>page</code>. Det är alltså
 den variabeln som ska läggas in som andra argument när du skapar objektet
 <code>UpMvc\Pagination</code>.</p>
 
@@ -133,6 +142,11 @@ exakt vad som förändras i det som returneras när olika sidor är valda!</p>
         <td><code>getOffset()</code></td>
         <td><?php echo $page->getOffset() ?></td>
         <td>Offset-värde för SQL</td>
+    </tr>
+    <tr>
+        <td><code>getPages()</code></td>
+        <td><?php echo $page->getPages() ?></td>
+        <td>Totalt antal sidor</td>
     </tr>
     <tr>
         <td><code>getSqlLimit()</code></td>

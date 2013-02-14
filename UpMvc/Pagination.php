@@ -14,7 +14,7 @@ namespace UpMvc;
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.1.1
+ * @version 2013.2.2
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -119,6 +119,15 @@ class Pagination
     }
 
     /**
+     * Hämta totalt antal sidor
+     * @return integer
+     */
+    public function getPages()
+    {
+        return ceil($this->total / $this->per);
+    }
+
+    /**
      * Hämta färdig SQL LIMIT/OFFSET-sträng
      * @return string
      */
@@ -133,32 +142,21 @@ class Pagination
 
     /**
      * Generera HTML-kod med länkar till sidor
-     * @return string Sträng med länkar
+     * @return string Sträng med länkar som en onumrerad lista
      */
     public function getNav()
     {
-        $pages  = $this->getArray();
-        $output = '';
+        $c = Container::get();
+        $c->view->set('pagination', $this);
 
-        foreach($pages as $page)
-        {
-            if ($page != $this->current) {
-                $output .= "<a href=\"?page=$page\">$page</a>\n";
-            }
-            else {
-                $output .= "[{$page}]\n";
-            }
-        }
-
-        return $output;
+        return $c->view->render('UpMvc/View/paginationnav.php');
     }
 
     /**
      * Hämta en array med de sidor som ska visas
-     * @access private
      * @return array
      */
-    private function getArray()
+    function getArray()
     {
         return range(1, ceil($this->total / $this->per));
     }
