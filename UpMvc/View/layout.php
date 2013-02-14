@@ -4,7 +4,7 @@
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.1.1
+ * @version 2013.2.1
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -13,9 +13,9 @@
 <html>
 <head>
     <title><?php echo $title ?></title>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-    <link type="text/css" rel="stylesheet" href="<?php echo $site_path ?>/UpMvc/View/css/format.css" media="all" />
-    <link type="text/css" rel="stylesheet" href="<?php echo $site_path ?>/UpMvc/View/css/printformat.css" media="print" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="<?php echo $site_path ?>/UpMvc/View/css/format.css" media="all" />
+    <link rel="stylesheet" href="<?php echo $site_path ?>/UpMvc/View/css/printformat.css" media="print" />
 </head>
 <body>
 
@@ -36,6 +36,7 @@
         <li><a href="<?php echo $site_path ?>/UpMvc/Manual/visa/container">Servicecontainern</a></li>
         <li><a href="<?php echo $site_path ?>/UpMvc/Manual/visa/moduler">Moduler</a></li>
         <li><a href="<?php echo $site_path ?>/UpMvc/Manual/visa/request">Requestobjektet</a></li>
+        <li><a href="<?php echo $site_path ?>/UpMvc/Manual/visa/siduppdelning">Siduppdelning / Pagination</a></li>
     </ul>
     <ul>
         <li><h2>detaljerat</h2></li>

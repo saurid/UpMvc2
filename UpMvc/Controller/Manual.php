@@ -13,7 +13,7 @@ use UpMvc;
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.1.1
+ * @version 2013.2.1
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -39,60 +39,69 @@ class Manual
         $c->lipsum = new \UpMVC\Model\Lipsum();
         $c->view->set('site_path', UpMvc\Container::get()->site_path);
 
+        $pagination = new UpMvc\Pagination(99, $c->request->get('page', 1), 20);
+
         switch ($page)
         {
             case 'filstruktur':
                 $c->view
-                    ->set('title', 'Up MVC - filstruktur')
+                    ->set('title',  'Filstruktur - Up MVC')
                     ->set('content', $c->view->render('UpMvc/View/filstruktur.php'));
                 break;
 
             case 'controllers':
                 $c->view
-                    ->set('title', 'Up MVC - controllers & actions')
+                    ->set('title',  'Controllers & actions - Up MVC')
                     ->set('content', $c->view->render('UpMvc/View/controllers.php'));
                 break;
 
             case 'view':
                 $c->view
-                    ->set('title', 'Up MVC - view')
+                    ->set('title',  'Views - Up MVC')
                     ->set('content', $c->view->render('UpMvc/View/view.php'));
                 break;
 
             case 'model':
                 $c->view
-                    ->set('title', 'Up MVC - modeller')
-                    ->set('lipsum', $c->lipsum->get())
+                    ->set('title',  'Models - Up MVC')
+                    ->set('lipsum',  $c->lipsum->get())
                     ->set('content', $c->view->render('UpMvc/View/model.php'));
                 break;
 
             case 'container':
                 $c->view
-                    ->set('title', 'Up MVC - container')
+                    ->set('title',  'Servicecontainern - Up MVC')
                     ->set('content', $c->view->render('UpMvc/View/container.php'));
                 break;
 
             case 'moduler':
                 $c->view
-                    ->set('title', 'Up MVC - moduler')
+                    ->set('title',  'Moduler - Up MVC')
                     ->set('content', $c->view->render('UpMvc/View/moduler.php'));
                 break;
 
             case 'request':
                 $c->view
-                    ->set('title', 'Up MVC - request')
+                    ->set('title',  'Requestobjektet - Up MVC')
                     ->set('content', $c->view->render('UpMvc/View/request.php'));
+                break;
+
+            case 'siduppdelning':
+                $c->view
+                    ->set('title',  'Siduppdelning / pagination - Up MVC')
+                    ->set('page',    $pagination)
+                    ->set('content', $c->view->render('UpMvc/View/siduppdelning.php'));
                 break;
 
             case 'detaljer':
                 $c->view
-                    ->set('title', 'Up MVC - detaljer')
+                    ->set('title',  'UML-diagram och tidslinje - Up MVC')
                     ->set('content', $c->view->render('UpMvc/View/detaljer.php'));
                 break;
 
             default:
                 $c->view
-                    ->set('title', 'Up MVC - inledning')
+                    ->set('title',  'Inledning - Up MVC')
                     ->set('content', $c->view->render('UpMvc/View/inledning.php'));
                 break;
         }

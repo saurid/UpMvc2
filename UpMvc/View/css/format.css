@@ -3,7 +3,7 @@
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.1.1
+ * @version 2013.2.1
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -29,7 +29,15 @@ h3 {
 td, th {
     text-align: left;
     vertical-align: top;
-    padding-right: 1em;
+    padding: 0 0.5em;
+}
+tr:nth-child(odd) {
+    background-color: #eee;
+}
+th {
+    background-color: #fff;
+    border: 2px solid #ffca14;
+    border-width: 0 0 2px 0;
 }
 img {
     border: 0;
