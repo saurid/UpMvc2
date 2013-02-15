@@ -13,7 +13,7 @@ use UpMvc;
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.2.1
+ * @version 2013.2.3
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -36,10 +36,7 @@ class Manual
     public function visa($page = 'inledning')
     {
         $c = UpMvc\Container::get();
-        $c->lipsum = new \UpMVC\Model\Lipsum();
         $c->view->set('site_path', UpMvc\Container::get()->site_path);
-
-        $pagination = new UpMvc\Pagination(99, $c->request->get('page', 1), 20);
 
         switch ($page)
         {
@@ -62,6 +59,7 @@ class Manual
                 break;
 
             case 'model':
+                $c->lipsum = new UpMvc\Model\Lipsum();
                 $c->view
                     ->set('title',  'Models - Up MVC')
                     ->set('lipsum',  $c->lipsum->get())
@@ -87,6 +85,7 @@ class Manual
                 break;
 
             case 'siduppdelning':
+                $pagination = new UpMvc\Pagination(99, $c->request->get('page', 1), 20);
                 $c->view
                     ->set('title',  'Siduppdelning / pagination - Up MVC')
                     ->set('page',    $pagination)

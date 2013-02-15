@@ -3,7 +3,7 @@
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.2.2
+ * @version 2013.2.3
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -182,6 +182,9 @@ textarea {
 li.UpMvc_Page_Current {
     padding: 0 0.3em;
     background-color: #ffca14;
+}
+li.UpMvc_Page_Paus {
+    border-width: 0;
 }
 .UpMvc_Pagination a {
     display: block;

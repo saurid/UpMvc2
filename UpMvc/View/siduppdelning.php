@@ -4,7 +4,7 @@
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.2.2
+ * @version 2013.2.3
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -63,7 +63,7 @@ genereras kommer att se ut som den nedan:</p>
         &lt;li class="UpMvc_Page_Next"&gt;&lt;a href="?page=2"&gt;Framåt &rsaquo;&lt;/a&gt;&lt;/li&gt;
         &lt;li class="UpMvc_Page_Last"&gt;&lt;a href="?page=5"&gt;Sista &raquo;&lt;/a&gt;&lt;/li&gt;
 
-        &lt;li class="UpMvc_Page_Sum"&gt;&lt;small&gt;Visar 1 - 20 av 99 funna poster&lt;/small&gt;&lt;/li&gt;
+        &lt;li class="UpMvc_Page_Sum"&gt;&lt;small&gt;Visar 1 - 20 av 99 poster&lt;/small&gt;&lt;/li&gt;
     &lt;/ul&gt;
 &lt;/nav&gt;
 </pre>

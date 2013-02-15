@@ -14,7 +14,7 @@ namespace UpMvc;
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.2.2
+ * @version 2013.2.3
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -158,6 +158,17 @@ class Pagination
      */
     function getArray()
     {
-        return range(1, ceil($this->total / $this->per));
+        if ($this->getCurrent() <= 3 OR $this->getPages() <= 5) {
+            $offset = 0;
+        }
+        elseif ($this->getCurrent() >= $this->getPages()-2) {
+            $offset = $this->getPages()-5;
+        }
+        else {
+            $offset = $this->getCurrent()-3;
+        }
+        $pages = range(1, $this->getPages());
+        $pages = array_slice($pages, $offset, 5);
+        return $pages;
     }
 }
