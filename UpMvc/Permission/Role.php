@@ -14,7 +14,7 @@ namespace UpMvc\Permission;
  * @author Ola Waljefors
  * @package UpMvc2
  * @subpackage Permission
- * @version 2013.3.4
+ * @version 2013.2.4
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
