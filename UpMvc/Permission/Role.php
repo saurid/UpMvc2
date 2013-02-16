@@ -14,7 +14,7 @@ namespace UpMvc\Permission;
  * @author Ola Waljefors
  * @package UpMvc2
  * @subpackage Permission
- * @version 2013.1.1
+ * @version 2013.3.4
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -30,7 +30,7 @@ class Role
      * @var array Array med roller
      * @access private
      */
-    private $roles = array();
+    protected $roles = array();
     
     /**
      * Konstruktor
@@ -59,33 +59,32 @@ class Role
 
         return $this;
     }
-    
-    /**
-     * Autenticera
-     * @param string $id Id-sträng som testas
-     * @return bool Sant om rollen finns, falskt om rollen inte finns
-     */
-    public function role($id)
-    {
-        return $this->check($id);
-    }
-    
+ 
     /**
      * Testa roll för id-sträng
      * @param string $id
+     * @access private
      * @return bool
      */
-    public function check($id)
+    private function has($id)
     {
-        if ($this->id == $id) {
-            return true;
-        }
         foreach ($this->roles as $role) {
-            if ($role->check($id) || $role->id == $id) {
+            if ($role->id == $id OR $role->has($id)) {
                 return true;
             }
         }
         
         return false;
+    }
+
+    /**
+     * Testa rättighet
+     * @param string $id Roll att testa mot
+     * @param string $role Rättighet att testa
+     * @return bool Sant om rollen har rättigheten, annars falskt
+     */
+    public function check($id, $role)
+    {
+        return $this->roles[$id]->has($role);
     }
 }

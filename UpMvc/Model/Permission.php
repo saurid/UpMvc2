@@ -15,28 +15,23 @@ use UpMvc;
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.1.1
+ * @version 2013.3.4
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
-class Permission
+class Permission extends UpMvc\Permission\Role
 {
-    /**
-     * @var array Roller lagrade i en array
-     * @access private
-     */
-    private $roles = array();
-    
     /**
      * Konstruktor
      * Sätt upp roller och rättigheter
      */
     public function __construct()
     {
-        // Besökare
-        $this->roles['visitor'] =
-            new UpMvc\Permission\Role('visitor');
+        $this->roles['visitor'] = new UpMvc\Permission\Role('visitor');
+        $this->roles['editor']  = new UpMvc\Permission\Role('editor');
+        $this->roles['admin']   = new UpMvc\Permission\Role('admin');
             
+        // Besökare
         $this->roles['visitor']->add(array(
             new UpMvc\Permission\Role('create topic'),
             new UpMvc\Permission\Role('create post'),
@@ -46,9 +41,6 @@ class Permission
         ));
         
         // Redigerare, ärver besökare
-        $this->roles['editor'] =
-            new UpMvc\Permission\Role('editor');
-            
         $this->roles['editor']->add(array(
             new UpMvc\Permission\Role('update forum'),
             new UpMvc\Permission\Role('update topic'),
@@ -57,25 +49,11 @@ class Permission
         ));
         
         // Administratör, ärver redigerare (editor)
-        $this->roles['admin'] =
-            new UpMvc\Permission\Role('admin');
-            
         $this->roles['admin']->add(array(
             new UpMvc\Permission\Role('delete forum'),
             new UpMvc\Permission\Role('delete topic'),
             new UpMvc\Permission\Role('delete post'),
             $this->roles['editor'] // ärver redigerare (editor)
         ));
-    }
-    
-    /**
-     * Testa rättighet
-     * @param string Roll att testa mot
-     * @param string Rättighet att testa
-     * @return bool Sant om rollen har rättigheten, annars falskt
-     */
-    public function check($role, $permission)
-    {
-        return $this->roles[$role]->check($permission);
     }
 }
