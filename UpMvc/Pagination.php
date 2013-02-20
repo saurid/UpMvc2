@@ -14,7 +14,7 @@ namespace UpMvc;
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.2.3
+ * @version 2013.2.6
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -41,8 +41,8 @@ class Pagination
     /**
      * Konstruktor
      * @param integer $total Totalt antal poster
-     * @param integer $current Antal poster per sida
-     * @param integer $per Aktuell sida
+     * @param integer $current Aktuell sida
+     * @param integer $per  Antal poster per sida
      * @throws \Exception Om något av argumenten inte är ett heltal
      */
     public function __construct($total, $current, $per = 10)

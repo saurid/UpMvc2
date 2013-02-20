@@ -11,7 +11,7 @@ namespace UpMvc;
  * 
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.2.5
+ * @version 2013.2.6
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -40,8 +40,8 @@ class Role
 
     /**
      * Lägg till och lagra ny roll
-     * @param UpMvc\Role $role
-     * @return UpMvc\Role $this
+     * @param \UpMvc\Role $role
+     * @return \UpMvc\Role $this
      */
     public function add(Role $role)
     {
