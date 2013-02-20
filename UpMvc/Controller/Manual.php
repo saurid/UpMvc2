@@ -78,6 +78,12 @@ class Manual
                     ->set('content', $c->view->render('UpMvc/View/moduler.php'));
                 break;
 
+            case 'rattigheter':
+                $c->view
+                    ->set('title',  'Rättigheter - Up MVC')
+                    ->set('content', $c->view->render('UpMvc/View/rattigheter.php'));
+                break;
+
             case 'request':
                 $c->view
                     ->set('title',  'Requestobjektet - Up MVC')

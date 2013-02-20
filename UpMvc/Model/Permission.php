@@ -9,51 +9,79 @@ namespace UpMvc\Model;
 use UpMvc;
 
 /**
- * Testmodell för rättighets-klasserna
+ * Exempelmodell för rättighets-klass
  *
- * @todo Under utveckling!
+ * Sätter upp grupper (i detta fallet visitor, editor och administrator).
+ * Roller sätts till var och en av grupperna, och grupperna ärvs uppåt
+ * från visitor till editor och från editor till administrator. 
+ * 
+ * Exempel på användning:
+ * <code>
+ * $userrole = 'administrator';
+ * $permission = new Model\Permission();
+ * 
+ * if ($permission->check($userrole, 'administrator')) {
+ *     echo 'Användaren är en administratör';
+ * }
  *
+ * if ($permission->check($userrole, 'create category')) {
+ *     echo 'Användaren får skapa nya kategorier';
+ * }
+ * </code>
+ * 
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.2.4
+ * @version 2013.2.5
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
-class Permission extends UpMvc\Permission\Role
+class Permission
 {
     /**
+     * @var Lagrade grupper
+     * @access private
+     */
+    private $group;
+
+    /**
      * Konstruktor
-     * Sätt upp roller och rättigheter
+     * Sätt upp grupper och roller
      */
     public function __construct()
     {
-        $this->roles['visitor'] = new UpMvc\Permission\Role('visitor');
-        $this->roles['editor']  = new UpMvc\Permission\Role('editor');
-        $this->roles['admin']   = new UpMvc\Permission\Role('admin');
-            
-        // Besökare
-        $this->roles['visitor']->add(array(
-            new UpMvc\Permission\Role('create topic'),
-            new UpMvc\Permission\Role('create post'),
-            new UpMvc\Permission\Role('read forum'),
-            new UpMvc\Permission\Role('read topic'),
-            new UpMvc\Permission\Role('read post')
-        ));
-        
-        // Redigerare, ärver besökare
-        $this->roles['editor']->add(array(
-            new UpMvc\Permission\Role('update forum'),
-            new UpMvc\Permission\Role('update topic'),
-            new UpMvc\Permission\Role('update post'),
-            $this->roles['visitor'] // ärver besökare
-        ));
-        
-        // Administratör, ärver redigerare (editor)
-        $this->roles['admin']->add(array(
-            new UpMvc\Permission\Role('delete forum'),
-            new UpMvc\Permission\Role('delete topic'),
-            new UpMvc\Permission\Role('delete post'),
-            $this->roles['editor'] // ärver redigerare (editor)
-        ));
+        // Sätt upp grupperna visitor, editor och administrator
+        $this->group['visitor']       = new UpMvc\Role('visitor');
+        $this->group['editor']        = new UpMvc\Role('editor');
+        $this->group['administrator'] = new UpMvc\Role('administrator');
+
+        // Sätt rättigheter/roller för gruppen visistor
+        $this->group['visitor']
+            ->add(new UpMvc\Role('read public'))
+            ->add(new UpMvc\Role('create topic'))
+            ->add(new UpMvc\Role('create user'));
+
+        // editor, ärver visitor genom att lägga till gruppen visitor med add()
+        $this->group['editor']
+            ->add(new UpMvc\Role('read private'))
+            ->add(new UpMvc\Role('create category'))
+            ->add(new UpMvc\Role('change user'))
+            ->add($this->group['visitor']); // ärver visitor
+
+        // administrator, ärver editor och därmed även visitor
+        $this->group['administrator']
+            ->add(new UpMvc\Role('delete user'))
+            ->add(new UpMvc\Role('delete category'))
+            ->add($this->group['editor']); // ärver editor
+    }
+
+    /**
+     * Kontrollera om en grupp innehåller en roll
+     * @param string $group Grupp att testa mot
+     * @param string $role Roll att testa
+     * @return bool True om rollen finns, false om den inte finns
+     */
+    public function check($group, $role)
+    {
+        return $this->group[$group]->has($role);
     }
 }

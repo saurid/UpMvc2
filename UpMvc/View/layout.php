@@ -37,6 +37,7 @@
         <li><a href="<?php echo $site_path ?>/UpMvc/Manual/visa/moduler">Moduler</a></li>
         <li><a href="<?php echo $site_path ?>/UpMvc/Manual/visa/request">Requestobjektet</a></li>
         <li><a href="<?php echo $site_path ?>/UpMvc/Manual/visa/siduppdelning">Siduppdelning / Pagination</a></li>
+        <li><a href="<?php echo $site_path ?>/UpMvc/Manual/visa/rattigheter">Rättigheter</a></li>
     </ul>
     <ul>
         <li><h2>detaljerat</h2></li>
