@@ -4,7 +4,7 @@
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.2.6
+ * @version 2013.2.7
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -108,30 +108,30 @@ class Permission
 
         <span class="comment">// Sätt rättigheter/roller för gruppen visistor</span>
         $this-&gt;group[&apos;visitor&apos;]
-            -&gt;add(new UpMvc\Role(&apos;read public&apos;))
-            -&gt;add(new UpMvc\Role(&apos;create topic&apos;))
-            -&gt;add(new UpMvc\Role(&apos;create user&apos;));
+            -&gt;set(new UpMvc\Role(&apos;read public&apos;))
+            -&gt;set(new UpMvc\Role(&apos;create topic&apos;))
+            -&gt;set(new UpMvc\Role(&apos;create user&apos;));
 
-        <span class="comment">// editor, ärver visitor genom att lägga till gruppen visitor med add()</span>
+        <span class="comment">// editor, ärver visitor genom att lägga till gruppen visitor med set()</span>
         $this-&gt;group[&apos;editor&apos;]
-            -&gt;add(new UpMvc\Role(&apos;read private&apos;))
-            -&gt;add(new UpMvc\Role(&apos;create category&apos;))
-            -&gt;add(new UpMvc\Role(&apos;change user&apos;))
-            -&gt;add($this-&gt;group[&apos;visitor&apos;]); <span class="comment">// ärver visitor</span>
+            -&gt;set(new UpMvc\Role(&apos;read private&apos;))
+            -&gt;set(new UpMvc\Role(&apos;create category&apos;))
+            -&gt;set(new UpMvc\Role(&apos;change user&apos;))
+            -&gt;set($this-&gt;group[&apos;visitor&apos;]); <span class="comment">// ärver visitor</span>
 
         <span class="comment">// administrator, ärver editor och därmed även visitor</span>
         $this-&gt;group[&apos;administrator&apos;]
-            -&gt;add(new UpMvc\Role(&apos;delete user&apos;))
-            -&gt;add(new UpMvc\Role(&apos;delete category&apos;))
-            -&gt;add($this-&gt;group[&apos;editor&apos;]); <span class="comment">// ärver editor</span>
+            -&gt;set(new UpMvc\Role(&apos;delete user&apos;))
+            -&gt;set(new UpMvc\Role(&apos;delete category&apos;))
+            -&gt;set($this-&gt;group[&apos;editor&apos;]); <span class="comment">// ärver editor</span>
     }
 }
 </pre>
 
-<p>För att ge dina grupper roller använder du metoden <code>add()</code>. för
+<p>För att ge dina grupper roller använder du metoden <code>set()</code>. för
 att lagra ytterligare namngivna Role-objekt. Koden:</p> 
 
-<pre>$this-&gt;group[&apos;visitor&apos;]-&gt;add(new UpMvc\Role(&apos;read public&apos;));</pre>
+<pre>$this-&gt;group[&apos;visitor&apos;]-&gt;set(new UpMvc\Role(&apos;read public&apos;));</pre>
 
 <p>... Sätter alltså en ny roll, read public, till gruppen visitor. Med andra ord
 är read public en av visitors roller. Så om du i din applikation ska kontrollera
@@ -150,11 +150,11 @@ förväntar oss (oftast) att de högra rollerna ska ha samma rättigheter
 som de lägre. Så för att slippa att sätta samma roller återigen, kan vi
 istället låta de högre grupperna ärva de lägre. Koden nedan gör just detta:</p>
 
-<pre>$this-&gt;group[&apos;editor&apos;]-&gt;add($this-&gt;group[&apos;visitor&apos;]);</pre>
+<pre>$this-&gt;group[&apos;editor&apos;]-&gt;set($this-&gt;group[&apos;visitor&apos;]);</pre>
 
 <p>Du låter genom detta gruppen editor (<code>$this-&gt;group[&apos;editor&apos;]</code>)
 ärva visitor genom att lägga till hela visitor-gruppen
-(<code>$this-&gt;group[&apos;visitor&apos;]</code>) med metoden <code>add()</code>.
+(<code>$this-&gt;group[&apos;visitor&apos;]</code>) med metoden <code>set()</code>.
 Samma sak gör du sedan för att låta administrator ärva editor, och därmed så
 kommer administrator att ha samtliga rättigheter i systemet.</p>
 

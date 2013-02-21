@@ -31,7 +31,7 @@ use UpMvc;
  * 
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.2.5
+ * @version 2013.2.7
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -56,22 +56,22 @@ class Permission
 
         // Sätt rättigheter/roller för gruppen visistor
         $this->group['visitor']
-            ->add(new UpMvc\Role('read public'))
-            ->add(new UpMvc\Role('create topic'))
-            ->add(new UpMvc\Role('create user'));
+            ->set(new UpMvc\Role('read public'))
+            ->set(new UpMvc\Role('create topic'))
+            ->set(new UpMvc\Role('create user'));
 
-        // editor, ärver visitor genom att lägga till gruppen visitor med add()
+        // editor, ärver visitor genom att lägga till gruppen visitor med set()
         $this->group['editor']
-            ->add(new UpMvc\Role('read private'))
-            ->add(new UpMvc\Role('create category'))
-            ->add(new UpMvc\Role('change user'))
-            ->add($this->group['visitor']); // ärver visitor
+            ->set(new UpMvc\Role('read private'))
+            ->set(new UpMvc\Role('create category'))
+            ->set(new UpMvc\Role('change user'))
+            ->set($this->group['visitor']); // ärver visitor
 
         // administrator, ärver editor och därmed även visitor
         $this->group['administrator']
-            ->add(new UpMvc\Role('delete user'))
-            ->add(new UpMvc\Role('delete category'))
-            ->add($this->group['editor']); // ärver editor
+            ->set(new UpMvc\Role('delete user'))
+            ->set(new UpMvc\Role('delete category'))
+            ->set($this->group['editor']); // ärver editor
     }
 
     /**

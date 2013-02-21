@@ -11,7 +11,7 @@ namespace UpMvc;
  * 
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.2.6
+ * @version 2013.2.7
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -43,7 +43,7 @@ class Role
      * @param \UpMvc\Role $role
      * @return \UpMvc\Role $this
      */
-    public function add(Role $role)
+    public function set(Role $role)
     {
         $this->role[] = $role;
 
