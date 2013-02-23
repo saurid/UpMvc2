@@ -25,7 +25,7 @@ $autoloader = new Autoload();
 $autoloader->register();
 
 /**
- * Starta hantering av shutdown errors (phg Fatal errors),
+ * Starta hantering av shutdown errors (php Fatal errors),
  * php-funktioner utan exceptions
  * samt vanliga exceptions
  */
