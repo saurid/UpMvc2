@@ -7,7 +7,7 @@
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.1.1
+ * @version 2013.2.8
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -36,13 +36,6 @@ $c->form = function () {
 };
 
 /**
- * Closure som returnerar en instans av UpMvc\FrontController
- */
-$c->frontcontroller = function () use ($c) {
-    return new FrontController($c->router);
-};
-
-/**
  * Closure som returnerar en instans av PDO
  */
 $c->pdo = function () use ($c) {
@@ -61,17 +54,17 @@ $c->pdo = function () use ($c) {
 };
 
 /**
+ * Closure som returnerar en instans av UpMvc\Pagination
+ */
+$c->pagination = function () {
+    return new Pagination();
+};
+
+/**
  * Closure som returnerar en instans av UpMvc\Request
  */
 $c->request = function () {
     return new Request();
-};
-
-/**
- * Closure som returnerar en instans av UpMvc\Router
- */
-$c->router = function () use ($c) {
-    return new Router($c->request->get('r'));
 };
 
 /**

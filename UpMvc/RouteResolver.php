@@ -1,6 +1,6 @@
 <?php
 /**
- * /UpMvc/Router.php
+ * /UpMvc/RouteResolver.php
  * @package UpMvc2
  */
 
@@ -9,18 +9,18 @@ namespace UpMvc;
 /**
  * Tolkar och översätter en router-sträng
  * 
- * Avgör vilken modul, controller och action som ska köras i ramverket, och även
- * vilka parametrar finns som argument. Front controllern använder sig av
- * objektet för att skapa och köra rätt controllers.
- * Strängen ska se ut enligt "modul/Controller/action/parameter1/parameter2/..."
+ * Avgör vilken modul, controller och action som ska köras och om det finns
+ * parametrar som argument. UpMvc\Route använder sig av objektet för
+ * att köra rätt controller.
+ * Routen ska se ut enligt "Modul/Controller/action/parameter1/parameter2/..."
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.1.1
+ * @version 2013.2.8
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
-class Router
+class RouteResolver
 {
     /**
      * @var string Standardmodul
@@ -41,6 +41,12 @@ class Router
     private $action = 'index';
     
     /**
+     * @var string Controllers klassnamn
+     * @access private
+     */
+    private $class = '%s\Controller\%s';
+    
+    /**
      * @var array Parametrar
      * @access private
      */
@@ -49,28 +55,23 @@ class Router
     /**
      * Konstruktor
      * @param string $route Sträng där delarna har / som skiljetecken
-     * @throws \Exception Om argumentet inte är en sträng
      */
-    public function __construct($route = '')
+    public function __construct($route = null)
     {
-        if (!is_string($route)) {
-            throw new \Exception(sprintf(
-                '%s: Routen måste vara en sträng där varje '.
-                'del har / som skiljetecken',
-                __METHOD__
-            ));
+        // Om argument är tomt (eller av fel typ) försök hämta från URL
+        if (!$route OR !is_string($route)) {
+            $route = str_replace($_SERVER['SCRIPT_NAME'], '', $_SERVER['PHP_SELF']);
         }
         
         // Dela upp routen i sina beståndsdelar
-        $route = explode('/', $route);
+        $route = explode('/', trim($route, '/'));
         
-        // Om första delen är en mapp anses den vara en modul,
-        // annars är det en controller (nedan)
+        // Om första delen är en mapp anses den vara en modul
         if (is_dir($route[0])) {
             $this->module = array_shift($route);
         }
         
-        // Om nästa del finns är den en controller
+        // Om den inte är en modul är delen en controller
         if (!empty($route[0])) {
             $this->controller = array_shift($route);
         }
@@ -80,6 +81,9 @@ class Router
             $this->action = array_shift($route);
         }
         
+        // Skapar controllerns klassnamn
+        $this->class = sprintf($this->class, $this->module, $this->controller);
+
         // Resterande delar i routen är parametrar som skickas
         // med till controllern som argument
         $this->parameters = $route;
@@ -110,6 +114,15 @@ class Router
     public function getAction()
     {
         return $this->action;
+    }
+    
+    /**
+     * Hämta klass
+     * @return string
+     */
+    public function getClass()
+    {
+        return $this->class;
     }
     
     /**

@@ -13,7 +13,7 @@ use UpMvc;
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.1.1
+ * @version 2013.2.8
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -34,7 +34,7 @@ class Exception
         echo $c->view
             ->set('title', 'Up MVC-fel!')
             ->set('exception', $e)
-            ->set('router', $c->router)
+            ->set('router', new UpMvc\RouteResolver())
             ->set('trace', $trace)
             ->render('UpMvc/View/exception.php');
     }

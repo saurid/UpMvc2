@@ -4,11 +4,10 @@ Up MVC
 Beskrivning
 -----------
 
-Up MVC är ett mycket enkelt ramverk baserat på MVC-
-principen (Model View Controller) och med Front Controller. Riktat
-till den avancerade nybörjaren som vill lära sig lite mer om OOP och
-MVC. Funktionerna är väldigt rudimentära, men det går ändå att göra
-mycket.
+Up MVC är ett mycket enkelt ramverk baserat på HMVC- principen (Hierarchical
+Model View Controller) och med Front Controller. Riktat till den avancerade
+nybörjaren som vill lära sig lite mer om OOP och (H)MVC. Funktionerna är
+väldigt rudimentära, men det går ändå att göra mycket.
 
 Tanken är att ni som velat lära er lite mer om ObjektOrientering och
 MVC ska ha något litet att titta på (kanske innan ni ger er på de
@@ -17,8 +16,8 @@ enkel att greppa, utan komplicerade relationer mellan olika objekt.
 
 Ramverket använder sig av closures och namespaces, och kräver därför
 PHP 5.3. Läs mer i PHP's manual om closures samt namespaces, och sök
-på exempelvis wikipedia om mer information om MVC. Manualen förklarar
-dock så klart vad du behöver veta om namespaces och MVC för att du
+på exempelvis wikipedia om mer information om MVC eller HMVC. Manualen
+förklarar dock så klart vad du behöver veta om namespaces och MVC för att du
 ska kunna använda alla funktioner av ramverket.
 
 Dokumentation (manual) för Up MVC följer med installationen som
@@ -78,11 +77,10 @@ som lagras i mappen `App/View`.
 
 ### Controller
 
-Controllern utgörs av en Front Controller `frontcontroller.php`
-som startas från index.php. Front Controllern tillsammans med en
-Router laddar in och kör dina egna controllers/actions i mappen
-`App/Controller`. Du har så klart möjlighet att även skicka med
-variabler via URL också.
+Controllern utgörs av en routing `Route.php` och `RouteResolver.php`
+som startas från index.php. Dessa laddar in och kör dina egna
+controllers/actions i mappen `App/Controller`. Du har så klart möjlighet
+att även skicka med variabler via URL också.
 
 ### Service Container (Dependency Injection Container)
 

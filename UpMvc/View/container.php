@@ -4,7 +4,7 @@
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.2.6
+ * @version 2013.2.8
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -45,13 +45,11 @@ echo($c-&gt;nyckel2);   <span class="comment">// Skriver ut &quot;ett annat vär
 
 <span class="comment">// Fördefinerade variabler</span>
 $c-&gt;site_path;       <span class="comment">// Sökväg till ramverket</span>
-$c-&gt;route;           <span class="comment">// Routesträng från URL</span>
 $c-&gt;database;        <span class="comment">// UpMvc\Database object</span>
 $c-&gt;form;            <span class="comment">// UpMvc\Form object</span>
-$c-&gt;frontcontroller; <span class="comment">// UpMvc\FrontController object</span>
 $c-&gt;pdo;             <span class="comment">// PDO object</span>
+$c-&gt;pagination;      <span class="comment">// UpMvc\Pagination object</span>
 $c-&gt;request;         <span class="comment">// UpMvc\Request object</span>
-$c-&gt;router;          <span class="comment">// UpMvc\Router object</span>
 $c-&gt;view;            <span class="comment">// UpMvc\View object</span>
 </pre>
 

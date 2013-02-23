@@ -4,7 +4,7 @@
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.2.6
+ * @version 2013.2.8
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -14,8 +14,8 @@ namespace UpMvc\View;
 use UpMvc;
 ?>
 
-<p><em>Obervera att informationen om tidslinjen är något inaktuell.
-Den skrevs innan namepaces infördes, och därmed är klassnamnen annorlunda.
+<p><em>Obervera att denna informationen är något inaktuell.
+Den skrevs innan namepaces infördes, och routingen skrevs om.
 Men i det stora hela är flödet fortfarande detsamma.</em></p>
 
 
