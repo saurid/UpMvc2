@@ -25,7 +25,7 @@ class Route
      * @throws \Exception Om controllern inte finns
      * @throws \Exception Om action-metod inte finns
      */
-    public static function run($route = null)
+    public static function execute($route = null)
     {
         // Skapa Route Resolver
         $route = new RouteResolver($route);

@@ -45,4 +45,4 @@ session_start();
 /**
  * Kör aktuell route från URL
  */
-Route::run();
+Route::execute();
