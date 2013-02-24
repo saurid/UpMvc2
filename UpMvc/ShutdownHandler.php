@@ -13,9 +13,12 @@ namespace UpMvc;
  * <code>$shutdownhandler = new ShutdownHandler();
  * $shutdownhandler->register();</code>
  *
+ * Läs mer i manualen om
+ * {@link http://www.php.net/manual/en/function.register-shutdown-function.php register_shutdown_function()}
+ * 
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.1.1
+ * @version 2013.2.9
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -23,9 +26,8 @@ class ShutdownHandler
 {
     /**
      * Hantera shutdown errors
-     * @static
      */
-    public static function handle()
+    public function handle()
     {
         $error = error_get_last();
 

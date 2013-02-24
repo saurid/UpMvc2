@@ -7,9 +7,14 @@
 namespace UpMvc;
 
 /**
+ * Kör en given route
+ * 
+ * Använder RouteResolver för att tolka en route-sträng och
+ * instansierar och kör sedan rätt controller/action.
+ * 
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.2.8
+ * @version 2013.2.9
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */

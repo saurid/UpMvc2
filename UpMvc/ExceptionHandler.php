@@ -13,9 +13,12 @@ namespace UpMvc;
  * <code>$exceptionhandler = new ExceptionHandler();
  * $exceptionhandler->register();</code>
  *
+ * Läs mer i manualen om
+ * {@link http://www.php.net/manual/en/function.set-exception-handler.php set_exception_handler()}
+ * 
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.1.1
+ * @version 2013.2.9
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -23,10 +26,9 @@ class ExceptionHandler
 {
     /**
      * Hantera exceptions
-     * @static
      * @param \Exception $e
      */
-    public static function handle(\Exception $e)
+    public function handle(\Exception $e)
     {
         ob_clean();
         $output = new Controller\Exception($e);
