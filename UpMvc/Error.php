@@ -64,11 +64,7 @@ class Error
     public function set($key, $value)
     {
         if (!preg_match('{^[a-zA-Z_\x7f-\xff][a-zA-Z0-9\x7f-\xff]}', $key)) {
-            throw new \Exception(sprintf(
-                '%s: Första argumentet måste vara '.
-                'ett giltigt variabelnamn',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Första argumentet måste vara ett giltigt variabelnamn', __METHOD__));
         }
         $this->errors[$key] = $value;
         
@@ -103,11 +99,15 @@ class Error
      * Privat så att man inte kan skapa ett objekt med new
      * @access private
      */
-    private function __construct() {}
+    private function __construct()
+    {
+    }
     
     /**
      * Tillåt inte kloning av objektet
      * @access private
      */
-    private function __clone() {}
+    private function __clone()
+    {
+    }
 }

@@ -29,26 +29,16 @@ class Length implements Base
     public function __construct($min, $max)
     {
         if (!is_integer($min)) {
-            throw new \Exception(sprintf(
-                '%s: Första argumentet måste vara en siffra (min)',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Första argumentet måste vara en siffra (min)', __METHOD__));
         }
         if ($max === null) {
             $max = $min;
         }
         if (!is_integer($max)) {
-            throw new \Exception(sprintf(
-                '%s: Andra argumentet måste vara en siffra (max)',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Andra argumentet måste vara en siffra (max)', __METHOD__));
         }
         if ($min > $max) {
-            throw new \Exception(sprintf(
-                '%s: Andra argumentet (max) måste vara större än, '.
-                'eller lika med första (minimum)',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Andra argumentet (max) måste vara större än, eller lika med första (minimum)', __METHOD__));
         }
         $this->min = $min;
         $this->max = $max;

@@ -68,10 +68,7 @@ class Database
     public function execute($parameters = array())
     {
         if (!is_array($parameters)) {
-            throw new \Exception(sprintf(
-                '%s: Första argumentet måste vara en array',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Första argumentet måste vara en array', __METHOD__));
         }
         $this->statement->execute($parameters);
 
@@ -87,12 +84,7 @@ class Database
     public function fetchAll($style = \PDO::FETCH_BOTH)
     {
         if (!is_integer($style)) {
-            throw new \Exception(sprintf(
-                '%s: Första argumentet måste vara ett av de i '.
-                'php-manualen beskrivna PDO fetch_styles: '.
-                'http://www.php.net/manual/en/pdostatement.fetch.php',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Första argumentet måste vara ett av de i php-manualen beskrivna PDO fetch_styles', __METHOD__));
         }
         
         return $this->statement->fetchAll($style);

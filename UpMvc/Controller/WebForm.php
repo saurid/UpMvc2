@@ -45,7 +45,7 @@ class Webform
         
         // Valideringsregler och felmeddelanden
         $form->name
-             ->setRule(new UpMvc\Validation\Length(5,21))
+             ->setRule(new UpMvc\Validation\Length(5, 21))
              ->setError('Du måste skriva ett namn');
         
         $form->email
@@ -53,7 +53,7 @@ class Webform
              ->setError('Du måste ange en e-postadress');
         
         $form->password
-             ->setRule(new UpMvc\Validation\Length(4,8))
+             ->setRule(new UpMvc\Validation\Length(4, 8))
              ->setError('Du måste fylla i ett lösenord (minst 4 tecken)');
         
         $form->password2
@@ -61,7 +61,7 @@ class Webform
              ->setError('Lösenorden är inte lika');
         
         $form->message
-             ->setRule(new UpMvc\Validation\Length(2,2048))
+             ->setRule(new UpMvc\Validation\Length(2, 2048))
              ->setError('Du måste skriva ett meddelande');
         
         $form->sex
@@ -69,7 +69,7 @@ class Webform
              ->setError('Du måste ange ditt kön');
          
         $form->colour
-             ->setRule(new UpMvc\Validation\Count(2,2))
+             ->setRule(new UpMvc\Validation\Count(2, 2))
              ->setError('Du måste välja exakt två färger');
         
         $form->foundby

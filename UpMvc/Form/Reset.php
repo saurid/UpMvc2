@@ -23,7 +23,7 @@ class Reset extends Base
      * @return string submitknapp
      */
     public function render()
-    {        
+    {
         $this->view->set('field', $this);
         
         return $this->view->render('UpMvc/Form/View/reset.php');

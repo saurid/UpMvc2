@@ -48,22 +48,13 @@ class Pagination
     public function __construct($total, $current, $per = 10)
     {
         if (!is_numeric($total)) {
-            throw new \Exception(sprintf(
-                '%s: Första argumentet (totalantal) måste vara ett heltal',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Första argumentet (totalantal) måste vara ett heltal', __METHOD__));
         }
         if (!is_numeric($current)) {
-            throw new \Exception(sprintf(
-                '%s: Andra argumentet (aktuell sida) måste vara ett heltal',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Andra argumentet (aktuell sida) måste vara ett heltal', __METHOD__));
         }
         if (!is_numeric($per)) {
-            throw new \Exception(sprintf(
-                '%s: Tredje argumentet (antal per sida) måste vara ett heltal',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Tredje argumentet (antal per sida) måste vara ett heltal', __METHOD__));
         }
 
         $this->total    = $total;
@@ -156,19 +147,18 @@ class Pagination
      * Hämta en array med de sidor som ska visas
      * @return array
      */
-    function getArray()
+    private function getArray()
     {
         if ($this->getCurrent() <= 3 OR $this->getPages() <= 5) {
             $offset = 0;
-        }
-        elseif ($this->getCurrent() >= $this->getPages()-2) {
+        } elseif ($this->getCurrent() >= $this->getPages()-2) {
             $offset = $this->getPages()-5;
-        }
-        else {
+        } else {
             $offset = $this->getCurrent()-3;
         }
         $pages = range(1, $this->getPages());
         $pages = array_slice($pages, $offset, 5);
+        
         return $pages;
     }
 }

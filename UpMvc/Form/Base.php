@@ -80,17 +80,10 @@ abstract class Base
         $c = UpMvc\Container::get();
 
         if (!preg_match('{^[a-zA-Z_\x7f-\xff][a-zA-Z0-9\x7f-\xff]}', $name)) {
-            throw new \Exception(sprintf(
-                '%s: Första argumentet måste vara ett giltigt variabelnamn',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Första argumentet måste vara ett giltigt variabelnamn', __METHOD__));
         }
         if (!is_string($label)) {
-            throw new \Exception(sprintf(
-                '%s: Andra argumentet måste vara en textsträng '.
-                'som beskriver formulärfältet',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Andra argumentet måste vara en textsträng som beskriver formulärfältet', __METHOD__));
         }
         $this->name = $name;
         $this->label = $label;
@@ -103,7 +96,7 @@ abstract class Base
      * Rendrera formulärfält
      * @abstract
      */
-    abstract function render();
+    abstract public function render();
     
     /**
      * Sätt valideringsregler för fältet
@@ -114,11 +107,7 @@ abstract class Base
     public function setRule($rule)
     {
         if (!$rule instanceof UpMvc\Validation\Base) {
-            throw new \Exception(sprintf(
-                '%s: Första argumentet måste vara ett objekt '.
-                'av typen UpMvc\Validation\Base',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Första argumentet måste vara ett objekt av typen UpMvc\Validation\Base', __METHOD__));
         }
         $this->rules[] = $rule;
 
@@ -149,11 +138,7 @@ abstract class Base
     public function setError($error)
     {
         if (!is_string($error)) {
-            throw new \Exception(sprintf(
-                '%s: Första argumentet måste vara en textsträng som '.
-                'beskriver en felaktig/otillåten inmatning',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Första argumentet måste vara en textsträng som beskriver en felaktig/otillåten inmatning', __METHOD__));
         }
         $this->error = $error;
         

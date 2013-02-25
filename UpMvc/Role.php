@@ -65,8 +65,7 @@ class Role
             return true;
         }
         if (isset($this->role)) {
-            foreach ($this->role as $role)
-            {
+            foreach ($this->role as $role) {
                 if ($role->has($id)) {
                     return true;
                 }

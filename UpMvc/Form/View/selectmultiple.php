@@ -13,6 +13,7 @@
 namespace UpMvc\Form\View;
 
 use UpMvc;
+
 ?>
 
 <div class="UpMvc_Form_SelectMultiple">
@@ -27,8 +28,8 @@ use UpMvc;
             }
         }
         ?>
-        <option value="<?php echo $key ?>" class="UpMvc_Form_option"<?php echo $selected ?>><?php echo $value ?></option>
-    <?php endforeach ?>
+    <option value="<?php echo $key ?>" class="UpMvc_Form_option"<?php echo $selected ?>><?php echo $value ?></option>
+    <?php endforeach; ?>
     </select>
     <?php echo $field->getError('<span class="UpMvc_Error">%s</span>') ?>
 </div>

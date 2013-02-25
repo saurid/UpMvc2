@@ -64,10 +64,7 @@ class Container
     public function __set($key, $value)
     {
         if (!preg_match('{^[a-zA-Z_\x7f-\xff][a-zA-Z0-9\x7f-\xff]}', $key)) {
-            throw new \Exception(sprintf(
-                '%s: Första argumentet måste vara ett giltigt variabelnamn',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Första argumentet måste vara ett giltigt variabelnamn', __METHOD__));
         }
         $this->data[$key] = $value;
     }
@@ -92,13 +89,8 @@ class Container
         if (!isset($this->data[$key])) {
             if (class_exists($key, true)) {
                 $this->data[$key] = new $key();
-            }
-            else {
-                throw new \Exception(sprintf(
-                    '%s: Den efterfrågade variabeln finns inte '.
-                    'och instansiering av objekt misslyckades',
-                    __METHOD__
-                ));
+            } else {
+                throw new \Exception(sprintf('%s: Den efterfrågade variabeln finns inte och instansiering av objekt misslyckades', __METHOD__));
             }
         }
 
@@ -115,12 +107,16 @@ class Container
      * genom att sätta construct som privat
      * @access private
      */
-    private function __construct() {}
+    private function __construct()
+    {
+    }
     
     /**
      * Tillåt inte kloning av objektet genom att sätta
      * clone till privat
      * @access private
      */
-    private function __clone() {}
+    private function __clone()
+    {
+    }
 }

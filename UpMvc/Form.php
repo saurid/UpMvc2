@@ -61,15 +61,11 @@ class Form
      */
     public function __construct($method = 'post', $action = '')
     {
-        if (strtolower ($method) != 'post' AND strtolower($method) != 'get') {
-            throw new \Exception(sprintf(
-                '%s: Första argumentet måste vara antingen '.
-                '&quot;post&quot; eller &quot;get&quot;',
-                __METHOD__
-            ));
+        if (strtolower($method) != 'post' AND strtolower($method) != 'get') {
+            throw new \Exception(sprintf('%s: Första argumentet måste vara antingen &quot;post&quot; eller &quot;get&quot;', __METHOD__));
         }
         $this->method = $method;
-        $this->action = ($action) ? $action : $_SERVER['PHP_SELF'];    
+        $this->action = ($action) ? $action : $_SERVER['PHP_SELF'];
         $this->view = Container::get()->view;
     }
     
@@ -83,17 +79,10 @@ class Form
     public function __set($name, $object)
     {
         if (!preg_match('{^[a-zA-Z_\x7f-\xff][a-zA-Z0-9\x7f-\xff]}', $name)) {
-            throw new \Exception(sprintf(
-                '%s: Första argumentet måste vara ett giltigt variabelnamn',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Första argumentet måste vara ett giltigt variabelnamn', __METHOD__));
         }
         if (!$object instanceof Form\Base) {
-            throw new \Exception(sprintf(
-                '%s: Andra argumentet måste vara ett objekt '.
-                'av typen UpMvc\Form\Base',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Andra argumentet måste vara ett objekt av typen UpMvc\Form\Base', __METHOD__));
         }
         $this->fields[$name] = $object;
     }
@@ -106,10 +95,7 @@ class Form
     public function setId($id)
     {
         if (!preg_match('{^[a-zA-Z_\x7f-\xff][a-zA-Z0-9\x7f-\xff]}', $id)) {
-            throw new \Exception(sprintf(
-                '%s: Första argumentet måste vara ett giltigt variabelnamn',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Första argumentet måste vara ett giltigt variabelnamn', __METHOD__));
         }
         $this->id = $id;
     }

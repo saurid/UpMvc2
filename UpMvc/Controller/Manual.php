@@ -42,81 +42,69 @@ class Manual
         {
             case 'filstruktur':
                 $c->view
-                    ->set('title',  'Filstruktur - Up MVC')
+                    ->set('title', 'Filstruktur - Up MVC')
                     ->set('content', $c->view->render('UpMvc/View/filstruktur.php'));
                 break;
-
             case 'controllers':
                 $c->view
-                    ->set('title',  'Controllers & actions - Up MVC')
+                    ->set('title', 'Controllers & actions - Up MVC')
                     ->set('content', $c->view->render('UpMvc/View/controllers.php'));
                 break;
-
             case 'view':
                 $c->view
-                    ->set('title',  'Views - Up MVC')
+                    ->set('title', 'Views - Up MVC')
                     ->set('content', $c->view->render('UpMvc/View/view.php'));
                 break;
-
             case 'model':
                 $c->lipsum = new UpMvc\Model\Lipsum();
                 $c->view
-                    ->set('title',  'Models - Up MVC')
-                    ->set('lipsum',  $c->lipsum->get())
+                    ->set('title', 'Models - Up MVC')
+                    ->set('lipsum', $c->lipsum->get())
                     ->set('content', $c->view->render('UpMvc/View/model.php'));
                 break;
-
             case 'container':
                 $c->view
-                    ->set('title',  'Servicecontainern - Up MVC')
+                    ->set('title', 'Servicecontainern - Up MVC')
                     ->set('content', $c->view->render('UpMvc/View/container.php'));
                 break;
-
             case 'moduler':
                 $c->view
-                    ->set('title',  'Moduler - Up MVC')
+                    ->set('title', 'Moduler - Up MVC')
                     ->set('content', $c->view->render('UpMvc/View/moduler.php'));
                 break;
-
             case 'rattigheter':
                 $c->view
-                    ->set('title',  'Rättigheter - Up MVC')
+                    ->set('title', 'Rättigheter - Up MVC')
                     ->set('content', $c->view->render('UpMvc/View/rattigheter.php'));
                 break;
-
             case 'request':
                 $c->view
-                    ->set('title',  'Requestobjektet - Up MVC')
+                    ->set('title', 'Requestobjektet - Up MVC')
                     ->set('content', $c->view->render('UpMvc/View/request.php'));
                 break;
-
             case 'cache':
                 $c->view
-                    ->set('title',  'Cachning - Up MVC')
+                    ->set('title', 'Cachning - Up MVC')
                     ->set('content', $c->view->render('UpMvc/View/cache.php'));
                 break;
-
             case 'siduppdelning':
                 $pagination = new UpMvc\Pagination(99, $c->request->get('page', 1), 20);
                 $c->view
-                    ->set('title',  'Siduppdelning / pagination - Up MVC')
-                    ->set('page',    $pagination)
+                    ->set('title', 'Siduppdelning / pagination - Up MVC')
+                    ->set('page', $pagination)
                     ->set('content', $c->view->render('UpMvc/View/siduppdelning.php'));
                 break;
-
             case 'detaljer':
                 $c->view
-                    ->set('title',  'UML-diagram och tidslinje - Up MVC')
+                    ->set('title', 'UML-diagram och tidslinje - Up MVC')
                     ->set('content', $c->view->render('UpMvc/View/detaljer.php'));
                 break;
-
             default:
                 $c->view
-                    ->set('title',  'Inledning - Up MVC')
+                    ->set('title', 'Inledning - Up MVC')
                     ->set('content', $c->view->render('UpMvc/View/inledning.php'));
                 break;
         }
-
         echo $c->view->render('UpMvc/View/layout.php');
     }
 }

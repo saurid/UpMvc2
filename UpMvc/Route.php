@@ -37,12 +37,7 @@ class Route
         
         // Kontrollera att controller finns
         if (!class_exists($route->getClass(), true)) {
-            throw new \Exception(sprintf(
-                '%s: Controllern &quot;%s&quot; finns inte, '.
-                'eller kan inte anropas',
-                __METHOD__,
-                $class
-            ));
+            throw new \Exception(sprintf('%s: Controllern &quot;%s&quot; finns inte, eller kan inte anropas', __METHOD__, $class));
         }
         
         // Skapa controllerobjekt
@@ -51,12 +46,7 @@ class Route
         
         // Kontrollera att action går att kalla
         if (!method_exists($controller, $route->getAction())) {
-            throw new \Exception(sprintf(
-                '%s: Action &quot;%s&quot; finns inte, '.
-                'eller kan inte anropas',
-                __METHOD__,
-                $route->getAction()
-            ));
+            throw new \Exception(sprintf('%s: Action &quot;%s&quot; finns inte, eller kan inte anropas', __METHOD__, $route->getAction()));
         }
         
         // Kör vald controller/action med ev. parametrar som argument

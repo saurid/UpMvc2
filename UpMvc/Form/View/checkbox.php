@@ -13,6 +13,7 @@
 namespace UpMvc\Form\View;
 
 use UpMvc;
+
 ?>
 
 <div class="UpMvc_Form_Checkbox" id="<?php echo $field->getName() ?>[]">

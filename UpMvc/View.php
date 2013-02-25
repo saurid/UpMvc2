@@ -44,10 +44,7 @@ class View
     public function set($key, $value)
     {
         if (!preg_match('{^[a-zA-Z_\x7f-\xff][a-zA-Z0-9\x7f-\xff]}', $key)) {
-            throw new \Exception(sprintf(
-                '%s: Första argumentet måste vara ett giltigt variabelnamn',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Första argumentet måste vara ett giltigt variabelnamn', __METHOD__));
         }
         $this->vars[$key] = $value;
 
@@ -69,17 +66,10 @@ class View
     public function render($template)
     {
         if (!is_string($template)) {
-            throw new \Exception(sprintf(
-                '%s: Argumentet måste vara en giltig sökväg till en mall',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Argumentet måste vara en giltig sökväg till en mall', __METHOD__));
         }
         if (!is_file($template)) {
-            throw new \Exception(sprintf(
-                '%s: Mallen/filen &quot;%s&quot; kunde inte hittas',
-                __METHOD__,
-                $template
-            ));
+            throw new \Exception(sprintf('%s: Mallen/filen &quot;%s&quot; kunde inte hittas', __METHOD__, $template));
         }
         extract($this->vars);
         ob_start();

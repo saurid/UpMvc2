@@ -40,16 +40,16 @@ $c->form = function () {
  */
 $c->pdo = function () use ($c) {
     $dsn = sprintf(
-    	'%s:dbname=%s;host=%s',
-    	$c->db_engine,
-    	$c->db_name,
-    	$c->db_host
+        '%s:dbname=%s;host=%s',
+        $c->db_engine,
+        $c->db_name,
+        $c->db_host
     );
     return new \PDO(
-    	$dsn,
-    	$c->db_user,
-    	$c->db_password,
-    	array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8')
+        $dsn,
+        $c->db_user,
+        $c->db_password,
+        array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8')
     );
 };
 

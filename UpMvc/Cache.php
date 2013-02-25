@@ -56,21 +56,15 @@ class Cache
         }
 
         if (!is_string($key)) {
-            throw new \Exception(sprintf(
-                '%s: Första argumentet (Cache-id) måste vara en sträng',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Första argumentet (Cache-id) måste vara en sträng', __METHOD__));
         }
 
         if (!is_string($path)) {
-            throw new \Exception(sprintf(
-                '%s: Andra argumentet (Cachemapp) måste vara en sträng',
-                __METHOD__
-            ));
-         }
+            throw new \Exception(sprintf('%s: Andra argumentet (Cachemapp) måste vara en sträng', __METHOD__));
+        }
 
         // Skapa cachemapp om den inte redan finns
-        if(!is_dir($path)) {
+        if (!is_dir($path)) {
             mkdir($path, 0755);
         }
 
@@ -96,10 +90,7 @@ class Cache
     public function get($expiration = 3600)
     {
         if (!is_integer($expiration)) {
-            throw new \Exception(sprintf(
-                '%s: Argumentet (antal sekunder) måste vara ett heltal',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Argumentet (antal sekunder) måste vara ett heltal', __METHOD__));
         }
 
         if (file_exists($this->file) AND filemtime($this->file) > time() - $expiration) {
@@ -123,10 +114,7 @@ class Cache
     public function set($data)
     {
         if (!is_string($data)) {
-            throw new \Exception(sprintf(
-                '%s: Argumentet måste vara en sträng',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Argumentet måste vara en sträng', __METHOD__));
         }
         file_put_contents($this->file, $data);
 

@@ -31,7 +31,7 @@ class ShutdownHandler
     {
         $error = error_get_last();
 
-        if ($error !== NULL) {
+        if ($error !== null) {
             if ($error['type'] === E_ERROR) {
                 ob_clean();
                 require('View/shutdown.php');

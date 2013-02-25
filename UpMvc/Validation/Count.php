@@ -27,28 +27,18 @@ class Count implements Base
      * @throws \Exception Om $max inte är större eller lika med $min
      */
     public function __construct($min, $max = null)
-    {    
+    {
         if (!is_integer($min)) {
-            throw new \Exception(sprintf(
-                '%s: Första argumentet måste vara en siffra (min)',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Första argumentet måste vara en siffra (min)', __METHOD__));
         }
         if ($max === null) {
             $max = $min;
         }
         if (!is_integer($max)) {
-            throw new \Exception(sprintf(
-                '%s: Andra argumentet måste vara en siffra (max)',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Andra argumentet måste vara en siffra (max)', __METHOD__));
         }
         if ($min > $max) {
-            throw new \Exception(sprintf(
-                '%s: Andra argumentet (max) måste vara större än, '.
-                'eller lika med första (min)',
-                __METHOD__
-            ));
+            throw new \Exception(sprintf('%s: Andra argumentet (max) måste vara större än, eller lika med första (min)', __METHOD__));
         }
         $this->min = $min;
         $this->max = $max;
