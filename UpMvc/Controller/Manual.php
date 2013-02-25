@@ -13,7 +13,7 @@ use UpMvc;
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.2.3
+ * @version 2013.2.10
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -88,6 +88,12 @@ class Manual
                 $c->view
                     ->set('title',  'Requestobjektet - Up MVC')
                     ->set('content', $c->view->render('UpMvc/View/request.php'));
+                break;
+
+            case 'cache':
+                $c->view
+                    ->set('title',  'Cachning - Up MVC')
+                    ->set('content', $c->view->render('UpMvc/View/cache.php'));
                 break;
 
             case 'siduppdelning':

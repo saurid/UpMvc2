@@ -31,6 +31,8 @@ class Role
 
     /**
      * Konstruktor
+     *
+     * @todo Typkontrollera $id
      * @param string $id Namn på roll
      */
     public function __construct($id)
@@ -40,6 +42,7 @@ class Role
 
     /**
      * Lägg till och lagra ny roll
+     *
      * @param \UpMvc\Role $role
      * @return \UpMvc\Role $this
      */
@@ -52,6 +55,7 @@ class Role
 
     /**
      * Kontrollera om objektet är, eller har rollen lagrad
+     *
      * @param string $id Namn på roll att testa mot
      * @return bool True om rollen finns, false om den inte finns
      */

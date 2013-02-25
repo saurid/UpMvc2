@@ -4,7 +4,7 @@
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.2.6
+ * @version 2013.2.10
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -40,6 +40,7 @@ use UpMvc;
         <li><a href="<?php echo $site_path ?>/UpMvc/Manual/visa/container">Servicecontainern</a></li>
         <li><a href="<?php echo $site_path ?>/UpMvc/Manual/visa/moduler">Moduler</a></li>
         <li><a href="<?php echo $site_path ?>/UpMvc/Manual/visa/request">Requestobjektet</a></li>
+        <li><a href="<?php echo $site_path ?>/UpMvc/Manual/visa/cache">Cachning</a></li>
         <li><a href="<?php echo $site_path ?>/UpMvc/Manual/visa/siduppdelning">Siduppdelning / Pagination</a></li>
         <li><a href="<?php echo $site_path ?>/UpMvc/Manual/visa/rattigheter">Rättigheter</a></li>
     </ul>
