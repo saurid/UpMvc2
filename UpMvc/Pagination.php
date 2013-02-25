@@ -147,7 +147,7 @@ class Pagination
      * Hämta en array med de sidor som ska visas
      * @return array
      */
-    private function getArray()
+    public function getArray()
     {
         if ($this->getCurrent() <= 3 OR $this->getPages() <= 5) {
             $offset = 0;
