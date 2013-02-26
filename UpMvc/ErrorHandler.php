@@ -30,8 +30,8 @@ class ErrorHandler
     /**
      * Kör PHP's interna felhantering som exceptions
      * @param integer $errno
-     * @param string $errstr
-     * @param string $errfile
+     * @param string  $errstr
+     * @param string  $errfile
      * @param integer $errline
      * @return boolean true
      */

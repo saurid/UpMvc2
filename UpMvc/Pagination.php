@@ -40,9 +40,9 @@ class Pagination
 
     /**
      * Konstruktor
-     * @param integer $total Totalt antal poster
+     * @param integer $total   Totalt antal poster
      * @param integer $current Aktuell sida
-     * @param integer $per  Antal poster per sida
+     * @param integer $per     Antal poster per sida
      * @throws \Exception Om något av argumenten inte är ett heltal
      */
     public function __construct($total, $current, $per = 10)

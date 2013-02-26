@@ -77,7 +77,7 @@ class Permission
     /**
      * Kontrollera om en grupp innehåller en roll
      * @param string $group Grupp att testa mot
-     * @param string $role Roll att testa
+     * @param string $role  Roll att testa
      * @return bool True om rollen finns, false om den inte finns
      */
     public function check($group, $role)

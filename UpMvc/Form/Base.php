@@ -67,9 +67,9 @@ abstract class Base
     
     /**
      * Konstruktor
-     * @param string $name Namn på formulärfält
-     * @param string $label Formulärfältets rubrik
-     * @param array $parameters Parametrar för radio, bockar och väljlistor
+     * @param string $name       Namn på formulärfält
+     * @param string $label      Formulärfältets rubrik
+     * @param array  $parameters Parametrar för radio, bockar och väljlistor
      * @throws \Exception Om $name inte är ett giltigt variabelnamn
      * @throws \Exception Om $label inte är en sträng
      *

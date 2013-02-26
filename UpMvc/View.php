@@ -36,8 +36,8 @@ class View
      * mallarna. Andra argumentet är själva innehållet, vilket kan vara en
      * enkel sträng/siffra, ett array eller varför inte ett helt objekt.
      *
-     * @param string $key Variabelnamn (nyckel)
-     * @param mixed $value Värde
+     * @param string $key   Variabelnamn (nyckel)
+     * @param mixed  $value Värde
      * @throws \Exception Om $key inte är ett giltigt variabelnamn
      * @return UpMvc\View
      */

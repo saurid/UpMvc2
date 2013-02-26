@@ -57,8 +57,8 @@ class Container
     /**
      * Lagra egenskap i containern
      * 
-     * @param string $key Nyckel
-     * @param mixed $value Värde
+     * @param string $key   Nyckel
+     * @param mixed  $value Värde
      * @throws \Exception Om nyckeln inte är ett giltigt variabelnamn
      */
     public function __set($key, $value)

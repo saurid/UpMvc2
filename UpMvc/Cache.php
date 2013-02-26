@@ -38,7 +38,7 @@ class Cache
     /**
      * Konstruktor
      *
-     * @param string $key Cache-id
+     * @param string $key  Cache-id
      * @param string $path Cachemapp
      * @throws \Exception Om $key inte är en sträng
      * @throws \Exception Om $path inte är en sträng

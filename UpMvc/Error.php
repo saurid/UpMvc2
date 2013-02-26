@@ -56,8 +56,8 @@ class Error
     
     /**
      * Lagra ett nytt felmeddelande
-     * @param string $key Variablens namn
-     * @param mixed $value Variablens innehåll
+     * @param string $key   Variablens namn
+     * @param mixed  $value Variablens innehåll
      * @throws \Exception Om nyckeln inte är ett giltigt variabelnamn
      * @return UpMvc\Error
      */

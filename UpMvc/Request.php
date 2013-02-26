@@ -46,7 +46,7 @@ class Request
      * som ska returneras som standard om variabeln inte är satt som GET eller
      * POST.
      *
-     * @param string $key Variablens namn (nyckel)
+     * @param string $key     Variablens namn (nyckel)
      * @param string $default Defaultvärde om nyckeln inte finns
      * @return string Variabelns innehåll (value) eller en tom sträng
      */

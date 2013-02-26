@@ -56,7 +56,7 @@ class Form
      *
      * Konstruktor
      * @param string $method post|get
-     * @param string $action
+     * @param string $action URL till form action
      * @throws \Exception Om $method inte är 'post' eller 'get'
      */
     public function __construct($method = 'post', $action = '')
@@ -71,7 +71,7 @@ class Form
     
     /**
      * Skapa ett formulärfält och lagra i $fields
-     * @param string $name Fältets namn
+     * @param string          $name   Fältets namn
      * @param UpMvc\Form\Base $object Eller barn till
      * @throws \Exception Om $name inte är ett giltigt variabelnamn
      * @throws \Exception Om $object inte är ett UpMvc\Form\Base-objekt
