@@ -11,7 +11,7 @@ namespace UpMvc;
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.2.10
+ * @version 2013.3.1
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -40,8 +40,8 @@ class Cache
      *
      * @param string $key  Cache-id
      * @param string $path Cachemapp
-     * @throws \Exception Om $key inte är en sträng
-     * @throws \Exception Om $path inte är en sträng
+     * @throws \InvalidArgumentException Om $key inte är en sträng
+     * @throws \InvalidArgumentException Om $path inte är en sträng
      */
     public function __construct($key = null, $path = 'Cache')
     {
@@ -56,11 +56,11 @@ class Cache
         }
 
         if (!is_string($key)) {
-            throw new \Exception(sprintf('%s: Första argumentet (Cache-id) måste vara en sträng', __METHOD__));
+            throw new \InvalidArgumentException(sprintf('%s: Första argumentet (Cache-id) måste vara en sträng', __METHOD__));
         }
 
         if (!is_string($path)) {
-            throw new \Exception(sprintf('%s: Andra argumentet (Cachemapp) måste vara en sträng', __METHOD__));
+            throw new \InvalidArgumentException(sprintf('%s: Andra argumentet (Cachemapp) måste vara en sträng', __METHOD__));
         }
 
         // Skapa cachemapp om den inte redan finns
@@ -84,13 +84,13 @@ class Cache
      *     echo $data;
      * }</code>
      * @param integer $expiration Lagringstid i sekunder
-     * @throws \Exception Om $expiration inte är ett heltal
+     * @throws \InvalidArgumentException Om $expiration inte är ett heltal
      * @return string|boolean Data eller false
      */
     public function get($expiration = 3600)
     {
         if (!is_integer($expiration)) {
-            throw new \Exception(sprintf('%s: Argumentet (antal sekunder) måste vara ett heltal', __METHOD__));
+            throw new \InvalidArgumentException(sprintf('%s: Argumentet (antal sekunder) måste vara ett heltal', __METHOD__));
         }
 
         if (file_exists($this->file) AND filemtime($this->file) > time() - $expiration) {
@@ -108,13 +108,13 @@ class Cache
      * <code>echo $cache->set($data);</code>
      *
      * @param string $data Data som ska lagras
-     * @throws \Exception Om $data inte är en sträng
+     * @throws \InvalidArgumentException Om $data inte är en sträng
      * @return string Data
      */
     public function set($data)
     {
         if (!is_string($data)) {
-            throw new \Exception(sprintf('%s: Argumentet måste vara en sträng', __METHOD__));
+            throw new \InvalidArgumentException(sprintf('%s: Argumentet måste vara en sträng', __METHOD__));
         }
         file_put_contents($this->file, $data);
 

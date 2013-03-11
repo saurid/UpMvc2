@@ -15,7 +15,7 @@ namespace UpMvc;
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.1.1
+ * @version 2013.3.1
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -58,13 +58,13 @@ class Error
      * Lagra ett nytt felmeddelande
      * @param string $key   Variablens namn
      * @param mixed  $value Variablens innehåll
-     * @throws \Exception Om nyckeln inte är ett giltigt variabelnamn
+     * @throws \InvalidArgumentException Om nyckeln inte är ett giltigt variabelnamn
      * @return UpMvc\Error
      */
     public function set($key, $value)
     {
         if (!preg_match('{^[a-zA-Z_\x7f-\xff][a-zA-Z0-9\x7f-\xff]}', $key)) {
-            throw new \Exception(sprintf('%s: Första argumentet måste vara ett giltigt variabelnamn', __METHOD__));
+            throw new \InvalidArgumentException(sprintf('%s: Första argumentet måste vara ett giltigt variabelnamn', __METHOD__));
         }
         $this->errors[$key] = $value;
         

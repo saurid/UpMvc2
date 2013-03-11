@@ -12,6 +12,7 @@
 namespace UpMvc\View;
 
 use UpMvc;
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -43,11 +44,20 @@ use UpMvc;
         </p>
     </div>
 
+    <table>
+        <tr>
+            <th>meddelande kastat i</th>
+            <th>rad</th>
+            <th>typ</th>
+        </tr>
+        <tr>
+            <td><?php echo $exception->getFile() ?></td>
+            <td><?php echo $exception->getLine() ?></td>
+            <td><?php echo get_class($exception) ?></td>
+        </tr>
+    </table>
+
     <h3>Stackspårning</h3>
-    <p>
-        <strong>Meddelande kastat i:</strong><br />
-        <?php echo $exception->getFile() ?>, rad <?php echo $exception->getLine() ?>
-    </p>
 
     <table>
         <tr>

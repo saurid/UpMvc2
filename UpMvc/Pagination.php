@@ -14,7 +14,7 @@ namespace UpMvc;
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.2.6
+ * @version 2013.3.1
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -43,18 +43,18 @@ class Pagination
      * @param integer $total   Totalt antal poster
      * @param integer $current Aktuell sida
      * @param integer $per     Antal poster per sida
-     * @throws \Exception Om något av argumenten inte är ett heltal
+     * @throws \InvalidArgumentException Om något av argumenten inte är ett heltal
      */
     public function __construct($total, $current, $per = 10)
     {
         if (!is_numeric($total)) {
-            throw new \Exception(sprintf('%s: Första argumentet (totalantal) måste vara ett heltal', __METHOD__));
+            throw new \InvalidArgumentException(sprintf('%s: Första argumentet (totalantal) måste vara ett heltal', __METHOD__));
         }
         if (!is_numeric($current)) {
-            throw new \Exception(sprintf('%s: Andra argumentet (aktuell sida) måste vara ett heltal', __METHOD__));
+            throw new \InvalidArgumentException(sprintf('%s: Andra argumentet (aktuell sida) måste vara ett heltal', __METHOD__));
         }
         if (!is_numeric($per)) {
-            throw new \Exception(sprintf('%s: Tredje argumentet (antal per sida) måste vara ett heltal', __METHOD__));
+            throw new \InvalidArgumentException(sprintf('%s: Tredje argumentet (antal per sida) måste vara ett heltal', __METHOD__));
         }
 
         $this->total    = $total;

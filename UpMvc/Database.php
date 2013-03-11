@@ -21,7 +21,7 @@ namespace UpMvc;
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.1.1
+ * @version 2013.3.1
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -62,13 +62,13 @@ class Database
     /**
      * Kör PDOStatement execute
      * @param array $parameters Parametrar
-     * @throws \Exception Om argumentet inte är en array
+     * @throws \InvalidArgumentException Om argumentet inte är en array
      * @return UpMvc\Database
      */
     public function execute($parameters = array())
     {
         if (!is_array($parameters)) {
-            throw new \Exception(sprintf('%s: Första argumentet måste vara en array', __METHOD__));
+            throw new \InvalidArgumentException(sprintf('%s: Första argumentet måste vara en array', __METHOD__));
         }
         $this->statement->execute($parameters);
 
@@ -78,13 +78,13 @@ class Database
     /**
      * Kör PDOStatement fetchAll
      * @param constant $style PDO fetchmetod
-     * @throws \Exception Om argumentet inte är en PDO fetch_styles
+     * @throws \InvalidArgumentException Om argumentet inte är en PDO fetch_styles
      * @return array Resultat
      */
     public function fetchAll($style = \PDO::FETCH_BOTH)
     {
         if (!is_integer($style)) {
-            throw new \Exception(sprintf('%s: Första argumentet måste vara ett av de i php-manualen beskrivna PDO fetch_styles', __METHOD__));
+            throw new \InvalidArgumentException(sprintf('%s: Första argumentet måste vara ett av de i php-manualen beskrivna PDO fetch_styles', __METHOD__));
         }
         
         return $this->statement->fetchAll($style);

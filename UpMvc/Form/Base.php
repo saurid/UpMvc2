@@ -17,7 +17,7 @@ use UpMvc;
  * @author Ola Waljefors
  * @package UpMvc2
  * @subpackage Form
- * @version 2013.1.1
+ * @version 2013.3.1
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -70,8 +70,8 @@ abstract class Base
      * @param string $name       Namn på formulärfält
      * @param string $label      Formulärfältets rubrik
      * @param array  $parameters Parametrar för radio, bockar och väljlistor
-     * @throws \Exception Om $name inte är ett giltigt variabelnamn
-     * @throws \Exception Om $label inte är en sträng
+     * @throws \InvalidArgumentException Om $name inte är ett giltigt variabelnamn
+     * @throws \InvalidArgumentException Om $label inte är en sträng
      *
      * @todo Typkontrollera tredje argumentet
      */
@@ -80,10 +80,10 @@ abstract class Base
         $c = UpMvc\Container::get();
 
         if (!preg_match('{^[a-zA-Z_\x7f-\xff][a-zA-Z0-9\x7f-\xff]}', $name)) {
-            throw new \Exception(sprintf('%s: Första argumentet måste vara ett giltigt variabelnamn', __METHOD__));
+            throw new \InvalidArgumentException(sprintf('%s: Första argumentet måste vara ett giltigt variabelnamn', __METHOD__));
         }
         if (!is_string($label)) {
-            throw new \Exception(sprintf('%s: Andra argumentet måste vara en textsträng som beskriver formulärfältet', __METHOD__));
+            throw new \InvalidArgumentException(sprintf('%s: Andra argumentet måste vara en textsträng som beskriver formulärfältet', __METHOD__));
         }
         $this->name = $name;
         $this->label = $label;
@@ -101,13 +101,13 @@ abstract class Base
     /**
      * Sätt valideringsregler för fältet
      * @param UpMvc\Permission\Role $rule
-     * @throws \Exception Om $rule inte är UpMvc\Validation\Base-objekt
+     * @throws \InvalidArgumentException Om $rule inte är UpMvc\Validation\Base-objekt
      * @return UpMvc\Form\Base
      */
     public function setRule($rule)
     {
         if (!$rule instanceof UpMvc\Validation\Base) {
-            throw new \Exception(sprintf('%s: Första argumentet måste vara ett objekt av typen UpMvc\Validation\Base', __METHOD__));
+            throw new \InvalidArgumentException(sprintf('%s: Första argumentet måste vara ett objekt av typen UpMvc\Validation\Base', __METHOD__));
         }
         $this->rules[] = $rule;
 
@@ -132,13 +132,13 @@ abstract class Base
     /**
      * Sätt felmeddelande för fältet
      * @param string $error
-     * @throws \Exception Om argumentet inte är en sträng
+     * @throws \InvalidArgumentException Om argumentet inte är en sträng
      * @return UpMvc\Form\Base
      */
     public function setError($error)
     {
         if (!is_string($error)) {
-            throw new \Exception(sprintf('%s: Första argumentet måste vara en textsträng som beskriver en felaktig/otillåten inmatning', __METHOD__));
+            throw new \InvalidArgumentException(sprintf('%s: Första argumentet måste vara en textsträng som beskriver en felaktig/otillåten inmatning', __METHOD__));
         }
         $this->error = $error;
         

@@ -11,7 +11,7 @@ namespace UpMvc;
  * 
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.1.1
+ * @version 2013.3.1
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  * 
@@ -57,12 +57,12 @@ class Form
      * Konstruktor
      * @param string $method post|get
      * @param string $action URL till form action
-     * @throws \Exception Om $method inte är 'post' eller 'get'
+     * @throws \InvalidArgumentException Om $method inte är 'post' eller 'get'
      */
     public function __construct($method = 'post', $action = '')
     {
         if (strtolower($method) != 'post' AND strtolower($method) != 'get') {
-            throw new \Exception(sprintf('%s: Första argumentet måste vara antingen &quot;post&quot; eller &quot;get&quot;', __METHOD__));
+            throw new \InvalidArgumentException(sprintf('%s: Första argumentet måste vara antingen &quot;post&quot; eller &quot;get&quot;', __METHOD__));
         }
         $this->method = $method;
         $this->action = ($action) ? $action : $_SERVER['PHP_SELF'];
@@ -73,16 +73,16 @@ class Form
      * Skapa ett formulärfält och lagra i $fields
      * @param string          $name   Fältets namn
      * @param UpMvc\Form\Base $object Eller barn till
-     * @throws \Exception Om $name inte är ett giltigt variabelnamn
-     * @throws \Exception Om $object inte är ett UpMvc\Form\Base-objekt
+     * @throws \InvalidArgumentException Om $name inte är ett giltigt variabelnamn
+     * @throws \InvalidArgumentException Om $object inte är ett UpMvc\Form\Base-objekt
      */
     public function __set($name, $object)
     {
         if (!preg_match('{^[a-zA-Z_\x7f-\xff][a-zA-Z0-9\x7f-\xff]}', $name)) {
-            throw new \Exception(sprintf('%s: Första argumentet måste vara ett giltigt variabelnamn', __METHOD__));
+            throw new \InvalidArgumentException(sprintf('%s: Första argumentet måste vara ett giltigt variabelnamn', __METHOD__));
         }
         if (!$object instanceof Form\Base) {
-            throw new \Exception(sprintf('%s: Andra argumentet måste vara ett objekt av typen UpMvc\Form\Base', __METHOD__));
+            throw new \InvalidArgumentException(sprintf('%s: Andra argumentet måste vara ett objekt av typen UpMvc\Form\Base', __METHOD__));
         }
         $this->fields[$name] = $object;
     }
@@ -90,12 +90,12 @@ class Form
     /**
      * Sätt id på formuläret
      * @param string $id Formulärets id
-     * @throws \Exception Om argumentet inte är ett giltigt variabelnamn
+     * @throws \InvalidArgumentException Om argumentet inte är ett giltigt variabelnamn
      */
     public function setId($id)
     {
         if (!preg_match('{^[a-zA-Z_\x7f-\xff][a-zA-Z0-9\x7f-\xff]}', $id)) {
-            throw new \Exception(sprintf('%s: Första argumentet måste vara ett giltigt variabelnamn', __METHOD__));
+            throw new \InvalidArgumentException(sprintf('%s: Första argumentet måste vara ett giltigt variabelnamn', __METHOD__));
         }
         $this->id = $id;
     }

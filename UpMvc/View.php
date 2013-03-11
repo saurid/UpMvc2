@@ -17,7 +17,7 @@ namespace UpMvc;
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.1.1
+ * @version 2013.3.1
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -38,13 +38,13 @@ class View
      *
      * @param string $key   Variabelnamn (nyckel)
      * @param mixed  $value Värde
-     * @throws \Exception Om $key inte är ett giltigt variabelnamn
+     * @throws \InvalidArgumentException Om $key inte är ett giltigt variabelnamn
      * @return UpMvc\View
      */
     public function set($key, $value)
     {
         if (!preg_match('{^[a-zA-Z_\x7f-\xff][a-zA-Z0-9\x7f-\xff]}', $key)) {
-            throw new \Exception(sprintf('%s: Första argumentet måste vara ett giltigt variabelnamn', __METHOD__));
+            throw new \InvalidArgumentException(sprintf('%s: Första argumentet måste vara ett giltigt variabelnamn', __METHOD__));
         }
         $this->vars[$key] = $value;
 
@@ -59,17 +59,17 @@ class View
      * rendrerade innehållet returneras som en sträng.
      *
      * @param string $template Mallnamn
-     * @throws \Exception Om argumentet inte är en sträng
-     * @throws \Exception Om vy-filen inte kan hittas
+     * @throws \InvalidArgumentException Om argumentet inte är en sträng
+     * @throws \DomainException Om vy-filen inte kan hittas
      * @return string Rendrerad vy
      */
     public function render($template)
     {
         if (!is_string($template)) {
-            throw new \Exception(sprintf('%s: Argumentet måste vara en giltig sökväg till en mall', __METHOD__));
+            throw new \InvalidArgumentException(sprintf('%s: Argumentet måste vara en giltig sökväg till en mall', __METHOD__));
         }
         if (!is_file($template)) {
-            throw new \Exception(sprintf('%s: Mallen/filen &quot;%s&quot; kunde inte hittas', __METHOD__, $template));
+            throw new \DomainException(sprintf('%s: Mallen/filen &quot;%s&quot; kunde inte hittas', __METHOD__, $template));
         }
         extract($this->vars);
         ob_start();

@@ -16,7 +16,7 @@ namespace UpMvc;
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.1.1
+ * @version 2013.3.1
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -59,12 +59,12 @@ class Container
      * 
      * @param string $key   Nyckel
      * @param mixed  $value Värde
-     * @throws \Exception Om nyckeln inte är ett giltigt variabelnamn
+     * @throws \InvalidArgumentException Om nyckeln inte är ett giltigt variabelnamn
      */
     public function __set($key, $value)
     {
         if (!preg_match('{^[a-zA-Z_\x7f-\xff][a-zA-Z0-9\x7f-\xff]}', $key)) {
-            throw new \Exception(sprintf('%s: Första argumentet måste vara ett giltigt variabelnamn', __METHOD__));
+            throw new \InvalidArgumentException(sprintf('%s: Första argumentet måste vara ett giltigt variabelnamn', __METHOD__));
         }
         $this->data[$key] = $value;
     }
@@ -81,6 +81,7 @@ class Container
      * skapas upp i systemet (se config.php).
      *
      * @param string $key Nyckel
+     * @throws \OutOfBoundsException Om variablen inte finns, eller inte kan instansieras
      * @return mixed
      */
     public function __get($key)
@@ -90,7 +91,7 @@ class Container
             if (class_exists($key, true)) {
                 $this->data[$key] = new $key();
             } else {
-                throw new \Exception(sprintf('%s: Den efterfrågade variabeln finns inte och instansiering av objekt misslyckades', __METHOD__));
+                throw new \OutOfBoundsException(sprintf('%s: Den efterfrågade variabeln finns inte och instansiering av objekt misslyckades', __METHOD__));
             }
         }
 
