@@ -11,7 +11,7 @@ namespace UpMvc;
  * 
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.3.1
+ * @version 2013.4.1
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  * 
@@ -52,7 +52,6 @@ class Form
     /**
      * TODO:
      * Typkontrollera andra argumentet
-     * Ev. skicka in view som argument till controllern
      *
      * Konstruktor
      * @param string $method post|get
@@ -66,7 +65,7 @@ class Form
         }
         $this->method = $method;
         $this->action = ($action) ? $action : $_SERVER['PHP_SELF'];
-        $this->view = Container::get()->view;
+        $this->view   = Container::get()->view;
     }
     
     /**

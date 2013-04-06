@@ -10,7 +10,7 @@
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.2.8
+ * @version 2013.4.1
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -25,6 +25,11 @@ $autoloader = new Autoload();
 $autoloader->register();
 
 /**
+ * Ladda intern konfiguration
+ */
+require 'UpMvc/config.php';
+
+/**
  * Starta hantering av shutdown errors (php Fatal errors),
  * php-funktioner utan exceptions samt vanliga exceptions
  */
@@ -36,9 +41,8 @@ $exceptionhandler = new ExceptionHandler();
 $exceptionhandler->register();
 
 /**
- * Ladda konfigurationer och starta session
+ * Ladda Applikationens konfiguration och starta session
  */
-require 'UpMvc/config.php';
 require 'App/config.php';
 session_start();
 

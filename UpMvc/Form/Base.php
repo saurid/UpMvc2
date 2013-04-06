@@ -17,7 +17,7 @@ use UpMvc;
  * @author Ola Waljefors
  * @package UpMvc2
  * @subpackage Form
- * @version 2013.3.1
+ * @version 2013.4.1
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -85,11 +85,11 @@ abstract class Base
         if (!is_string($label)) {
             throw new \InvalidArgumentException(sprintf('%s: Andra argumentet måste vara en textsträng som beskriver formulärfältet', __METHOD__));
         }
-        $this->name = $name;
-        $this->label = $label;
+        $this->name       = $name;
+        $this->label      = $label;
         $this->parameters = $parameters;
-        $this->view = $c->view;
-        $this->request = $c->request;
+        $this->view       = $c->view;
+        $this->request    = $c->request;
     }
     
     /**
@@ -146,20 +146,20 @@ abstract class Base
     }
     
     /**
-     * TODO
-     * Typkontrollera argumentet och se till att den har ett %s
-     * Skriv bara ut vid fel
-     *
-     * Hämta ev felmeddelande för fältet
+     * Hämta ev felmeddelande för fältet, om formuläret är skickat
      * @param string $html Sträng med placeholder %s för felmeddelande
      * @return string Felmeddelande
+     * 
+     * @todo Typkontrollera argumentet och se till att den har ett %s
      */
     public function getError($html = '%s')
     {
-        if ($this->rules) {
-            if (!$this->isValid()) {
-                if ($this->error) {
-                    return sprintf($html, $this->error);
+        if ($this->request->get('submit')) {
+            if ($this->rules) {
+                if (!$this->isValid()) {
+                    if ($this->error) {
+                        return sprintf($html, $this->error);
+                    }
                 }
             }
         }
