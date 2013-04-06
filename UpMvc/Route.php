@@ -37,7 +37,7 @@ class Route
         
         // Kontrollera att controller finns
         if (!class_exists($route->getClass(), true)) {
-            throw new \BadMethodCallException(sprintf('%s: Controllern &quot;%s&quot; finns inte, eller kan inte anropas', __METHOD__, $class));
+            throw new \BadMethodCallException(sprintf('%s: Controllern &quot;%s&quot; finns inte, eller kan inte anropas', __METHOD__, $route->getClass()));
         }
         
         // Skapa controllerobjekt
