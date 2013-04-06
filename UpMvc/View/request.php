@@ -12,6 +12,7 @@
 namespace UpMvc\View;
 
 use UpMvc;
+
 ?>
 
 <h3>Requestobjektet</h3>

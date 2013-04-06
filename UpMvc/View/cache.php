@@ -12,6 +12,7 @@
 namespace UpMvc\View;
 
 use UpMvc;
+
 ?>
 
 <h3>Cachning av information</h3>

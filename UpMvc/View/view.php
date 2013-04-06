@@ -12,6 +12,7 @@
 namespace UpMvc\View;
 
 use UpMvc;
+
 ?>
 
 <h3>View-objekt och mallar</h3>

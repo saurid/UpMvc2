@@ -12,6 +12,7 @@
 namespace UpMvc\View;
 
 use UpMvc;
+
 ?>
 
 <h3>Vad är Up MVC?</h3>

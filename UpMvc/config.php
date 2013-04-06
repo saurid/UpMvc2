@@ -7,7 +7,7 @@
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.2.8
+ * @version 2013.4.2
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -29,13 +29,6 @@ $c->database = function () use ($c) {
 };
 
 /**
- * Closure som returnerar en instans av UpMvc\Database
- */
-$c->form = function () {
-    return new Form();
-};
-
-/**
  * Closure som returnerar en instans av PDO
  */
 $c->pdo = function () use ($c) {
@@ -51,13 +44,6 @@ $c->pdo = function () use ($c) {
         $c->db_password,
         array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8')
     );
-};
-
-/**
- * Closure som returnerar en instans av UpMvc\Pagination
- */
-$c->pagination = function () {
-    return new Pagination();
 };
 
 /**

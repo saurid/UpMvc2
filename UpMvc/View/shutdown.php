@@ -12,6 +12,7 @@
 namespace UpMvc\View;
 
 use UpMvc;
+
 ?>
 <!DOCTYPE HTML>
 <html>

@@ -13,7 +13,7 @@ use UpMvc;
  *
  * @author Ola Waljefors
  * @package UpMvc2
- * @version 2013.1.1
+ * @version 2013.4.2
  * @link https://github.com/saurid/UpMvc2
  * @link http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -25,7 +25,7 @@ class Webform
     public function index()
     {
         $c = UpMvc\Container::get();
-        
+
         // Skapa ett webb-formulär
         $form = new UpMvc\Form('post', $c->site_path.'/UpMvc/WebForm/');
         $form->setId('myform');
@@ -82,9 +82,9 @@ class Webform
         
         // Fyll view med variabler och data och rendrera
         echo $c->view
-            ->set('title', 'Exempelformulär - Up MVC')
-            ->set('site_path', UpMvc\Container::get()->site_path)
-            ->set('content', $form->render())
-            ->render('UpMvc/View/layout.php');
+               ->set('title', 'Exempelformulär - Up MVC')
+               ->set('site_path', $c->site_path)
+               ->set('content', $form->render())
+               ->render('UpMvc/View/layout.php');
     }
 }

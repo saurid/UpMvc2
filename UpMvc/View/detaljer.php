@@ -12,6 +12,7 @@
 namespace UpMvc\View;
 
 use UpMvc;
+
 ?>
 
 <p><em>Obervera att denna informationen är något inaktuell.

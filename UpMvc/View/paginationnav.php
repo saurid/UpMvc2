@@ -12,6 +12,7 @@
 namespace UpMvc\View;
 
 use UpMvc;
+
 ?>
 <nav class="UpMvc_Pagination">
     <ul>
