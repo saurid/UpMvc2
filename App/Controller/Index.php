@@ -1,34 +1,33 @@
 <?php
 /**
- * /UpMvc/App/Controller/index.php
- * @package UpMvc2
- * @filesource
+ * /App/Controller/index.php
+ * 
+ * @package App
  */
 
 namespace App\Controller;
 
 use UpMvc;
+use UpMvc\Container as Up;
 
 /**
- * Standardcontroller
+ * Standardcontroller.
  *
- * Byt ut till din egen, nu vidarebefodras anropet till manualen!
+ * Byt ut till din egen, nu vidarebefodras anropet till manualen.
  *
- * @author Ola Waljefors
- * @package UpMvc2
+ * @package App
+ * @author  Ola Waljefors
  * @version 2013.1.1
- * @link https://github.com/saurid/UpMvc2
- * @link http://www.phpportalen.net/viewtopic.php?t=116968
+ * @link    https://github.com/saurid/UpMvc2
+ * @link    http://www.phpportalen.net/viewtopic.php?t=116968
  */
 class Index
 {
-    /**
-     * Ersätt för att skapa din egen webbsida
-     */
+    /** Ersätt för att skapa din egen webbsida. */
     public function index()
     {
         // Vidarebefodra direkt till dokumentationen
         $c = UpMvc\Container::get();
-        header('Location: '.$c->site_path.'/UpMvc/Manual');
+        header('Location: '.$c->site_path.'/Documentation/Index');
     }
 }
