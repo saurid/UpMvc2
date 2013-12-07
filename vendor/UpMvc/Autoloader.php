@@ -17,7 +17,7 @@ namespace UpMvc;
  * {@link https://github.com/php-fig/fig-standards/blob/master/proposed/psr-4-autoloader/psr-4-autoloader.md}
  * 
  * Startas i index.php (namespace UpMvc) med:
- * <code>$autoloader = new Psr4Autoloader();
+ * <code>$autoloader = new Autoloader();
  * $autoloader->addNamespace('UpMvc', __DIR__ . '/vendor/UpMvc');
  * $autoloader->register();</code>
  * 
