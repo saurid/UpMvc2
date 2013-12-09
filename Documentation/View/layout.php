@@ -4,7 +4,7 @@
  *
  * @package UpMvc2\Documentation
  * @author  Ola Waljefors
- * @version 2013.12.1
+ * @version 2013.12.2
  * @link    https://github.com/saurid/UpMvc2
  * @link    http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -30,8 +30,6 @@ use UpMvc\Container as Up;
         <li><h2>om up mvc</h2></li>
         <li><a href="<?php echo Up::site_path() ?>/Documentation/Index/visa/inledning">Inledning</a></li>
         <li><a href="<?php echo Up::site_path() ?>/Documentation/Index/visa/filstruktur">Filstruktur</a></li>
-    </ul>
-    <ul>
         <li><h2>ramverkets lager</h2></li>
         <li><a href="<?php echo Up::site_path() ?>/Documentation/Index/visa/controllers">Controllers / Actions</a></li>
         <li><a href="<?php echo Up::site_path() ?>/Documentation/Index/visa/view">Views</a></li>
@@ -45,6 +43,7 @@ use UpMvc\Container as Up;
         <li><a href="<?php echo Up::site_path() ?>/Documentation/Index/visa/cache">Cachning</a></li>
         <li><a href="<?php echo Up::site_path() ?>/Documentation/Index/visa/siduppdelning">Siduppdelning / Pagination</a></li>
         <li><a href="<?php echo Up::site_path() ?>/Documentation/Index/visa/rattigheter">Rättigheter</a></li>
+        <li><a href="<?php echo Up::site_path() ?>/Documentation/Index/visa/komponenter">Tredjepartskomponenter</a></li>
     </ul>
     <ul>
         <li><h2>detaljerat</h2></li>

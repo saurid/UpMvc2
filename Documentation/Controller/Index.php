@@ -15,7 +15,7 @@ use UpMvc\Container as Up;
  *
  * @package UpMvc2\Documentation
  * @author  Ola Waljefors
- * @version 2013.12.1
+ * @version 2013.12.2
  * @link    https://github.com/saurid/UpMvc2
  * @link    http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -77,6 +77,11 @@ class Index
                 Up::view()
                   ->set('title',  'Rättigheter - Up MVC')
                   ->set('content', Up::view()->render('rattigheter.php'));
+                break;
+            case 'komponenter':
+                Up::view()
+                  ->set('title',  'Tredjepartskomponenter - Up MVC')
+                  ->set('content', Up::view()->render('komponenter.php'));
                 break;
             case 'request':
                 Up::view()
