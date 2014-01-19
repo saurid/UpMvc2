@@ -19,7 +19,7 @@ namespace UpMvc;
  * 
  * @package UpMvc2
  * @author  Ola Waljefors
- * @version 2013.2.9
+ * @version 2014.1.1
  * @link    https://github.com/saurid/UpMvc2
  * @link    http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -31,7 +31,7 @@ class ShutdownHandler
         $error = error_get_last();
 
         if ($error !== null) {
-            if ($error['type'] === E_ERROR) {
+            if ($error['type'] === E_ERROR OR $error['type'] === E_PARSE) {
                 ob_clean();
                 require('View/shutdown.php');
             }

@@ -14,7 +14,7 @@ use UpMvc\Container as Up;
  * 
  * @package UpMvc2
  * @author  Ola Waljefors
- * @version 2013.10.2
+ * @version 2014.1.1
  * @link    https://github.com/saurid/UpMvc2
  * @link    http://www.phpportalen.net/viewtopic.php?t=116968
  * 
@@ -149,8 +149,9 @@ class Form
      */
     public function render()
     {
-        return Up::view()->set('form', $this)
-            ->setPath('vendor/')
+        return Up::view()
+            ->set('form', $this)
+            ->setPath('vendor/saurid/')
             ->render('UpMvc/Form/View/base.php');
     }
 }

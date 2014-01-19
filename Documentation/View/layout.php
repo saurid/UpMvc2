@@ -58,7 +58,7 @@ use UpMvc\Container as Up;
 <article>
     <header>
         <a href="<?php echo Up::site_path() ?>/Documentation/Index/visa">
-            <img src="<?php echo Up::site_path() ?>/Documentation/View/img/UpMVC.png" width="230" height="99" alt="<?php echo $title ?>" />
+            <img src="<?php echo Up::site_path() ?>/vendor/saurid/UpMvc/View/img/UpMVC.png" width="230" height="99" alt="<?php echo $title ?>" />
         </a>
         <h2>dokumentation</h2>
     </header>

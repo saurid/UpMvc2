@@ -15,7 +15,7 @@ use UpMvc\Container as Up;
  *
  * @package UpMvc2
  * @author  Ola Waljefors
- * @version 2013.10.2
+ * @version 2014.1.1
  * @link    https://github.com/saurid/UpMvc2
  * @link    http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -38,6 +38,6 @@ class Exception
             ->set('exception', $e)
             ->set('router', new UpMvc\RouteResolver())
             ->set('trace', $trace)
-            ->render('vendor/UpMvc/View/exception.php', true);
+            ->render('vendor/saurid/UpMvc/View/exception.php', true);
     }
 }

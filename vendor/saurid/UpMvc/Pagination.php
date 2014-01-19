@@ -7,6 +7,8 @@
 
 namespace UpMvc;
 
+use UpMvc\Container as Up;
+
 /**
  * Pagination.
  *
@@ -15,7 +17,7 @@ namespace UpMvc;
  *
  * @package UpMvc2
  * @author  Ola Waljefors
- * @version 2013.10.1
+ * @version 2014.1.1
  * @link    https://github.com/saurid/UpMvc2
  * @link    http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -141,10 +143,9 @@ class Pagination
      */
     public function getNav()
     {
-        $c = Container::get();
-        $c->view->set('pagination', $this);
-
-        return $c->view->render('vendor/UpMvc/View/paginationnav.php', true);
+        return Up::view()
+            ->set('pagination', $this)
+            ->render('vendor/saurid/UpMvc/View/paginationnav.php', true);
     }
 
     /**

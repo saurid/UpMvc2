@@ -4,7 +4,7 @@
  *
  * @package UpMvc2
  * @author  Ola Waljefors
- * @version 2013.10.2
+ * @version 2014.1.1
  * @link    https://github.com/saurid/UpMvc2
  * @link    http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -20,15 +20,15 @@ use UpMvc\Container as Up;
 <head>
     <title>Up MVC har upptäckt ett fel</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-    <link type="text/css" rel="stylesheet" href="<?php echo Up::site_path() ?>/vendor/UpMvc/View/css/format.css" media="all" />
-    <link type="text/css" rel="stylesheet" href="<?php echo Up::site_path() ?>/vendor/UpMvc/View/css/printformat.css" media="print" />
+    <link type="text/css" rel="stylesheet" href="<?php echo Up::site_path() ?>/vendor/saurid/UpMvc/View/css/format.css" media="all" />
+    <link type="text/css" rel="stylesheet" href="<?php echo Up::site_path() ?>/vendor/saurid/UpMvc/View/css/printformat.css" media="print" />
 </head>
 <body>
 
 
 <article>
     <header>
-        <img src="<?php echo Up::site_path() ?>/vendor/UpMvc/View/img/UpMVC.png" height="50" alt="Up MVC" />
+        <img src="<?php echo Up::site_path() ?>/vendor/saurid/UpMvc/View/img/UpMVC.png" height="50" alt="Up MVC" />
     </header>
 
     <h2>Up MVC har upptäckt ett fel</h2>

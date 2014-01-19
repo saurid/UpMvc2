@@ -19,7 +19,7 @@ namespace UpMvc;
  * 
  * @package UpMvc2
  * @author  Ola Waljefors
- * @version 2013.2.9
+ * @version 2014.1.1
  * @link    https://github.com/saurid/UpMvc2
  * @link    http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -32,7 +32,9 @@ class ExceptionHandler
      */
     public function handle(\Exception $e)
     {
-        ob_clean();
+        if (ob_get_contents()) {
+            ob_clean();
+        }
         $output = new Controller\Exception($e);
         echo $output->index($e);
     }

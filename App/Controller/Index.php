@@ -17,7 +17,7 @@ use UpMvc\Container as Up;
  *
  * @package App
  * @author  Ola Waljefors
- * @version 2013.1.1
+ * @version 2014.1.1
  * @link    https://github.com/saurid/UpMvc2
  * @link    http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -27,7 +27,6 @@ class Index
     public function index()
     {
         // Vidarebefodra direkt till dokumentationen
-        $c = UpMvc\Container::get();
-        header('Location: '.$c->site_path.'/Documentation/Index');
+        header('Location: ' . Up::site_path() . '/Documentation/Index');
     }
 }

@@ -4,7 +4,7 @@
  *
  * @package UpMvc2\Documentation
  * @author  Ola Waljefors
- * @version 2013.12.2
+ * @version 2014.1.1
  * @link    https://github.com/saurid/UpMvc2
  * @link    http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -48,10 +48,10 @@ se hur det ska göras. Så här ser raderna ut i index-filen som rör autoloadin
 <span class="comment">// Fil: index.php</span>
 
 <span class="comment">/** Starta automatisk laddning av klasser. */</span>
-require 'vendor/UpMvc/Autoloader.php';
+require 'vendor/saurid/UpMvc/Autoloader.php';
 $autoloader = new Autoloader();
 $autoloader->addNamespace('App', __DIR__ . '/App');
-$autoloader->addNamespace('UpMvc', __DIR__ . '/vendor/UpMvc');
+$autoloader->addNamespace('UpMvc', __DIR__ . '/vendor/saurid/UpMvc');
 $autoloader->addNamespace('Documentation', __DIR__ . '/Documentation');
 $autoloader->register();
 </pre>
