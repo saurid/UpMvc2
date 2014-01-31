@@ -22,19 +22,19 @@ use UpMvc\Container as Up;
  */
 class Form
 {
-    /** @type string Formulärets id. */
+    /** @var string Formulärets id. */
     private $id = 'UpMvc_Form';
     
-    /** @type string Formulärets postmethod. */
+    /** @var string Formulärets postmethod. */
     private $method;
     
-    /** @type string Formulärets action. */
+    /** @var string Formulärets action. */
     private $action;
     
-    /** @type array Formulärets fält. */
+    /** @var array Formulärets fält. */
     private $fields;
     
-    /** @type object UpMvc\View-objekt. */
+    /** @var object UpMvc\View-objekt. */
     private $view;
     
     /**

@@ -23,13 +23,13 @@ use UpMvc\Container as Up;
  */
 class Pagination
 {
-    /** @type integer Totalt antal poster. */
+    /** @var integer Totalt antal poster. */
     private $total;
     
-    /** @type integer Aktuell sida. */
+    /** @var integer Aktuell sida. */
     private $current;
 
-    /** @type integer Antal poster per sida. */
+    /** @var integer Antal poster per sida. */
     private $per;
 
     /**

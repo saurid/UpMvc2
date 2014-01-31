@@ -22,13 +22,13 @@ namespace UpMvc;
  */
 class Error
 {
-    /** @type string HTML-kod för felmeddelande med placeholder. */
+    /** @var string HTML-kod för felmeddelande med placeholder. */
     private $html = '<span class="UpMvc_Error">%s</span>';
     
-    /** @type array Felmeddelanden. */
+    /** @var array Felmeddelanden. */
     private $errors;
     
-    /** @type object Lagrar instans av klassen. */
+    /** @var object Lagrar instans av klassen. */
     private static $instance;
     
     /**

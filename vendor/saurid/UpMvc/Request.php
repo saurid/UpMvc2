@@ -23,7 +23,7 @@ namespace UpMvc;
  */
 class Request
 {
-    /** @type array $_REQUEST. */
+    /** @var array Innehållet i $_REQUEST. */
     private $request;
     
     /** Konstruktor. */

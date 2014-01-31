@@ -18,13 +18,13 @@ namespace UpMvc;
  */
 class Cache
 {
-    /** @type string Cachemapp. */
+    /** @var string Cachemapp. */
     private $path;
 
-    /** @type string Cache-id. */
+    /** @var string Cache-id. */
     private $key;
 
-    /** @type string Filnamn för cachefil. */
+    /** @var string Filnamn för cachefil. */
     private $file;
 
     /**

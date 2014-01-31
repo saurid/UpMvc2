@@ -24,10 +24,10 @@ namespace UpMvc;
  */
 class View
 {
-    /** @type array Variabler för användning i vyer (templates). */
+    /** @var array Variabler för användning i vyer (templates). */
     private $vars = array();
 
-    /** @type string Sökväg för vyer. */
+    /** @var string Sökväg för vyer. */
     private $path = '';
     
     /**

@@ -23,19 +23,19 @@ namespace UpMvc;
  */
 class RouteResolver
 {
-    /** @type string Standardmodul. */
+    /** @var string Standardmodul. */
     private $module = 'App';
     
-    /** @type string Standardcontroller. */
+    /** @var string Standardcontroller. */
     private $controller = 'Index';
     
-    /** @type string Standardaction/metod. */
+    /** @var string Standardaction/metod. */
     private $action = 'index';
     
-    /** @type string Controllers klassnamn. */
+    /** @var string Controllers klassnamn. */
     private $class = '%s\Controller\%s';
     
-    /** @type array Parametrar. */
+    /** @var array Parametrar. */
     private $parameters;
     
     /**

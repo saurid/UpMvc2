@@ -18,10 +18,10 @@ namespace UpMvc;
  */
 class Role
 {
-    /** @type Rollens namn. */
+    /** @var Rollens namn. */
     private $id;
     
-    /** @type Lagrade roller */
+    /** @var Lagrade roller */
     private $role;
 
     /**

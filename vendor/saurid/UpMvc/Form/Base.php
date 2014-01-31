@@ -24,25 +24,25 @@ use UpMvc\Container as Up;
  */
 abstract class Base
 {
-    /** @type string Namn på formulärfält. */
+    /** @var string Namn på formulärfält. */
     protected $name;
     
-    /** @type string Formulärfältets rubrik. */
+    /** @var string Formulärfältets rubrik. */
     protected $label;
     
-    /** @type array Parametrar för radio, bockar och väljlistor. */
+    /** @var array Parametrar för radio, bockar och väljlistor. */
     protected $parameters;
     
-    /** @type object UpMvc\View-objekt. */
+    /** @var object UpMvc\View-objekt. */
     protected $view;
     
-    /** @type string Errorsträng. */
+    /** @var string Errorsträng. */
     protected $error;
     
-    /** @type object UpMvc\Request-objekt. */
+    /** @var object UpMvc\Request-objekt. */
     protected $request;
     
-    /** @type array Valideringsregler. */
+    /** @var array Valideringsregler. */
     protected $rules;
     
     /**

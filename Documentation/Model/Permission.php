@@ -39,7 +39,7 @@ use UpMvc\Container as Up;
  */
 class Permission
 {
-    /** @type array Lagrade grupper */
+    /** @var array Lagrade grupper */
     private $group;
 
     /**

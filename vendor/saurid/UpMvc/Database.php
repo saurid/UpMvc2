@@ -28,10 +28,10 @@ namespace UpMvc;
  */
 class Database
 {
-    /** @type \PDO Lagrar PDO-objekt. */
+    /** @var \PDO Lagrar PDO-objekt. */
     private $pdo;
     
-    /** @type resource PDO statement. */
+    /** @var resource PDO statement. */
     private $statement;
     
     /**

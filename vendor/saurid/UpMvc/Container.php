@@ -23,10 +23,10 @@ namespace UpMvc;
  */
 class Container
 {
-    /** @type UpMvc\Container Lagrar instans av klassen. */
+    /** @var UpMvc\Container Lagrar instans av klassen. */
     private static $instance;
     
-    /** @type array Lagrad data. */
+    /** @var array Lagrad data. */
     private $data;
     
     /**
