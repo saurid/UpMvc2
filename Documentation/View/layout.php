@@ -4,7 +4,7 @@
  *
  * @package UpMvc2\Documentation
  * @author  Ola Waljefors
- * @version 2013.12.2
+ * @version 2014.2.1
  * @link    https://github.com/saurid/UpMvc2
  * @link    http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -12,6 +12,7 @@
 namespace UpMvc\View;
 
 use UpMvc;
+use UpMvc\Helper as Helper;
 use UpMvc\Container as Up;
 
 ?>
@@ -20,8 +21,8 @@ use UpMvc\Container as Up;
 <head>
     <title><?php echo $title ?></title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="<?php echo Up::site_path() ?>/Documentation/View/css/format.css" media="all" />
-    <link rel="stylesheet" href="<?php echo Up::site_path() ?>/Documentation/View/css/printformat.css" media="print" />
+    <?php Helper\Html::style(Up::site_path() . '/Documentation/View/css/format.css'); ?>
+    <?php Helper\Html::style(Up::site_path() . '/Documentation/View/css/printformat.css', 'print'); ?>
 </head>
 <body>
 
