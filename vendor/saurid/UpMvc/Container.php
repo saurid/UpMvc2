@@ -17,7 +17,7 @@ namespace UpMvc;
  *
  * @package UpMvc2
  * @author  Ola Waljefors
- * @version 2013.12.1
+ * @version 2014.2.2
  * @link    https://github.com/saurid/UpMvc2
  * @link    http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -26,128 +26,120 @@ class Container
     /** @var UpMvc\Container Lagrar instans av klassen. */
     private static $instance;
     
-    /** @var array Lagrad data. */
+    /** @var StdClass Lagrad data. */
     private $data;
-    
+
     /**
-     * Skapa och returnera en instans av denna klassen.
+     * Skapa och returnera en instans.
      *
-     * Om klassen inte redan är instansieras (skapat ett objekt), så görs
-     * det, annars returneras den redan skapade instansen. Detta för att
-     * endast ett objekt av typen UpMvc\Container ska finnas i systemet.
+     * Om klassen inte är instansierad så görs det, sedan returneras instansen.
+     * Detta gör att endast ett objekt av typen kan finnas i systemet.
      * 
      * @return UpMvc\Container
      */
-    public static function get()
+    public static function getInstance()
     {
         if (!self::$instance) {
             self::$instance = new self();
+            self::$instance->data = new \StdClass();
         }
 
         return self::$instance;
     }
-    
+
     /**
-     * Lagra egenskap i containern med den magiska metoden __set.
-     * 
-     * Vidarebebodrar till set() för logiken.
-     * 
-     * @param string $key   Nyckel
-     * @param mixed  $value Värde
+     * Vidarebefodra metodanrop
      *
-     * @deprecated 2013.12.1
+     * @param string $name      Namn
+     * @param array  $arguments Argument
+     * 
+     * @return mixed
      */
-    public function __set($key, $value)
+    public function __call($name, $arguments = false)
     {
-        self::set($key, $value);
+        return self::getInstance()->logic($name, $arguments);
     }
 
     /**
-     * Lagra egenskap i containern med statiskt anrop.
+     * Vidarebefodra statiska metodanrop
      *
-     * @param string $key   Nyckel
+     * @param string $name      Namn
+     * @param array  $arguments Argument
+     * 
+     * @return mixed
+     */
+    public static function __callStatic($name, $arguments = false)
+    {
+        return self::getInstance()->logic($name, $arguments);
+    }
+
+    /**
+     * Lagra eller returnera en egenskap.
+     *
+     * Om $name är en metod anropas den.
+     * Om $name inte finns lagras datan.
+     * Om $name är en lagrad closure, anropas den och ev returnerad data lagras.
+     * Om $name är lagrad, returneras datan.
+     *
+     * @param string $name      Namn
+     * @param array  $arguments Argument
+     * 
+     * @throws \LogicException           Om en closure inte returnerade någon data.
+     * @throws \InvalidArgumentException Om argument saknas när data ska lagras.
+     * @return mixed
+     */
+    private function logic($name, $arguments = false)
+    {
+        // Om namn är en befintlig metod
+        if (method_exists(self::$instance, $name)) {
+            self::$instance->$name();
+        } else {
+            // Annars lagra eller returnera
+            if (isset($this->data->$name)) {
+                // Closure
+                if (is_a($this->data->$name, 'Closure')) {
+                    $this->data->$name = call_user_func_array($this->data->$name, $arguments);
+                }
+                if (!$this->data->$name) {
+                    throw new \LogicException(sprintf('%s: Lagrad closure &quot;%s&quot; returnerade ingen data', __METHOD__, $name));
+                }
+                return $this->data->$name;
+            // Lagra
+            } else {
+                if (!$arguments) {
+                    throw new \InvalidArgumentException(sprintf('%s: Första argumentet får inte vara tomt', __METHOD__));
+                }
+                $this->data->$name = $arguments[0];
+            }
+        }
+
+        // Om inget redan är returnerat
+        return self::$instance;
+    }
+
+    /**
+     * Lagra egenskap i containern.
+     *
+     * @param string $name  Namn
      * @param mixed  $value Värde
      * 
      * @throws \InvalidArgumentException Om nyckeln inte är ett giltigt variabelnamn
      */
-    public static function set($key, $value)
+    public static function set($name, $value)
     {
-        if (!preg_match('{^[a-zA-Z_\x7f-\xff][a-zA-Z0-9\x7f-\xff]}', $key)) {
+        if (!preg_match('{^[a-zA-Z_\x7f-\xff][a-zA-Z0-9\x7f-\xff]}', $name)) {
             throw new \InvalidArgumentException(sprintf('%s: Första argumentet måste vara ett giltigt variabelnamn', __METHOD__));
         }
-        self::get()->data[$key] = $value;
+        self::getInstance()->data->$name = $value;
     }
 
-    /**
-     * Returnera en egenskap med den magiska metoden __get.
-     * 
-     * Vidarebebodrar till fetch() för logiken.
-     *
-     * @param string $key Nyckel
-     * 
-     * @deprecated 2013.12.1
-     * @return mixed
-     */
-    public function __get($key)
-    {
-        return $this->fetch($key, null);
-    }
-
-    /**
-     * Returnera en egenskap med den magiska metoden __callStatic.
-     * 
-     * Anropas statiskt och vidarebebodrar till fetch() för logiken.
-     *
-     * @param string $key  Nyckel
-     * @param array  $args Argument
-     * 
-     * @return mixed
-     */
-    public static function __callStatic($key, $args = null)
-    {
-        return self::get()->fetch($key, $args);
-    }
-
-    /**
-     * Returnera en egenskap.
-     *
-     * Om egenskapen inte redan finns skapas ett objekt upp med namnet i
-     * argumentet. Om argumentet är en lagrad closure anropas den och lagrar
-     * ny data innan den returneras. Closures används för att konfigurera hur
-     * objekt skapas upp i systemet (se config.php).
-     *
-     * @param string $key  Nyckel
-     * @param array  $args Parametrar
-     * 
-     * @throws \OutOfBoundsException Om variablen inte finns, eller inte kan instansieras
-     * @return mixed
-     */
-    protected function fetch($key, $args)
-    {
-        // Om nyckeln inte finns, försök skapa ett objekt
-        if (!isset($this->data[$key])) {
-            if (class_exists($key, true)) {
-                $this->data[$key] = new $key();
-            } else {
-                throw new \OutOfBoundsException(sprintf('%s: Den efterfrågade variabeln finns inte och instansiering av objekt misslyckades', __METHOD__));
-            }
-        }
-
-        // Om egenskapen är en closure
-        if (is_a($this->data[$key], 'Closure')) {
-            $this->data[$key] = call_user_func_array($this->data[$key], $args);
-        }
-
-        return $this->data[$key];
-    }
-    
     /** Tillåt inte instansiering med new eftersom construct är privat. */
-    private function __construct()
+    final private function __construct()
     {
     }
     
     /** Tillåt inte kloning av objektet eftersom clone är privat. */
-    private function __clone()
+    final private function __clone()
     {
     }
 }

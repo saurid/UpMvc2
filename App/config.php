@@ -4,7 +4,7 @@
  *
  * @package App
  * @author  Ola Waljefors
- * @version 2013.12.1
+ * @version 2014.2.2
  * @link    https://github.com/saurid/UpMvc2
  * @link    http://www.phpportalen.net/viewtopic.php?t=116968
  */
@@ -14,8 +14,8 @@ namespace App;
 use UpMvc\Container as Up;
 
 /** Databasuppgifter */
-Up::set('db_engine',   'mysql');
-Up::set('db_host',     'localhost');
-Up::set('db_user',     'root');
-Up::set('db_password', '');
-Up::set('db_name',     '');
+Up::app_db_engine('mysql')
+  ->app_db_host('localhost')
+  ->app_db_user('root')
+  ->app_db_password('')
+  ->app_db_name('');
