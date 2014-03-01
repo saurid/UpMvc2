@@ -1,7 +1,7 @@
 <?php
 /**
  * /UpMvc/Role.php
- * 
+ *
  * @package UpMvc2
  */
 
@@ -9,7 +9,7 @@ namespace UpMvc;
 
 /**
  * Sätt rättigheter i ramverket.
- * 
+ *
  * @package UpMvc2
  * @author  Ola Waljefors
  * @version 2013.2.7
@@ -20,7 +20,7 @@ class Role
 {
     /** @var Rollens namn. */
     private $id;
-    
+
     /** @var Lagrade roller */
     private $role;
 
@@ -40,7 +40,7 @@ class Role
      * Lägg till och lagra ny roll.
      *
      * @param \UpMvc\Role $role Rollobjekt.
-     * 
+     *
      * @return \UpMvc\Role $this Den aktuella instansen.
      */
     public function set(Role $role)
@@ -54,7 +54,7 @@ class Role
      * Kontrollera om objektet är, eller har rollen lagrad.
      *
      * @param string $id Namn på roll att testa mot.
-     * 
+     *
      * @return bool True om rollen finns, false om den inte finns.
      */
     public function has($id)

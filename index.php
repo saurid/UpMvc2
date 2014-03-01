@@ -1,7 +1,7 @@
 <?php
 /**
  * Första anhalten i ramverket.
- * 
+ *
  * Hämtar konfiguration och startar upp alla nödvändiga objekt som behövs.
  * Error handlers som möjliggör snyggare och mer funktionsrika felmeddelanden.
  * Autoloader som automatiskt laddar in klasser (include behöver inte användas).

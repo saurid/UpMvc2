@@ -1,7 +1,7 @@
 <?php
 /**
  * /UpMvc/Validation/Same.php
- * 
+ *
  * @package UpMvc2\Validation
  */
 
@@ -20,7 +20,7 @@ class Same implements Base
 {
     /**
      * Konstruktor.
-     * 
+     *
      * @param mixed $one Första värdet.
      * @param mixed $two Andra värdet.
      */
@@ -29,12 +29,12 @@ class Same implements Base
         $this->one = $one;
         $this->two = $two;
     }
-    
+
     /**
      * Validera data.
-     * 
+     *
      * @param mixed $data Data som ska valideras.
-     * 
+     *
      * @return bool true om data uppfyller krav.
      */
     public function validate($data = null)
@@ -42,7 +42,7 @@ class Same implements Base
         if ($this->one != $this->two) {
             return false;
         }
-        
+
         return true;
     }
 }

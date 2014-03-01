@@ -1,7 +1,7 @@
 <?php
 /**
  * /UpMvc/ExceptionHandler.php
- * 
+ *
  * @package UpMvc2
  */
 
@@ -16,7 +16,7 @@ namespace UpMvc;
  *
  * Läs mer i manualen om
  * {@link http://www.php.net/manual/en/function.register-shutdown-function.php register_shutdown_function()}
- * 
+ *
  * @package UpMvc2
  * @author  Ola Waljefors
  * @version 2014.1.1
@@ -31,7 +31,7 @@ class ShutdownHandler
         $error = error_get_last();
 
         if ($error !== null) {
-            if ($error['type'] === E_ERROR OR $error['type'] === E_PARSE) {
+            if ($error['type'] === E_ERROR or $error['type'] === E_PARSE) {
                 ob_clean();
                 require('View/shutdown.php');
             }

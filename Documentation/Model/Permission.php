@@ -1,7 +1,7 @@
 <?php
 /**
  * /Documentation/Model/Permission.php
- * 
+ *
  * @package UpMvc2\Documentation
  */
 
@@ -15,13 +15,13 @@ use UpMvc\Container as Up;
  *
  * Sätter upp grupper (i detta fallet visitor, editor och administrator).
  * Roller sätts till var och en av grupperna, och grupperna ärvs uppåt
- * från visitor till editor och från editor till administrator. 
- * 
+ * från visitor till editor och från editor till administrator.
+ *
  * Exempel på användning:
  * <code>
  * $userrole = 'administrator';
  * $permission = new Model\Permission();
- * 
+ *
  * if ($permission->check($userrole, 'administrator')) {
  *     echo 'Användaren är en administratör';
  * }
@@ -30,7 +30,7 @@ use UpMvc\Container as Up;
  *     echo 'Användaren får skapa nya kategorier';
  * }
  * </code>
- * 
+ *
  * @package UpMvc2\Documentation
  * @author  Ola Waljefors
  * @version 2013.12.1
@@ -44,7 +44,7 @@ class Permission
 
     /**
      * Konstruktor.
-     * 
+     *
      * Sätt upp grupper och roller.
      */
     public function __construct()
@@ -55,20 +55,23 @@ class Permission
         $this->group['administrator'] = new UpMvc\Role('administrator');
 
         // Sätt rättigheter/roller för gruppen visistor
-        $this->group['visitor']
+        $this
+            ->group['visitor']
             ->set(new UpMvc\Role('read public'))
             ->set(new UpMvc\Role('create topic'))
             ->set(new UpMvc\Role('create user'));
 
         // editor, ärver visitor genom att lägga till gruppen visitor med set()
-        $this->group['editor']
+        $this
+            ->group['editor']
             ->set(new UpMvc\Role('read private'))
             ->set(new UpMvc\Role('create category'))
             ->set(new UpMvc\Role('change user'))
             ->set($this->group['visitor']); // ärver visitor
 
         // administrator, ärver editor och därmed även visitor
-        $this->group['administrator']
+        $this
+            ->group['administrator']
             ->set(new UpMvc\Role('delete user'))
             ->set(new UpMvc\Role('delete category'))
             ->set($this->group['editor']); // ärver editor
@@ -76,10 +79,10 @@ class Permission
 
     /**
      * Kontrollera om en grupp innehåller en roll.
-     * 
+     *
      * @param string $group Grupp att testa mot.
      * @param string $role  Roll att testa.
-     * 
+     *
      * @return bool True om rollen finns, false om den inte finns.
      */
     public function check($group, $role)

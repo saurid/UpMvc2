@@ -1,7 +1,7 @@
 <?php
 /**
  * /UpMvc/Form.php
- * 
+ *
  * @package UpMvc2
  */
 
@@ -11,56 +11,56 @@ use UpMvc\Container as Up;
 
 /**
  * Skapa kompletta HTML-formulär.
- * 
+ *
  * @package UpMvc2
  * @author  Ola Waljefors
  * @version 2014.1.1
  * @link    https://github.com/saurid/UpMvc2
  * @link    http://www.phpportalen.net/viewtopic.php?t=116968
- * 
+ *
  * @todo Klassen och dess ingående komponenter är under utveckling!
  */
 class Form
 {
     /** @var string Formulärets id. */
     private $id = 'UpMvc_Form';
-    
+
     /** @var string Formulärets postmethod. */
     private $method;
-    
+
     /** @var string Formulärets action. */
     private $action;
-    
+
     /** @var array Formulärets fält. */
     private $fields;
-    
+
     /** @var object UpMvc\View-objekt. */
     private $view;
-    
+
     /**
      * Konstruktor.
-     * 
+     *
      * @param string $method post eller get.
      * @param string $action URL till form action.
-     * 
+     *
      * @todo Typkontrollera andra argumentet.
      * @throws \InvalidArgumentException Om $method inte är 'post' eller 'get'.
      */
     public function __construct($method = 'post', $action = '')
     {
-        if (strtolower($method) != 'post' AND strtolower($method) != 'get') {
+        if (strtolower($method) != 'post' and strtolower($method) != 'get') {
             throw new \InvalidArgumentException(sprintf('%s: Första argumentet måste vara antingen &quot;post&quot; eller &quot;get&quot;', __METHOD__));
         }
         $this->method = $method;
         $this->action = ($action) ? $action : $_SERVER['PHP_SELF'];
     }
-    
+
     /**
      * Skapa ett formulärfält och lagra i $fields.
-     * 
+     *
      * @param string          $name   Fältets namn.
      * @param UpMvc\Form\Base $object Eller barn till.
-     * 
+     *
      * @throws \InvalidArgumentException Om $name inte är ett giltigt variabelnamn.
      * @throws \InvalidArgumentException Om $object inte är ett UpMvc\Form\Base-objekt.
      */
@@ -74,12 +74,12 @@ class Form
         }
         $this->fields[$name] = $object;
     }
-    
+
     /**
      * Sätt id på formuläret.
-     * 
+     *
      * @param string $id Formulärets id.
-     * 
+     *
      * @throws \InvalidArgumentException Om argumentet inte är ett giltigt variabelnamn.
      */
     public function setId($id)
@@ -89,62 +89,62 @@ class Form
         }
         $this->id = $id;
     }
-    
+
     /**
      * Hämta fält.
-     * 
+     *
      * @param string $name Fältets namn.
-     * 
+     *
      * @return UpMvc\Form\Base
      */
     public function __get($name)
     {
         return $this->fields[$name];
     }
-    
+
     /**
      * Hämta id.
-     * 
+     *
      * @return string Formulärid.
      */
     public function getId()
     {
         return $this->id;
     }
-    
+
     /**
      * Hämta method.
-     * 
+     *
      * @return string Form method.
      */
     public function getMethod()
     {
         return $this->method;
     }
-    
+
     /**
      * Hämta action.
-     * 
+     *
      * @return string Form action.
      */
     public function getAction()
     {
         return $this->action;
     }
-    
+
     /**
      * Hämta formulärfält.
-     * 
+     *
      * @return array fields.
      */
     public function getFields()
     {
         return $this->fields;
     }
-    
+
     /**
      * Skapa det kompletta formuläret.
-     * 
+     *
      * @return string HTML-kod.
      */
     public function render()

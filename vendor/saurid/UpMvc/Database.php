@@ -1,7 +1,7 @@
 <?php
 /**
  * /UpMvc/Database.php
- * 
+ *
  * @package UpMvc2
  */
 
@@ -30,23 +30,23 @@ class Database
 {
     /** @var \PDO Lagrar PDO-objekt. */
     private $pdo;
-    
+
     /** @var resource PDO statement. */
     private $statement;
-    
+
     /**
      * Konstruktor.
-     * 
+     *
      * @param \PDO $pdo PDO-objekt.
      */
     public function __construct(\PDO $pdo)
     {
         $this->pdo = $pdo;
     }
-    
+
     /**
      * Kör PDO prepare.
-     * 
+     *
      * @param string $statement SQL-sats.
      */
     public function prepare($statement)
@@ -55,12 +55,12 @@ class Database
 
         return $this;
     }
-    
+
     /**
      * Kör PDOStatement execute.
-     * 
+     *
      * @param array $parameters Parametrar.
-     * 
+     *
      * @throws \InvalidArgumentException Om argumentet inte är en array.
      * @return UpMvc\Database
      */
@@ -73,12 +73,12 @@ class Database
 
         return $this;
     }
-    
+
     /**
      * Kör PDOStatement fetchAll.
-     * 
+     *
      * @param constant $style PDO fetchmetod.
-     * 
+     *
      * @throws \InvalidArgumentException Om argumentet inte är en PDO fetch_styles.
      * @return array Resultat
      */
@@ -87,13 +87,13 @@ class Database
         if (!is_integer($style)) {
             throw new \InvalidArgumentException(sprintf('%s: Första argumentet måste vara ett av de i php-manualen beskrivna PDO fetch_styles', __METHOD__));
         }
-        
+
         return $this->statement->fetchAll($style);
     }
-    
+
     /**
      * Kör PDO lastInsertId.
-     * 
+     *
      * @return integer Senaste Id från senast körda fråga.
      */
     public function lastInsertId()

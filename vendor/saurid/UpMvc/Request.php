@@ -1,7 +1,7 @@
 <?php
 /**
  * /UpMvc/Request.php
- * 
+ *
  * @package UpMvc2
  */
 
@@ -9,7 +9,7 @@ namespace UpMvc;
 
 /**
  * Klass för att handskas med requestvariabler.
- * 
+ *
  * En enkel wrapper runt den globala variabeln $_REQUEST (get, post). Returnerar
  * en tom sträng, eller ett eget standarsvärde, om variabeln inte är satt. Detta
  * för att enkelt undvika felmeddelanden utan att ställa egna villkor om
@@ -25,7 +25,7 @@ class Request
 {
     /** @var array Innehållet i $_REQUEST. */
     private $request;
-    
+
     /** Konstruktor. */
     public function __construct()
     {
@@ -33,7 +33,7 @@ class Request
             $this->request = $_REQUEST;
         }
     }
-    
+
     /**
      * Hämta en variabel.
      *
@@ -44,7 +44,7 @@ class Request
      *
      * @param string $key     Variablens namn (nyckel).
      * @param string $default Defaultvärde om nyckeln inte finns.
-     * 
+     *
      * @return string Variabelns innehåll (value) eller en tom sträng.
      */
     public function get($key, $default = '')

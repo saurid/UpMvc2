@@ -1,7 +1,7 @@
 <?php
 /**
  * /Documentation/Model/Lipsum.php
- * 
+ *
  * @package UpMvc2\Documentation
  */
 
@@ -23,7 +23,7 @@ class Lipsum
 {
     /**
      * "Hämtar data" från model-lagret.
-     * 
+     *
      * @return string Lorem Ipsum text.
      */
     public function get()
@@ -38,7 +38,7 @@ class Lipsum
             occaecat cupidatat non proident, sunt in culpa qui officia
             deserunt mollit anim id est laborum.
         ';
-        
+
         return $output;
     }
 }

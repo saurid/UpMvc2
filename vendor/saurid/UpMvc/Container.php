@@ -1,7 +1,7 @@
 <?php
 /**
  * /UpMvc/Container.php
- * 
+ *
  * @package UpMvc2
  */
 
@@ -25,7 +25,7 @@ class Container
 {
     /** @var UpMvc\Container Lagrar instans av klassen. */
     private static $instance;
-    
+
     /** @var StdClass Lagrad data. */
     private $data;
 
@@ -34,7 +34,7 @@ class Container
      *
      * Om klassen inte är instansierad så görs det, sedan returneras instansen.
      * Detta gör att endast ett objekt av typen kan finnas i systemet.
-     * 
+     *
      * @return UpMvc\Container
      */
     public static function getInstance()
@@ -52,7 +52,7 @@ class Container
      *
      * @param string $name      Namn
      * @param array  $arguments Argument
-     * 
+     *
      * @return mixed
      */
     public function __call($name, $arguments = false)
@@ -65,7 +65,7 @@ class Container
      *
      * @param string $name      Namn
      * @param array  $arguments Argument
-     * 
+     *
      * @return mixed
      */
     public static function __callStatic($name, $arguments = false)
@@ -83,7 +83,7 @@ class Container
      *
      * @param string $name      Namn
      * @param array  $arguments Argument
-     * 
+     *
      * @throws \LogicException           Om en closure inte returnerade någon data.
      * @throws \InvalidArgumentException Om argument saknas när data ska lagras.
      * @return mixed
@@ -104,8 +104,8 @@ class Container
                     throw new \LogicException(sprintf('%s: Lagrad closure &quot;%s&quot; returnerade ingen data', __METHOD__, $name));
                 }
                 return $this->data->$name;
-            // Lagra
             } else {
+                // Lagra
                 if (!$arguments) {
                     throw new \InvalidArgumentException(sprintf('%s: Första argumentet får inte vara tomt', __METHOD__));
                 }
@@ -122,7 +122,7 @@ class Container
      *
      * @param string $name  Namn
      * @param mixed  $value Värde
-     * 
+     *
      * @throws \InvalidArgumentException Om nyckeln inte är ett giltigt variabelnamn
      */
     public static function set($name, $value)
@@ -137,7 +137,7 @@ class Container
     final private function __construct()
     {
     }
-    
+
     /** Tillåt inte kloning av objektet eftersom clone är privat. */
     final private function __clone()
     {

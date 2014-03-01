@@ -1,7 +1,7 @@
 <?php
 /**
  * /UpMvc/Cache.php
- * 
+ *
  * @package UpMvc2
  */
 
@@ -32,7 +32,7 @@ class Cache
      *
      * @param string $key  Cache-id.
      * @param string $path Cachemapp.
-     * 
+     *
      * @throws \InvalidArgumentException Om $key inte är en sträng.
      * @throws \InvalidArgumentException Om $path inte är en sträng.
      */
@@ -68,7 +68,7 @@ class Cache
 
     /**
      * Hämta cachad data om den finns lagrad.
-     * 
+     *
      * Standard lagringstid är en timme (3600 sekunder). Returnerar sträng med
      * data om den finns och är aktuell, annars false. Detta gör att du kan
      * spara i en variabel samtidigt som du gör kontrollen.
@@ -76,9 +76,9 @@ class Cache
      * <code>if ($data = $cache->get()) {
      *     echo $data;
      * }</code>
-     * 
+     *
      * @param integer $expiration Lagringstid i sekunder.
-     * 
+     *
      * @throws \InvalidArgumentException Om $expiration inte är ett heltal.
      * @return string|boolean Data eller false.
      */
@@ -88,7 +88,7 @@ class Cache
             throw new \InvalidArgumentException(sprintf('%s: Argumentet (antal sekunder) måste vara ett heltal', __METHOD__));
         }
 
-        if (file_exists($this->file) AND filemtime($this->file) > time() - $expiration) {
+        if (file_exists($this->file) and filemtime($this->file) > time() - $expiration) {
             return file_get_contents($this->file);
         }
 
@@ -103,7 +103,7 @@ class Cache
      * <code>echo $cache->set($data);</code>
      *
      * @param string $data Data som ska lagras.
-     * 
+     *
      * @throws \InvalidArgumentException Om $data inte är en sträng.
      * @return string Data
      */

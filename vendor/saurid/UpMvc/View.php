@@ -1,7 +1,7 @@
 <?php
 /**
  * /UpMvc/View.php
- * 
+ *
  * @package UpMvc2
  */
 
@@ -9,7 +9,7 @@ namespace UpMvc;
 
 /**
  * Hämta mallar och rendrera dem som strängar.
- * 
+ *
  * Läser in mallar (oftast HTML) och ersätter satta variabler för att returnera
  * en färdig sträng med den struktur du angett i mallen. Används mest i
  * controllers för att skapa ett dokument klart att skickas till webbläsaren.
@@ -29,17 +29,17 @@ class View
 
     /** @var string Sökväg för vyer. */
     private $path = '';
-    
+
     /**
      * Sätt variabler/värden för att användas i vyer.
      *
-     * Första argumentet är nyckeln till din variabel som sedan används i 
+     * Första argumentet är nyckeln till din variabel som sedan används i
      * mallarna. Andra argumentet är själva innehållet, vilket kan vara en
      * enkel sträng/siffra, ett array eller varför inte ett helt objekt.
      *
      * @param string $key   Variabelnamn (nyckel).
      * @param mixed  $value Värde.
-     * 
+     *
      * @throws \InvalidArgumentException Om $key inte är ett giltigt variabelnamn.
      * @return UpMvc\View
      */
@@ -58,10 +58,10 @@ class View
      *
      * Strängen, med ett avslutande snedstreck, läggs före sökvägen när
      * vyerna rendreras. Lämnas det tomt anges fullständig sökväg när metoden
-     * render() kallas. 
+     * render() kallas.
      *
      * @param string $path Sökväg till vyer.
-     * 
+     *
      * @throws \InvalidArgumentException Om $key inte är ett giltigt variabelnamn.
      * @return UpMvc\View
      */
@@ -71,7 +71,7 @@ class View
 
         return $this;
     }
-    
+
     /**
      * Rendrerar en vy.
      *
@@ -81,7 +81,7 @@ class View
      *
      * @param string $template Namn för vy.
      * @param string $absolute Använd absolut sökväg.
-     * 
+     *
      * @throws \InvalidArgumentException Om argumentet inte är en sträng.
      * @throws \DomainException Om vy-filen inte kan hittas.
      * @return string Rendrerad vy.

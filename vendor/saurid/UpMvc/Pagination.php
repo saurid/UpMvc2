@@ -1,7 +1,7 @@
 <?php
 /**
  * /UpMvc/Database.php
- * 
+ *
  * @package UpMvc2
  */
 
@@ -25,7 +25,7 @@ class Pagination
 {
     /** @var integer Totalt antal poster. */
     private $total;
-    
+
     /** @var integer Aktuell sida. */
     private $current;
 
@@ -34,11 +34,11 @@ class Pagination
 
     /**
      * Konstruktor.
-     * 
+     *
      * @param integer $total   Totalt antal poster.
      * @param integer $current Aktuell sida.
      * @param integer $per     Antal poster per sida.
-     * 
+     *
      * @throws \InvalidArgumentException Om något av argumenten inte är ett heltal.
      */
     public function __construct($total, $current, $per = 10)
@@ -60,7 +60,7 @@ class Pagination
 
     /**
      * Hämta totalt antal poster.
-     * 
+     *
      * @return integer
      */
     public function getTotal()
@@ -70,7 +70,7 @@ class Pagination
 
     /**
      * Hämta aktuell sida.
-     * 
+     *
      * @return integer
      */
     public function getCurrent()
@@ -80,9 +80,9 @@ class Pagination
 
     /**
      * Hämta antal poster per sida.
-     * 
+     *
      * (alias för metoden getLimit()).
-     * 
+     *
      * @return integer
      */
     public function getPer()
@@ -92,9 +92,9 @@ class Pagination
 
     /**
      * Hämta limit för användning i SQL-fråga.
-     * 
+     *
      * (alias för metoden getPer()).
-     * 
+     *
      * @return integer
      */
     public function getLimit()
@@ -104,7 +104,7 @@ class Pagination
 
     /**
      * Hämta offset för användning i SQL-fråga.
-     * 
+     *
      * @return integer
      */
     public function getOffset()
@@ -114,7 +114,7 @@ class Pagination
 
     /**
      * Hämta totalt antal sidor.
-     * 
+     *
      * @return integer
      */
     public function getPages()
@@ -124,7 +124,7 @@ class Pagination
 
     /**
      * Hämta färdig SQL LIMIT/OFFSET-sträng.
-     * 
+     *
      * @return string
      */
     public function getSqlLimit()
@@ -138,7 +138,7 @@ class Pagination
 
     /**
      * Generera HTML-kod med länkar till sidor.
-     * 
+     *
      * @return string Sträng med länkar som en onumrerad lista.
      */
     public function getNav()
@@ -150,12 +150,12 @@ class Pagination
 
     /**
      * Hämta en array med de sidor som ska visas.
-     * 
+     *
      * @return array
      */
     public function getArray()
     {
-        if ($this->getCurrent() <= 3 OR $this->getPages() <= 5) {
+        if ($this->getCurrent() <= 3 or $this->getPages() <= 5) {
             $offset = 0;
         } elseif ($this->getCurrent() >= $this->getPages()-2) {
             $offset = $this->getPages()-5;
@@ -164,7 +164,7 @@ class Pagination
         }
         $pages = range(1, $this->getPages());
         $pages = array_slice($pages, $offset, 5);
-        
+
         return $pages;
     }
 }

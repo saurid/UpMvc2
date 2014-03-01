@@ -1,7 +1,7 @@
 <?php
 /**
  * /UpMvc/Form/Radio.php
- * 
+ *
  * @package UpMvc2\Form
  */
 
@@ -11,7 +11,7 @@ use UpMvc\Container as Up;
 
 /**
  * Rendrerar radioknappar.
- * 
+ *
  * @package UpMvc2\Form
  * @author  Ola Waljefors
  * @version 2013.10.2
@@ -22,7 +22,7 @@ class Radio extends Base
 {
     /**
      * Skapa HTML-uppmärkning.
-     * 
+     *
      * @return string radioknappar.
      */
     public function render()

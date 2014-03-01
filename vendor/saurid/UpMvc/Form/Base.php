@@ -1,7 +1,7 @@
 <?php
 /**
  * /UpMvc/Form/Same.php
- * 
+ *
  * @package UpMvc2\Form
  */
 
@@ -12,10 +12,10 @@ use UpMvc\Container as Up;
 
 /**
  * Basklass till formulärfält.
- * 
+ *
  * Innehåller alla funktioner som behövs för skapandet av varje del av det
  * kompletta formulärfältet, tillsammans med de enskilda fältobjekten.
- * 
+ *
  * @package UpMvc2\Form
  * @author  Ola Waljefors
  * @version 2013.10.2
@@ -26,32 +26,32 @@ abstract class Base
 {
     /** @var string Namn på formulärfält. */
     protected $name;
-    
+
     /** @var string Formulärfältets rubrik. */
     protected $label;
-    
+
     /** @var array Parametrar för radio, bockar och väljlistor. */
     protected $parameters;
-    
+
     /** @var object UpMvc\View-objekt. */
     protected $view;
-    
+
     /** @var string Errorsträng. */
     protected $error;
-    
+
     /** @var object UpMvc\Request-objekt. */
     protected $request;
-    
+
     /** @var array Valideringsregler. */
     protected $rules;
-    
+
     /**
      * Konstruktor.
-     * 
+     *
      * @param string $name       Namn på formulärfält.
      * @param string $label      Formulärfältets rubrik.
      * @param array  $parameters Parametrar för radio, bockar och väljlistor.
-     * 
+     *
      * @throws \InvalidArgumentException Om $name inte är ett giltigt variabelnamn.
      * @throws \InvalidArgumentException Om $label inte är en sträng.
      * @todo Typkontrollera tredje argumentet.
@@ -68,15 +68,15 @@ abstract class Base
         $this->label      = $label;
         $this->parameters = $parameters;
     }
-    
+
     /** Rendrera formulärfält. */
     abstract public function render();
-    
+
     /**
      * Sätt valideringsregler för fältet.
-     * 
+     *
      * @param UpMvc\Permission\Role $rule Valideringsobjekt.
-     * 
+     *
      * @throws \InvalidArgumentException Om $rule inte är UpMvc\Validation\Base-objekt.
      * @return UpMvc\Form\Base
      */
@@ -89,10 +89,10 @@ abstract class Base
 
         return $this;
     }
-    
+
     /**
      * Validerar fältet?
-     * 
+     *
      * @return boolean true
      */
     public function isValid()
@@ -105,12 +105,12 @@ abstract class Base
 
         return true;
     }
-    
+
     /**
      * Sätt felmeddelande för fältet.
-     * 
+     *
      * @param string $error Felmeddelande.
-     * 
+     *
      * @throws \InvalidArgumentException Om argumentet inte är en sträng.
      * @return UpMvc\Form\Base
      */
@@ -120,15 +120,15 @@ abstract class Base
             throw new \InvalidArgumentException(sprintf('%s: Första argumentet måste vara en textsträng som beskriver en felaktig/otillåten inmatning', __METHOD__));
         }
         $this->error = $error;
-        
+
         return $this;
     }
-    
+
     /**
      * Hämta ev felmeddelande för fältet, om formuläret är skickat.
-     * 
+     *
      * @param string $html Sträng med placeholder %s för felmeddelande.
-     * 
+     *
      * @todo Typkontrollera argumentet och se till att den har ett %s.
      * @return string Felmeddelande.
      */
@@ -144,42 +144,42 @@ abstract class Base
             }
         }
     }
-    
+
     /**
      * Hämta requestvariabel.
-     * 
+     *
      * @param string $name Namn på fält.
-     * 
+     *
      * @return string Variabel
      */
     public function getRequest($name)
     {
         return Up::request()->get($name);
     }
-    
+
     /**
      * Hämta fältets namn.
-     * 
+     *
      * @return string
      */
     public function getName()
     {
         return $this->name;
     }
-    
+
     /**
      * Hämta fältets rubrik.
-     * 
+     *
      * @return string
      */
     public function getLabel()
     {
         return $this->label;
     }
-    
+
     /**
      * Hämta fältets parametrar.
-     * 
+     *
      * @return array
      */
     public function getParameters()

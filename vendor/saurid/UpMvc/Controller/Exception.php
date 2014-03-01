@@ -1,7 +1,7 @@
 <?php
 /**
  * /UpMvc/Controller/Exception.php
- * 
+ *
  * @package UpMvc2
  */
 
@@ -23,7 +23,7 @@ class Exception
 {
     /**
      * Konstruktor.
-     * 
+     *
      * @param \Exception $e
      */
     public function index(\Exception $e)
@@ -32,7 +32,7 @@ class Exception
         foreach ($trace as $key => $stack) {
             $trace[$key]['args'] = array_map('gettype', $trace[$key]['args']);
         }
-        
+
         echo Up::view()
             ->set('title', 'Up MVC-fel!')
             ->set('exception', $e)

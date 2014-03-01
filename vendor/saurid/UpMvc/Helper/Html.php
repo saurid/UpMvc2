@@ -1,7 +1,7 @@
 <?php
 /**
  * /UpMvc/Helper/Html.php
- * 
+ *
  * @package UpMvc2
  */
 
@@ -23,17 +23,17 @@ class Html
 {
     /**
      * Skapa HTML länk till stylesheet.
-     * 
+     *
      * @param string  $stylesheet Länk till stylesheet.
      * @param string  $media      Media.
      * @param boolean $return     Ska resultat returneras (true) eller skrivas ut (false)?
-     * 
+     *
      * @return string HTML-uppmärkning
      */
     public static function style($stylesheet, $media = 'all', $return = false)
     {
         $html = "<link rel=\"stylesheet\" type=\"text/css\" href=\"$stylesheet\" media=\"$media\">\n";
-        
+
         if (!$return) {
             echo $html;
         } else {
@@ -43,16 +43,16 @@ class Html
 
     /**
      * Skapa HTML länk till skript.
-     * 
+     *
      * @param string  $script Länk till skript.
      * @param boolean $return Ska resultat returneras (true) eller skrivas ut (false)?
-     * 
+     *
      * @return string HTML-uppmärkning
      */
     public static function script($script, $return = false)
     {
         $html = "<script src=\"$script\"></script>\n";
-        
+
         if (!$return) {
             echo $html;
         } else {

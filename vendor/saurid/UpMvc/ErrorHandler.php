@@ -1,7 +1,7 @@
 <?php
 /**
  * /UpMvc/ErrorHandler.php
- * 
+ *
  * @package UpMvc2
  */
 
@@ -19,7 +19,7 @@ namespace UpMvc;
  *
  * Läs mer i manualen om
  * {@link http://php.net/manual/en/function.set-error-handler.php set_error_handler()}
- * 
+ *
  * @package UpMvc2
  * @author  Ola Waljefors
  * @version 2013.2.9
@@ -30,12 +30,12 @@ class ErrorHandler
 {
     /**
      * Kör PHP's interna felhantering som exceptions.
-     * 
+     *
      * @param integer $errno   Nummer på fel.
      * @param string  $errstr  Felmeddelande.
      * @param string  $errfile Fil där felet uppstod.
      * @param integer $errline Rad där felet uppstod.
-     * 
+     *
      * @return boolean true
      */
     public function handle($errno, $errstr, $errfile, $errline)

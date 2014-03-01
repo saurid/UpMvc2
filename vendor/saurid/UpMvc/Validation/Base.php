@@ -1,7 +1,7 @@
 <?php
 /**
  * /UpMvc/Validation/Base.php
- * 
+ *
  * @package UpMvc2\Validation
  */
 
@@ -20,9 +20,9 @@ interface Base
 {
     /**
      * Validera data.
-     * 
+     *
      * @param mixed $data Data som ska valideras.
-     * 
+     *
      * @return bool true om data uppfyller krav.
      */
     public function validate($data);

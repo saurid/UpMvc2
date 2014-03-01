@@ -1,7 +1,7 @@
 <?php
 /**
  * /UpMvc/Validation/Count.php
- * 
+ *
  * @package UpMvc2\Validation
  */
 
@@ -20,10 +20,10 @@ class Count implements Base
 {
     /**
      * Konstruktor.
-     * 
+     *
      * @param integer $min Minimum.
      * @param integer $max Maximum.
-     * 
+     *
      * @throws \InvalidArgumentException Om $min inte är en siffra.
      * @throws \InvalidArgumentException Om $max inte är en siffra.
      * @throws \InvalidArgumentException Om $max inte är större eller lika med $min.
@@ -45,20 +45,20 @@ class Count implements Base
         $this->min = $min;
         $this->max = $max;
     }
-    
+
     /**
      * Validera data.
-     * 
+     *
      * @param mixed $data Data som ska valideras.
-     * 
+     *
      * @return boolean true om data uppfyller krav.
      */
     public function validate($data)
     {
-        if (count($data) < $this->min OR count($data) > $this->max) {
+        if (count($data) < $this->min or count($data) > $this->max) {
             return false;
         }
-        
+
         return true;
     }
 }

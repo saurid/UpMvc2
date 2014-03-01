@@ -1,7 +1,7 @@
 <?php
 /**
  * /UpMvc/Form/Password.php
- * 
+ *
  * @package UpMvc2\Form
  */
 
@@ -11,7 +11,7 @@ use UpMvc\Container as Up;
 
 /**
  * Rendrerar ett passwordfält.
- * 
+ *
  * @package UpMvc2\Form
  * @author  Ola Waljefors
  * @version 2013.10.2
@@ -22,7 +22,7 @@ class Password extends Base
 {
     /**
      * Skapa HTML-uppmärkning.
-     * 
+     *
      * @return string passwordfält
      */
     public function render()

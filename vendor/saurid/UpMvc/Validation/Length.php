@@ -1,7 +1,7 @@
 <?php
 /**
  * /UpMvc/Validation/Length.php
- * 
+ *
  * @package UpMvc2\Validation
  */
 
@@ -20,10 +20,10 @@ class Length implements Base
 {
     /**
      * Konstruktor.
-     * 
+     *
      * @param integer $min Minimumlängd.
      * @param integer $max Maximumlängd.
-     * 
+     *
      * @throws \InvalidArgumentException Om $min inte är en siffra.
      * @throws \InvalidArgumentException Om $max inte är en siffra.
      * @throws \InvalidArgumentException Om $max inte är större eller lika med $min.
@@ -45,12 +45,12 @@ class Length implements Base
         $this->min = $min;
         $this->max = $max;
     }
-    
+
     /**
      * Validera data.
-     * 
+     *
      * @param mixed $data Data som ska valideras.
-     * 
+     *
      * @return bool true om data uppfyller krav.
      */
     public function validate($data)
@@ -59,7 +59,7 @@ class Length implements Base
         if ($length < $this->min || $length > $this->max) {
             return false;
         }
-        
+
         return true;
     }
 }

@@ -1,7 +1,7 @@
 <?php
 /**
  * /UpMvc/Validation/Required.php
- * 
+ *
  * @package UpMvc2\Validation
  */
 
@@ -20,9 +20,9 @@ class Required implements Base
 {
     /**
      * Validera data.
-     * 
+     *
      * @param mixed $data Data som ska valideras.
-     * 
+     *
      * @return bool true om data uppfyller krav.
      */
     public function validate($data)
@@ -30,7 +30,7 @@ class Required implements Base
         if ($data == '') {
             return false;
         }
-        
+
         return true;
     }
 }
