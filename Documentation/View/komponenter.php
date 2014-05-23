@@ -16,6 +16,12 @@ use UpMvc\Container as Up;
 
 ?>
 
+
+<p><em>Observera att denna informationen är inaktuell. Den skrevs innan composer
+infördes som pakethanterare, och autoloadern används därmed helt annorlunda.</em></p>
+
+
+
 <h3>Använda tredjepartskomponenter</h3>
 
 <p>Genom sin standardiserade layout, användandet av namespaces och automatisk

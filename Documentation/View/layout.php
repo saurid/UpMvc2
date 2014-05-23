@@ -44,7 +44,7 @@ use UpMvc\Container as Up;
         <li><a href="<?php echo Up::site_path() ?>/Documentation/Index/visa/cache">Cachning</a></li>
         <li><a href="<?php echo Up::site_path() ?>/Documentation/Index/visa/siduppdelning">Siduppdelning / Pagination</a></li>
         <li><a href="<?php echo Up::site_path() ?>/Documentation/Index/visa/rattigheter">Rättigheter</a></li>
-        <li><a href="<?php echo Up::site_path() ?>/Documentation/Index/visa/komponenter">Tredjepartskomponenter</a></li>
+        <!--<li><a href="<?php echo Up::site_path() ?>/Documentation/Index/visa/komponenter">Tredjepartskomponenter</a></li>-->
     </ul>
     <ul>
         <li><h2>detaljerat</h2></li>

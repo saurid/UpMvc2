@@ -16,7 +16,7 @@ use UpMvc\Container as Up;
 
 ?>
 
-<p><em>Obervera att denna informationen är något inaktuell.
+<p><em>Observera att denna informationen är något inaktuell.
 Den skrevs innan namepaces infördes, och routingen skrevs om.
 Men i det stora hela är flödet fortfarande detsamma.</em></p>
 

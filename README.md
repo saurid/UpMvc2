@@ -88,11 +88,6 @@ En statisk (singleton) class `Container.php` du använder för att
 ladda in, skapa och lagra objekt eller variabler i ramverket.
 Containern används även internt av Up MVC.
 
-### Autoloader
-
-Ett objekt `Autoload.php` som automatiskt laddar (inkluderar) objekt
-i ramverket när de anropas.
-
 
 Up MVC är utvecklad av (kontaktinformation)
 -------------------------------------------
