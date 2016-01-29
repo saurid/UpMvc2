@@ -18,7 +18,7 @@ use UpMvc\Container as Up;
 
 <h3>Rättigheter, grupper och roller</h3>
 
-<p>Up MVC innehåller en mycket litet, men flexibelt rättighetssystem, 
+<p>Up MVC innehåller en mycket litet, men flexibelt rättighetssystem,
 <code>UpMvc\Role</code>. Det bygger på att du sätter upp grupper av
 objektet som du sedan sätter olika roller till.</p>
 
@@ -138,7 +138,7 @@ class Permission
 </pre>
 
 <p>För att ge dina grupper roller använder du metoden <code>set()</code>. för
-att lagra ytterligare namngivna Role-objekt. Koden:</p> 
+att lagra ytterligare namngivna Role-objekt. Koden:</p>
 
 <pre>$this-&gt;group[&apos;visitor&apos;]-&gt;set(new UpMvc\Role(&apos;read public&apos;));</pre>
 
@@ -153,9 +153,9 @@ sagt att besökare (visitor) får göra just det.</p>
 create user. Editor-gruppen får rollerna read private, create category och
 change user. Administratior-gruppen får delete user och delete catgory.</p>
 
-<p>SKulle vi endast lämna det där, så skulle inte redigerare (editors) eller
-administratörer kunna läsa publika poster. Och det blir ju inte rätt. Vi 
-förväntar oss (oftast) att de högra rollerna ska ha samma rättigheter
+<p>Skulle vi endast lämna det där, så skulle inte redigerare (editors) eller
+administratörer kunna läsa publika poster. Och det blir ju inte rätt. Vi
+förväntar oss (oftast) att de högre rollerna ska ha samma rättigheter
 som de lägre. Så för att slippa att sätta samma roller återigen, kan vi
 istället låta de högre grupperna ärva de lägre. Koden nedan gör just detta:</p>
 
