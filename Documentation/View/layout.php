@@ -32,7 +32,7 @@ use UpMvc\Container as Up;
         <li><a href="<?php echo Up::site_path() ?>/Documentation/Index/visa/inledning">Inledning</a></li>
         <li><a href="<?php echo Up::site_path() ?>/Documentation/Index/visa/filstruktur">Filstruktur</a></li>
         <li><h2>ramverkets lager</h2></li>
-        <li><a href="<?php echo Up::site_path() ?>/Documentation/Index/visa/controllers">Controllers / Actions</a></li>
+        <li><a href="<?php echo Up::site_path() ?>/Documentation/Index/visa/controllers">Controllers &amp; Actions</a></li>
         <li><a href="<?php echo Up::site_path() ?>/Documentation/Index/visa/view">Views</a></li>
         <li><a href="<?php echo Up::site_path() ?>/Documentation/Index/visa/model">Models</a></li>
     </ul>
