@@ -1,6 +1,6 @@
 <?php
 /**
- * /UpMvc/ExceptionHandler.php
+ * /UpMvc/ShutdownHandler.php
  *
  * @package UpMvc2
  */

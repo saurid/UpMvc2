@@ -1,6 +1,6 @@
 <?php
 /**
- * HTML-uppmärkning för checkbox.
+ * HTML-uppmärkning för en checkbox.
  *
  * @package UpMvc2\Form
  * @author  Ola Waljefors

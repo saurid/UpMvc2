@@ -1,6 +1,6 @@
 <?php
 /**
- * HTML-uppmärkning formuläret.
+ * HTML-uppmärkning för formuläret.
  *
  * @package UpMvc2\Form
  * @author  Ola Waljefors

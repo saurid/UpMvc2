@@ -1,6 +1,6 @@
 <?php
 /**
- * /UpMvc/Form/Same.php
+ * /UpMvc/Form/Base.php
  *
  * @package UpMvc2\Form
  */

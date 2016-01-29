@@ -1,6 +1,6 @@
 <?php
 /**
- * /UpMvc/Database.php
+ * /UpMvc/Pagination.php
  *
  * @package UpMvc2
  */
